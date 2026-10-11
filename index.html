@@ -24,6 +24,7 @@
   --good: #0E6B45;
   --warn: #8A4B00;
   --bad: #A1190F;
+  --tile: #FFFFFF;
   --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -88,7 +89,7 @@ select { width: 100%; padding: 8px 10px; border: 1px solid var(--line); backgrou
 .bar .sort { display: flex; align-items: center; gap: 8px; font-size: 14px; }
 .bar .sort select { width: auto; }
 .feed { display: flex; flex-direction: column; gap: 12px; }
-.deal { background: var(--surface); border: 1px solid var(--line); display: grid; grid-template-columns: 64px minmax(0, 1fr) 190px; }
+.deal { background: var(--surface); border: 1px solid var(--line); display: grid; grid-template-columns: 104px minmax(0, 1fr) 190px; }
 .vote { border-right: 1px solid var(--line); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 8px 0; background: var(--surface-2); }
 .vote .heat { font-family: var(--font-display); font-weight: 800; font-size: 20px; line-height: 1; color: var(--heat); font-variant-numeric: tabular-nums; }
 .vote .heat.cold { color: var(--muted); }
@@ -180,6 +181,10 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
 .rcard .rf.on { color: var(--good); }
 .step h3 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 
+.deal.noimg { grid-template-columns: minmax(0, 1fr) 190px; }
+.pic { background: var(--tile); border-right: 1px solid var(--line); display: flex; align-items: center; justify-content: center; padding: 8px; min-height: 96px; }
+.pic img { width: 100%; height: 100%; max-height: 120px; object-fit: contain; display: block; }
+
 @media (max-width: 900px) {
   .cols { grid-template-columns: minmax(0, 1fr); }
   .rail { position: static; max-height: none; display: none; }
@@ -187,7 +192,8 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   .filters-toggle { display: block; width: 100%; padding: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; cursor: pointer; font-weight: 600; margin-bottom: 4px; }
 }
 @media (max-width: 680px) {
-  .deal { grid-template-columns: minmax(0, 1fr); }
+  .deal, .deal.noimg { grid-template-columns: minmax(0, 1fr); }
+  .pic { border-right: 0; border-bottom: 1px solid var(--line); height: 130px; }
   .vote { border-right: 0; border-bottom: 1px solid var(--line); flex-direction: row; justify-content: flex-start; padding: 8px 14px; gap: 10px; }
   .vote .hl { display: none; }
   .vote .heat { order: 2; margin-right: auto; }
@@ -268,7 +274,6 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
             <option value="value">Best value per £</option>
             <option value="low">Lowest price</option>
             <option value="save">Biggest saving</option>
-            <option value="heat">Hottest</option>
           </select>
         </label>
       </div>
@@ -288,7 +293,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     <div class="pipe" id="srcStatus"></div>
   </section>
 
-  <p class="foot">Value score is indicative performance points per £100 delivered, built from a rough graphics and processor index. It is a guide for comparing builds, not a benchmark. Deals are read automatically from public posts and feeds, so check the specification and price on the retailer's page before buying. Votes are saved in your own browser only. Retailer names belong to their owners and appear here for comparison only.</p>
+  <p class="foot">Value score is indicative performance points per £100 delivered, built from a rough graphics and processor index. It is a guide for comparing builds, not a benchmark. Deals are read automatically from public posts and feeds, so check the specification and price on the retailer's page before buying. Retailer names belong to their owners and appear here for comparison only.</p>
 </div>
 
 <div class="tray" id="tray" hidden>
@@ -333,6 +338,11 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   function safeUrl(u, fallback) {
     try { var x = new URL(u); if (x.protocol === "https:" || x.protocol === "http:") return x.href; } catch (e) {}
     return fallback || "#";
+  }
+  function safeImg(u) {
+    if (!u) return "";
+    try { var x = new URL(u); if (x.protocol === "http:") x.protocol = "https:"; if (x.protocol === "https:") return x.href; } catch (e) {}
+    return "";
   }
   function agoMs(ms) {
     var m = Math.max(0, Math.round(ms / 60000));
@@ -428,11 +438,10 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var fresh = state.newIds[d.id] ? '<span class="pill hot">New</span>' : "";
     var drop = d.dropped_at && Date.now() - Date.parse(d.dropped_at) < 48 * 36e5 ? '<span class="pill good">Price drop</span>' : "";
     var link = safeUrl(d.url, r.url);
+    var img = safeImg(d.img);
+    var pic = img ? '<div class="pic"><img src="' + esc(img) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest(\'.deal\').classList.add(\'noimg\');this.parentNode.remove()"></div>' : "";
     var thread = d.thread ? ' <a class="disc" href="' + esc(safeUrl(d.thread)) + '" target="_blank" rel="noopener noreferrer">Discussion</a>' : "";
-    return '<article class="deal" data-id="' + esc(d.id) + '">' +
-      '<div class="vote"><button type="button" class="vbtn up" data-act="up" aria-label="Vote hotter" aria-pressed="' + (v > 0) + '">' + UP + '</button>' +
-      '<div class="heat' + (h < 40 ? " cold" : "") + '">' + h + '°</div><div class="hl">heat</div>' +
-      '<button type="button" class="vbtn down" data-act="down" aria-label="Vote colder" aria-pressed="' + (v < 0) + '">' + DOWN + '</button></div>' +
+    return '<article class="deal' + (img ? "" : " noimg") + '" data-id="' + esc(d.id) + '">' + pic +
       '<div class="main"><div class="meta">' + fresh + drop + '<span class="pill type">' + (d.t === "bundle" ? "Parts bundle" : "Pre-built") + '</span>' +
       '<strong>' + esc(d.retailer) + '</strong><span>' + agoMs(Date.now() - d.ts) + '</span>' + stockPill(d.stock) + (d.fin ? '<span class="pill">Finance</span>' : "") + '</div>' +
       '<h2>' + esc(d.title) + '</h2><dl class="specs">' + specs + '</dl>' + (d.note ? '<div class="note">' + esc(d.note) + '</div>' : "") + '</div>' +
@@ -475,7 +484,8 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
       n.innerHTML = "<b>Could not load deals.json.</b> If you opened this file straight from your computer, that is expected, because browsers block it. Put the site on a host (see SETUP.md) and it will load.";
     } else if (META.sample) {
       n.className = "notice warn";
-      n.innerHTML = "<b>Example listings.</b> The fetcher has not found any real deals yet, so you are looking at sample data. Prices here are not real and the buttons go to retailer home pages. Check the source status at the bottom of the page.";
+      var okSrc = (META.sources || []).some(function (s) { return s.ok; });
+      n.innerHTML = "<b>Example listings.</b> " + (okSrc ? "The fetcher is running and reading its sources, but has not found a matching gaming PC or bundle post yet. " : "The fetcher has not found any real deals yet. ") + "Until it does you are looking at sample data: prices are not real and the buttons go to retailer home pages. Source status is at the bottom of the page.";
     } else {
       var ok = (META.sources || []).filter(function (s) { return s.ok; }).length;
       n.className = "notice ok";
@@ -503,7 +513,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
       var cls = x.ok ? "good" : x.skipped ? "warn" : "bad";
       var label = x.ok ? "Working" : x.skipped ? "Not set up" : "Failing";
       return '<div class="step"><h3>' + esc(x.name) + ' <span class="pill ' + cls + '">' + label + '</span></h3><p>' +
-        (x.ok ? x.count + " matching deal" + (x.count === 1 ? "" : "s") + " on the last check." : esc(x.error || "No details.")) + "</p></div>";
+        (x.ok ? x.count + " matching deal" + (x.count === 1 ? "" : "s") + (x.seen != null ? " from " + x.seen + " posts read" : "") + " on the last check." + (x.count === 0 && x.examples && x.examples.length ? " Skipped, for example: " + x.examples.map(esc).join(" | ") : "") : esc(x.error || "No details.")) + "</p></div>";
     }).join("") : '<div class="step"><h3>No sources yet</h3><p>Add sources in sources.json. The fetcher writes its status here after each run.</p></div>';
   }
 
