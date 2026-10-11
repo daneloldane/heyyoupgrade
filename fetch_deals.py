@@ -1,0 +1,763 @@
+#!/usr/bin/env python3
+"""HeyYoUpgrade fetcher.
+
+Reads sources.json, pulls every enabled source, turns posts and feed rows into
+gaming PC and PC bundle deals, and writes deals.json next to index.html.
+Uses only the Python standard library, so there is nothing to install.
+
+Usage:
+    python scripts/fetch_deals.py
+    python scripts/fetch_deals.py --sources other.json --out other_deals.json
+"""
+import argparse
+import csv
+import gzip
+import hashlib
+import html
+import io
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.request
+import urllib.robotparser
+import xml.etree.ElementTree as ET
+from datetime import datetime, timezone, timedelta
+from email.utils import parsedate_to_datetime
+from urllib.parse import urlparse
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+USER_AGENT = "HeyYoUpgradeBot/1.0 (UK gaming PC deal finder)"
+KEEP_DAYS = 14      # community posts older than this are dropped
+MAX_DEALS = 300
+
+# Rough relative performance, RTX 5060 = 100. Indicative only, not benchmarks.
+GPU_PERF = {
+    "RTX 5090": 330, "RTX 5080": 232, "RTX 5070 Ti": 192, "RTX 5070": 146,
+    "RTX 5060 Ti": 126, "RTX 5060": 100, "RTX 5050": 80,
+    "RTX 4090": 270, "RTX 4080 Super": 205, "RTX 4080": 195,
+    "RTX 4070 Ti Super": 170, "RTX 4070 Ti": 150, "RTX 4070 Super": 140,
+    "RTX 4070": 120, "RTX 4060 Ti": 105, "RTX 4060": 90,
+    "RTX 3070": 100, "RTX 3060 Ti": 88, "RTX 3060": 78, "RTX 3050": 55,
+    "RX 9070 XT": 178, "RX 9070": 160, "RX 9060 XT": 118,
+    "RX 7900 XTX": 190, "RX 7900 XT": 170, "RX 7800 XT": 135,
+    "RX 7700 XT": 118, "RX 7600 XT": 90, "RX 7600": 85, "RX 6600": 70,
+    "Arc B580": 100, "Arc B570": 90,
+}
+CPU_PERF = {
+    "Ryzen 5 5600": 78, "Ryzen 5 5600X": 82, "Ryzen 7 5700X": 90, "Ryzen 7 5800X3D": 112,
+    "Ryzen 5 7500F": 100, "Ryzen 5 7600": 104, "Ryzen 5 7600X": 108, "Ryzen 7 7700": 112,
+    "Ryzen 7 7800X3D": 140, "Ryzen 5 9600X": 114, "Ryzen 7 9700X": 124,
+    "Ryzen 7 9800X3D": 162, "Ryzen 9 9900X": 140, "Ryzen 9 9950X3D": 175,
+    "Core i5 12400F": 84, "Core i5 13400F": 92, "Core i5 14400F": 96,
+    "Core i5 14600KF": 125, "Core i7 14700K": 150, "Core i7 14700KF": 150,
+    "Ryzen 5 5500": 75, "Ryzen 5 8400F": 98, "Ryzen 5 8500F": 100, "Core i7 14700": 150,
+    "Core Ultra 5 245K": 118, "Core Ultra 5 250KF": 118,
+    "Core Ultra 7 265K": 145, "Core Ultra 7 270K": 150,
+}
+DEFAULT_CPU_PERF = 95
+
+DOMAINS = {
+    "overclockers.co.uk": "Overclockers UK", "scan.co.uk": "Scan (3XS)",
+    "cclonline.com": "CCL Computers", "box.co.uk": "Box.co.uk", "ebuyer.com": "Ebuyer",
+    "pcspecialist.co.uk": "PC Specialist", "chillblast.com": "Chillblast",
+    "awd-it.co.uk": "AWD-IT", "novatech.co.uk": "Novatech", "aria.co.uk": "Aria PC",
+    "cyberpowersystem.co.uk": "CyberPowerPC UK", "meshcomputers.com": "Mesh Computers",
+    "currys.co.uk": "Currys", "argos.co.uk": "Argos", "amazon.co.uk": "Amazon UK",
+    "laptopsdirect.co.uk": "Laptops Direct", "very.co.uk": "Very",
+    "fiercepc.co.uk": "FiercePC", "inside-tech.co.uk": "Inside-Tech", "quietpc.com": "QuietPC",
+    "palicomp.co.uk": "Palicomp", "dell.com": "Dell UK", "ebay.co.uk": "eBay UK",
+    "johnlewis.com": "John Lewis", "game.co.uk": "GAME", "pcworld.com": "PC World",
+}
+SKIP_HOSTS = ("reddit.com", "redd.it", "redditmedia.com", "redditstatic.com", "imgur.com")
+
+
+# ---------------------------------------------------------------- helpers
+
+def now():
+    return datetime.now(timezone.utc)
+
+
+def iso(dt):
+    return dt.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def parse_date(text):
+    if not text:
+        return None
+    text = text.strip()
+    try:
+        dt = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        try:
+            dt = parsedate_to_datetime(text)
+        except (TypeError, ValueError):
+            return None
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+def fetch(url):
+    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        data = resp.read()
+    if data[:2] == b"\x1f\x8b":
+        data = gzip.decompress(data)
+    return data
+
+
+def strip_tags(markup):
+    text = re.sub(r"<[^>]+>", " ", html.unescape(markup or ""))
+    return re.sub(r"\s+", " ", html.unescape(text)).strip()
+
+
+def host_of(url):
+    try:
+        host = urlparse(url).netloc.lower()
+    except ValueError:
+        return ""
+    return host[4:] if host.startswith("www.") else host
+
+
+def retailer_from_url(url):
+    host = host_of(url)
+    for domain, name in DOMAINS.items():
+        if host == domain or host.endswith("." + domain):
+            return name
+    if not host:
+        return ""
+    label = host.split(".")[-3] if host.endswith(".co.uk") and len(host.split(".")) >= 3 else host.split(".")[0]
+    return label.replace("-", " ").title()
+
+
+def retailer_from_text(text):
+    low = text.lower()
+    for domain, name in DOMAINS.items():
+        stem = domain.split(".")[0]
+        if name.lower() in low or (len(stem) > 4 and stem in low):
+            return name
+    return ""
+
+
+def first_external_link(markup):
+    for href in re.findall(r'href="(https?://[^"]+)"', html.unescape(markup or "")):
+        href = html.unescape(href)
+        if not any(h in host_of(href) for h in SKIP_HOSTS):
+            return href
+    return ""
+
+
+# ---------------------------------------------------------------- parsing
+
+def norm_gpu(text):
+    m = re.search(r"\b(?:geforce\s+)?rtx\s*-?\s*(\d{4})\s*(ti\s*super|ti|super)?(?![a-z0-9])", text, re.I)
+    if m:
+        suffix = re.sub(r"\s+", " ", (m.group(2) or "").lower())
+        suffix = {"ti": " Ti", "super": " Super", "ti super": " Ti Super"}.get(suffix, "")
+        return "RTX %s%s" % (m.group(1), suffix)
+    m = re.search(r"\b(?:radeon\s+)?rx\s*-?\s*(\d{4})\s*(xtx|xt|gre)?(?![a-z0-9])", text, re.I)
+    if m:
+        return "RX %s%s" % (m.group(1), " " + m.group(2).upper() if m.group(2) else "")
+    m = re.search(r"\barc\s*(b\d{3})(?![a-z0-9])", text, re.I)
+    if m:
+        return "Arc " + m.group(1).upper()
+    return None
+
+
+def norm_cpu(text):
+    m = re.search(r"\bcore\s*ultra\s*([3579])\s*(\d{3})([a-z]{0,2})(?![a-z0-9])", text, re.I)
+    if m:
+        return "Core Ultra %s %s%s" % (m.group(1), m.group(2), m.group(3).upper())
+    m = re.search(r"\bryzen\s*([3579])\s*(\d{4,5})\s*(x3d|xt|x|f|g|gt)?(?![a-z0-9])", text, re.I)
+    if m:
+        return "Ryzen %s %s%s" % (m.group(1), m.group(2), (m.group(3) or "").upper())
+    m = re.search(r"\b(?:core\s*)?i([3579])[-\s]*(\d{4,5})([a-z]{0,2})(?![a-z0-9])", text, re.I)
+    if m:
+        return "Core i%s %s%s" % (m.group(1), m.group(2), m.group(3).upper())
+    return None
+
+
+def norm_ram(text):
+    m = re.search(r"(\d{1,3})\s?gb\s*(?:of\s*)?(ddr[45])", text, re.I)
+    if m:
+        return "%sGB %s" % (m.group(1), m.group(2).upper())
+    m = re.search(r"(ddr[45])\D{0,12}(\d{1,3})\s?gb", text, re.I)
+    if m:
+        return "%sGB %s" % (m.group(2), m.group(1).upper())
+    m = re.search(r"\b(8|16|32|48|64|96|128)\s?gb\s*(?:ram|memory)\b", text, re.I)
+    if m:
+        return "%sGB" % m.group(1)
+    return None
+
+
+def storage_kind(word):
+    word = (word or "").lower().replace(".", "")
+    return {"nvme": "NVMe", "ssd": "SSD", "m2": "NVMe", "hdd": "HDD"}.get(word, "")
+
+
+def norm_storage(text):
+    m = re.search(r"\b(\d(?:\.\d)?)\s?tb\b\s*(nvme|ssd|m\.?2|hdd)?", text, re.I)
+    if m:
+        return ("%sTB %s" % (m.group(1), storage_kind(m.group(2)))).strip()
+    m = re.search(r"\b(256|480|500|512|960)\s?gb\s*(nvme|ssd|m\.?2)", text, re.I)
+    if m:
+        return "%sGB %s" % (m.group(1), storage_kind(m.group(2)) or "SSD")
+    return None
+
+
+def extract_specs(text):
+    return {"cpu": norm_cpu(text), "gpu": norm_gpu(text), "ram": norm_ram(text), "sto": norm_storage(text)}
+
+
+def extract_prices(text):
+    """Returns (price, was). Looks only at pound amounts."""
+    vals = []
+    for m in re.finditer(r"£\s?(\d{1,3}(?:,\d{3})+|\d+)(?:\.(\d{1,2}))?", text):
+        whole = int(m.group(1).replace(",", ""))
+        pence = int((m.group(2) or "0").ljust(2, "0"))
+        vals.append(whole + pence / 100.0)
+    vals = [v for v in vals if v >= 1]
+    if not vals:
+        return None, None
+    if len(vals) >= 2 and re.search(r"\b(was|rrp|from|reduced|down from|usually)\b", text, re.I):
+        return min(vals), max(vals)
+    return vals[0], None
+
+
+EXCLUDE = re.compile(r"\b(laptop|notebook|macbook|chromebook|steam deck|monitor|keyboard|mouse|headset|console|handheld|nas)\b", re.I)
+BUNDLE = re.compile(r"\b(bundle|combo|cpu\s*\+\s*(?:mobo|motherboard)|build kit|pc build|upgrade kit|barebones?)\b", re.I)
+PREBUILT = re.compile(r"(pre[-\s]?built|gaming pc|gaming desktop|desktop pc|tower pc|\[pc\]|\[desktop\]|\[system\])", re.I)
+
+
+def classify(text):
+    if EXCLUDE.search(text):
+        return None
+    if BUNDLE.search(text):
+        return "bundle"
+    if PREBUILT.search(text):
+        return "prebuilt"
+    return None
+
+
+MOBO = re.compile(r"\b(mobo|motherboard|b650|b850|x870|x670|a620|b760|z790|z890|b550)\b", re.I)
+
+
+def infer_kind(title, specs):
+    """No keyword matched. A title naming a CPU and a graphics card is a whole system,
+    and a CPU with a motherboard is a bundle. Single parts stay excluded."""
+    if EXCLUDE.search(title):
+        return None
+    if specs.get("cpu") and specs.get("gpu"):
+        return "prebuilt"
+    if specs.get("cpu") and MOBO.search(title) and not specs.get("gpu"):
+        return "bundle"
+    return None
+
+
+def perf_and_tier(gpu, cpu):
+    if not gpu or gpu not in GPU_PERF:
+        return None, None
+    perf = GPU_PERF[gpu] + 0.3 * CPU_PERF.get(cpu, DEFAULT_CPU_PERF)
+    gp = GPU_PERF[gpu]
+    tier = "entry" if gp <= 112 else "mid" if gp <= 165 else "high"
+    return round(perf, 1), tier
+
+
+def build_deal(source, key, title, body, url, thread, posted, retailer, extra=None):
+    kind = classify(title) or (classify(body[:300]) if body else None)
+    specs = extract_specs(title)
+    if not kind:
+        kind = infer_kind(title, specs)
+    if not kind:
+        return None
+    fallback = extract_specs(body[:600]) if body else {}
+    for k, v in fallback.items():
+        if not specs.get(k):
+            specs[k] = v
+    price, was = extract_prices(title)
+    if price is None and body:
+        price, was = extract_prices(body[:400])
+    if price is None:
+        return None
+    if kind == "prebuilt" and not (specs["gpu"] or specs["cpu"]):
+        return None
+    if price < 100 or price > 8000:
+        return None
+    perf, tier = perf_and_tier(specs["gpu"], specs["cpu"]) if kind == "prebuilt" else (None, None)
+    deal = {
+        "id": hashlib.sha1(("%s|%s" % (source, key)).encode()).hexdigest()[:12],
+        "source": source,
+        "retailer": retailer or "Unknown retailer",
+        "url": url,
+        "thread": thread or None,
+        "t": kind,
+        "title": re.sub(r"\s+", " ", title).strip(),
+        "cpu": specs["cpu"], "gpu": specs["gpu"], "ram": specs["ram"], "sto": specs["sto"],
+        "p": round(price, 2), "was": round(was, 2) if was and was > price else None,
+        "del": None, "stock": "unknown", "fin": None,
+        "posted": iso(posted),
+        "perf": perf, "tier": tier,
+    }
+    if extra:
+        deal.update(extra)
+    return deal
+
+
+# ---------------------------------------------------------------- sources
+
+def local(tag):
+    return tag.rsplit("}", 1)[-1]
+
+
+def read_feed_entries(xml_bytes):
+    root = ET.fromstring(xml_bytes)
+    entries = []
+    for node in root.iter():
+        if local(node.tag) not in ("entry", "item"):
+            continue
+        row = {"title": "", "link": "", "body": "", "date": "", "img": ""}
+        for child in node:
+            name = local(child.tag)
+            if name in ("thumbnail", "content", "enclosure") and child.attrib.get("url"):
+                if not row["img"] and re.match(r"https?://", child.attrib["url"]):
+                    row["img"] = child.attrib["url"]
+                continue
+            if name == "title":
+                row["title"] = (child.text or "").strip()
+            elif name == "link":
+                row["link"] = child.attrib.get("href") or (child.text or "").strip() or row["link"]
+            elif name in ("content", "description", "summary"):
+                if not row["body"]:
+                    row["body"] = child.text or ""
+            elif name in ("updated", "pubDate", "published"):
+                if not row["date"]:
+                    row["date"] = (child.text or "").strip()
+        entries.append(row)
+    return entries
+
+
+INFO = {}
+
+
+def run_rss(src):
+    deals = []
+    entries = read_feed_entries(fetch(src["url"]))
+    skipped = []
+    INFO[src["name"]] = {"seen": len(entries), "examples": skipped}
+    for e in entries:
+        ext = first_external_link(e["body"])
+        thread = e["link"]
+        url = ext or thread
+        retailer = retailer_from_url(ext) if ext else retailer_from_text(e["title"])
+        posted = parse_date(e["date"]) or now()
+        deal = build_deal(src["name"], thread or e["title"], e["title"], strip_tags(e["body"]), url, thread, posted, retailer,
+                          {"img": e.get("img") or None})
+        if deal:
+            deals.append(deal)
+        elif len(skipped) < 4:
+            skipped.append(re.sub(r"\s+", " ", e["title"]).strip()[:80])
+    return deals
+
+
+def run_awin_csv(src):
+    url = os.environ.get(src.get("url_env", ""), "").strip() or src.get("url", "").strip()
+    if not url:
+        raise SkipSource("no feed URL set (secret %s is empty)" % src.get("url_env", "?"))
+    raw = fetch(url).decode("utf-8", errors="replace")
+    deals = []
+    stamp = now()
+    for row in csv.DictReader(io.StringIO(raw)):
+        title = row.get("product_name") or row.get("title") or ""
+        desc = strip_tags(row.get("description", ""))
+        cat = row.get("merchant_category") or row.get("category_name") or ""
+        if (row.get("currency") or "GBP").upper() != "GBP":
+            continue
+        link = row.get("aw_deep_link") or row.get("merchant_deep_link") or row.get("link") or ""
+        pid = row.get("aw_product_id") or row.get("merchant_product_id") or link or title
+        price_text = "£%s" % (row.get("search_price") or row.get("store_price") or row.get("price") or "").replace("£", "")
+        img = ""
+        for col in ("merchant_image_url", "aw_image_url", "large_image", "alternate_image", "image_url"):
+            if (row.get(col) or "").strip():
+                img = row[col].strip()
+                break
+        deal = build_deal(src["name"], pid, "%s %s" % (title, price_text), "%s %s" % (cat, desc), link, None, stamp,
+                          src.get("retailer") or row.get("merchant_name") or "", {"img": img or None})
+        if not deal:
+            continue
+        try:
+            rrp = float(row.get("rrp_price") or 0)
+        except ValueError:
+            rrp = 0
+        if rrp > deal["p"]:
+            deal["was"] = round(rrp, 2)
+        try:
+            deal["del"] = float(row.get("delivery_cost")) if row.get("delivery_cost") not in (None, "") else None
+        except ValueError:
+            pass
+        stock = (row.get("stock_status") or row.get("in_stock") or "").strip().lower()
+        if stock in ("1", "true", "yes", "in stock", "in_stock"):
+            deal["stock"] = "in"
+        elif stock in ("0", "false", "no", "out of stock", "out_of_stock"):
+            continue
+        deal["snapshot"] = True
+        deals.append(deal)
+    return deals
+
+
+
+# ---------------------------------------------------------------- tracked product pages
+PREV = {}
+ROBOTS = {}
+
+
+def robots_allows(url):
+    parts = urlparse(url)
+    if parts.scheme not in ("http", "https"):
+        return True
+    rp = ROBOTS.get(parts.netloc)
+    if rp is None:
+        rp = urllib.robotparser.RobotFileParser()
+        try:
+            rp.parse(fetch("%s://%s/robots.txt" % (parts.scheme, parts.netloc)).decode("utf-8", errors="replace").splitlines())
+        except urllib.error.HTTPError as exc:
+            rp.parse(["User-agent: *", "Disallow: /"] if exc.code >= 500 else [])
+        except Exception:
+            rp.parse([])
+        ROBOTS[parts.netloc] = rp
+    return rp.can_fetch(USER_AGENT, url)
+
+
+def iter_ld(node):
+    if isinstance(node, list):
+        for n in node:
+            for x in iter_ld(n):
+                yield x
+    elif isinstance(node, dict):
+        yield node
+        for key in ("@graph", "itemListElement", "item", "mainEntity"):
+            if key in node:
+                for x in iter_ld(node[key]):
+                    yield x
+
+
+def to_price(value):
+    if value in (None, ""):
+        return None
+    text = re.sub(r"[^\d.,]", "", str(value))
+    if "," in text and "." in text:
+        text = text.replace(",", "")
+    elif "," in text:
+        text = text.replace(",", ".") if re.search(r",\d{1,2}$", text) else text.replace(",", "")
+    try:
+        return float(text)
+    except ValueError:
+        return None
+
+
+def stock_from(text):
+    low = (text or "").lower().replace("_", "").replace(" ", "")
+    if not low:
+        return "unknown"
+    if any(w in low for w in ("outofstock", "soldout", "discontinued", "unavailable")):
+        return "out"
+    if "limited" in low or "lowstock" in low:
+        return "low"
+    if any(w in low for w in ("preorder", "backorder", "madetoorder", "builttoorder")):
+        return "preorder"
+    if "instock" in low or low in ("in", "available"):
+        return "in"
+    return "unknown"
+
+
+def meta_map(page):
+    out = {}
+    for tag in re.findall(r"<meta\b[^>]*>", page, re.I):
+        attrs = {}
+        for k, v1, v2 in re.findall(r'([\w:.-]+)\s*=\s*(?:"([^"]*)"|\'([^\']*)\')', tag):
+            attrs[k.lower()] = html.unescape(v1 or v2)
+        key = attrs.get("property") or attrs.get("name") or attrs.get("itemprop")
+        if key and "content" in attrs:
+            out.setdefault(key.lower(), attrs["content"])
+    return out
+
+
+def parse_product_page(page):
+    """Reads price, stock, image and name from schema.org JSON-LD, falling back to meta tags."""
+    info = {"name": None, "price": None, "currency": None, "stock": "unknown", "image": None}
+    for m in re.finditer(r'<script[^>]+type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', page, re.S | re.I):
+        try:
+            data = json.loads(m.group(1).strip())
+        except ValueError:
+            continue
+        for node in iter_ld(data):
+            types = node.get("@type")
+            types = types if isinstance(types, list) else [types]
+            if "Product" not in types:
+                continue
+            info["name"] = info["name"] or node.get("name")
+            img = node.get("image")
+            if isinstance(img, list) and img:
+                img = img[0]
+            if isinstance(img, dict):
+                img = img.get("url")
+            info["image"] = info["image"] or (img if isinstance(img, str) else None)
+            offers = node.get("offers")
+            for offer in (offers if isinstance(offers, list) else [offers]):
+                if not isinstance(offer, dict) or info["price"] is not None:
+                    continue
+                price = to_price(offer.get("price") or offer.get("lowPrice"))
+                if price:
+                    info["price"] = price
+                    info["currency"] = offer.get("priceCurrency")
+                    info["stock"] = stock_from(str(offer.get("availability") or ""))
+    meta = meta_map(page)
+    if info["price"] is None:
+        for key in ("product:price:amount", "og:price:amount", "product:sale_price:amount", "price"):
+            if to_price(meta.get(key)):
+                info["price"] = to_price(meta[key])
+                info["currency"] = info["currency"] or meta.get("product:price:currency") or meta.get("og:price:currency") or meta.get("pricecurrency")
+                break
+    if info["stock"] == "unknown":
+        info["stock"] = stock_from(meta.get("product:availability") or meta.get("og:availability") or meta.get("availability") or "")
+    info["name"] = info["name"] or meta.get("og:title")
+    info["image"] = info["image"] or meta.get("og:image")
+    return info
+
+
+def run_product_pages(src):
+    deals, problems, refreshed, hidden = [], [], 0, 0
+    items = src.get("items", [])
+    for n, item in enumerate(items):
+        url = item["url"]
+        did = hashlib.sha1(url.encode()).hexdigest()[:12]
+        try:
+            if not robots_allows(url):
+                raise RuntimeError("blocked by robots.txt")
+            info = parse_product_page(fetch(url).decode("utf-8", errors="replace"))
+            if not info["price"]:
+                raise RuntimeError("no price found on the page")
+            if info["currency"] and info["currency"].upper() != "GBP":
+                raise RuntimeError("price is not in GBP")
+        except Exception as exc:
+            problems.append("%s (%s)" % (host_of(url) or "file", str(exc)[:50]))
+            if did in PREV:
+                deals.append(PREV[did])
+            continue
+        finally:
+            if url.startswith("http") and n < len(items) - 1:
+                time.sleep(1.5)
+        refreshed += 1
+        if info["stock"] == "out":
+            hidden += 1
+            continue
+        title = item.get("title") or info["name"] or ""
+        specs = extract_specs("%s %s" % (title, item.get("specs", "")))
+        kind = item.get("type") or classify(title) or infer_kind(title, specs) or "prebuilt"
+        perf, tier = perf_and_tier(specs["gpu"], specs["cpu"]) if kind == "prebuilt" else (None, None)
+        prior = PREV.get(did, {})
+        deals.append({
+            "id": did, "source": src["name"], "retailer": item.get("retailer") or retailer_from_url(url) or "Unknown retailer",
+            "url": url, "thread": None, "t": kind, "title": re.sub(r"\s+", " ", title).strip(),
+            "cpu": specs["cpu"], "gpu": specs["gpu"], "ram": specs["ram"], "sto": specs["sto"],
+            "p": round(info["price"], 2), "was": None,
+            "del": item.get("delivery", prior.get("del")), "stock": item.get("stock") or (info["stock"] if info["stock"] != "unknown" else prior.get("stock", "unknown")),
+            "fin": None, "posted": iso(now()), "perf": perf, "tier": tier,
+            "img": info["image"] or item.get("img") or prior.get("img"),
+            "note": item.get("note", ""), "snapshot": True,
+        })
+    if items and not refreshed:
+        raise RuntimeError("could not read any tracked page: %s" % "; ".join(problems[:3]))
+    note = "Refreshed %d of %d tracked pages." % (refreshed, len(items))
+    if hidden:
+        note += " %d out of stock and hidden." % hidden
+    if problems:
+        note += " Could not read: %s." % "; ".join(problems[:3])
+    INFO[src["name"]] = {"note": note}
+    return deals
+
+
+def walk_jsonld(node, out):
+    if isinstance(node, list):
+        for x in node:
+            walk_jsonld(x, out)
+    elif isinstance(node, dict):
+        types = node.get("@type")
+        types = types if isinstance(types, list) else [types]
+        if "Product" in types:
+            out.append(node)
+        for v in node.values():
+            if isinstance(v, (list, dict)):
+                walk_jsonld(v, out)
+
+
+def run_jsonld(src):
+    """Reads schema.org Product data embedded in a retailer category page.
+    Works only where the page puts products in its HTML. Pages that build their
+    list with JavaScript show up as 0 deals."""
+    url = src["url"]
+    if not robots_allows(url):
+        raise SkipSource("the site's robots.txt does not allow automated reads of this page")
+    page = fetch(url).decode("utf-8", errors="replace")
+    products = []
+    blocks = re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', page, flags=re.S | re.I)
+    for raw in blocks:
+        try:
+            walk_jsonld(json.loads(raw.strip()), products)
+        except ValueError:
+            continue
+    INFO[src["name"]] = {"seen": len(products), "examples": []}
+    deals, stamp = [], now()
+    for prod in products:
+        offers = prod.get("offers") or {}
+        if isinstance(offers, list):
+            offers = offers[0] if offers else {}
+        price = offers.get("price") or offers.get("lowPrice")
+        if price in (None, "") or (offers.get("priceCurrency") or "GBP").upper() != "GBP":
+            continue
+        avail = str(offers.get("availability") or "")
+        if "OutOfStock" in avail or "Discontinued" in avail:
+            continue
+        link = prod.get("url") or offers.get("url") or url
+        if link.startswith("/"):
+            parts = urlparse(url)
+            link = "%s://%s%s" % (parts.scheme, parts.netloc, link)
+        img = prod.get("image")
+        if isinstance(img, list):
+            img = img[0] if img else ""
+        if isinstance(img, dict):
+            img = img.get("url", "")
+        name = prod.get("name") or ""
+        deal = build_deal(src["name"], link, "%s £%s" % (name, price), prod.get("description") or "", link, None, stamp,
+                          src.get("retailer") or retailer_from_url(link), {"img": img or None})
+        if not deal:
+            if len(INFO[src["name"]]["examples"]) < 4:
+                INFO[src["name"]]["examples"].append(name[:80])
+            continue
+        deal["stock"] = "in" if "InStock" in avail else "unknown"
+        deal["snapshot"] = True
+        deals.append(deal)
+    return deals
+
+
+class SkipSource(Exception):
+    pass
+
+
+RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld}
+
+
+# ---------------------------------------------------------------- merge
+
+def load_json(path, default):
+    try:
+        with open(path, encoding="utf-8") as fh:
+            return json.load(fh)
+    except (OSError, ValueError):
+        return default
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--sources", default=os.path.join(ROOT, "sources.json"))
+    ap.add_argument("--out", default=os.path.join(ROOT, "deals.json"))
+    args = ap.parse_args()
+
+    conf = load_json(args.sources, {"sources": []})
+    previous = load_json(args.out, {"deals": [], "sources": []})
+    was_sample = bool(previous.get("sample"))
+    old = {} if was_sample else {d["id"]: d for d in previous.get("deals", [])}
+    PREV.update(old)
+    prev_status = {s["name"]: s for s in previous.get("sources", [])}
+    configured = {s["name"] for s in conf.get("sources", []) if s.get("enabled", True)}
+
+    status, fetched, refreshed = [], [], set()
+    for src in conf.get("sources", []):
+        if not src.get("enabled", True):
+            continue
+        last = parse_date(prev_status.get(src["name"], {}).get("checked"))
+        if (src.get("hourly") and last and not was_sample and now() - last < timedelta(minutes=50)
+                and os.environ.get("GITHUB_EVENT_NAME") == "schedule"):
+            status.append(prev_status[src["name"]])
+            print("%-28s not due this run" % src["name"])
+            continue
+        entry = {"name": src["name"], "ok": False, "count": 0, "error": ""}
+        runner = RUNNERS.get(src.get("type"))
+        try:
+            if not runner:
+                raise SkipSource("unknown source type %r" % src.get("type"))
+            deals = runner(src)
+            entry.update(ok=True, count=len(deals))
+            refreshed.add(src["name"])
+            entry["checked"] = iso(now())
+            entry.update(INFO.get(src["name"], {}))
+            fetched.extend(deals)
+        except SkipSource as exc:
+            entry["error"] = "Skipped: %s" % exc
+            entry["skipped"] = True
+        except urllib.error.HTTPError as exc:
+            entry["error"] = "HTTP %s" % exc.code
+        except Exception as exc:  # keep going, record the problem
+            entry["error"] = "%s: %s" % (type(exc).__name__, str(exc)[:120])
+        status.append(entry)
+        print("%-28s %s %s" % (src["name"], "ok" if entry["ok"] else "FAILED", entry["error"] or "%d deals" % entry["count"]))
+
+    ok_sources = refreshed
+    stamp = now()
+    cutoff = stamp - timedelta(days=KEEP_DAYS)
+
+    merged = {}
+    # keep old deals unless their source refreshed a full snapshot, or they are too old
+    for d in old.values():
+        if d.get("snapshot"):
+            if d["source"] in ok_sources or d["source"] not in configured:
+                continue
+        elif (parse_date(d.get("posted")) or stamp) < cutoff:
+            continue
+        merged[d["id"]] = d
+
+    for d in fetched:
+        prior = old.get(d["id"])
+        if prior:
+            d["first_seen"] = prior.get("first_seen") or prior.get("posted")
+            if prior["p"] > d["p"]:
+                d["prev_p"], d["dropped_at"] = prior["p"], iso(stamp)
+            elif prior.get("prev_p") and prior.get("prev_p") > d["p"]:
+                d["prev_p"], d["dropped_at"] = prior["prev_p"], prior.get("dropped_at")
+            if not d.get("snapshot"):
+                d["posted"] = prior["posted"]
+            elif prior["p"] != d["p"]:
+                d["posted"] = iso(stamp)
+            else:
+                d["posted"] = prior.get("posted") or d["posted"]
+            if not d.get("was") and prior.get("was") and prior["p"] == d["p"]:
+                d["was"] = prior["was"]
+        else:
+            d["first_seen"] = iso(stamp)
+        merged[d["id"]] = d
+
+    deals = sorted(merged.values(), key=lambda d: d["posted"], reverse=True)[:MAX_DEALS]
+
+    if was_sample and not deals:
+        # nothing real yet, keep showing the example data but report source health
+        out = dict(previous)
+        out["sources"] = status
+    else:
+        out = {"sample": False, "updated": previous.get("updated") or iso(stamp), "sources": status, "deals": deals}
+
+    comparable = lambda o: json.dumps({"s": o.get("sample"), "src": o.get("sources"), "d": o.get("deals")}, sort_keys=True)
+    if comparable(out) == comparable(previous):
+        print("No changes.")
+        return 0
+    out["updated"] = iso(stamp)
+    with open(args.out, "w", encoding="utf-8") as fh:
+        json.dump(out, fh, indent=1, ensure_ascii=False)
+        fh.write("\n")
+    print("Wrote %d deals." % len(out["deals"]))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

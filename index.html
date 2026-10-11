@@ -24,6 +24,7 @@
   --good: #0E6B45;
   --warn: #8A4B00;
   --bad: #A1190F;
+  --pumpkin: #D9480F;
   --tile: #FFFFFF;
   --font-display: "Archivo", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
   --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -33,13 +34,13 @@
   :root:not([data-theme="light"]) {
     --bg: #0A3B49; --surface: #102B38; --surface-2: #173A4A; --ink: #E8F6F9; --muted: #A5CBD5;
     --line: #265565; --accent: #B7A6FF; --accent-ink: #1A1040; --heat: #C3A8FF; --good: #52D1A0;
-    --warn: #F0B25A; --bad: #FF8E85; color-scheme: dark;
+    --warn: #F0B25A; --bad: #FF8E85; --pumpkin: #FF9A4D; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0A3B49; --surface: #102B38; --surface-2: #173A4A; --ink: #E8F6F9; --muted: #A5CBD5;
   --line: #265565; --accent: #B7A6FF; --accent-ink: #1A1040; --heat: #C3A8FF; --good: #52D1A0;
-  --warn: #F0B25A; --bad: #FF8E85; color-scheme: dark;
+  --warn: #F0B25A; --bad: #FF8E85; --pumpkin: #FF9A4D; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.5; padding-inline: 16px; padding-block: 0 96px; }
@@ -184,6 +185,23 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
 .deal.noimg { grid-template-columns: minmax(0, 1fr) 190px; }
 .pic { background: var(--tile); border-right: 1px solid var(--line); display: flex; align-items: center; justify-content: center; padding: 8px; min-height: 96px; }
 .pic img { width: 100%; height: 100%; max-height: 120px; object-fit: contain; display: block; }
+
+.main { position: relative; }
+.main .meta { padding-right: 52px; }
+.pinbtn { position: absolute; top: 10px; right: 12px; width: 40px; height: 40px; padding: 0; background: var(--surface-2); border: 1px solid var(--line); border-radius: 50%; cursor: pointer; display: grid; place-items: center; }
+.pinbtn:hover { border-color: var(--pumpkin); }
+.pinbtn svg { width: 28px; height: 28px; display: block; }
+.pinbtn .body { fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linejoin: round; }
+.pinbtn .stem { fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; }
+.pinbtn .face { fill: var(--muted); }
+.pinbtn[aria-pressed="true"] { border-color: var(--pumpkin); background: color-mix(in srgb, var(--pumpkin) 16%, var(--surface)); }
+.pinbtn[aria-pressed="true"] .body { fill: var(--pumpkin); stroke: var(--pumpkin); }
+.pinbtn[aria-pressed="true"] .stem { stroke: var(--good); }
+.pinbtn[aria-pressed="true"] .face { fill: var(--surface); }
+.deal.pinned { border-color: var(--pumpkin); }
+.pill.pin { background: var(--pumpkin); border-color: var(--pumpkin); color: var(--surface); font-weight: 600; }
+@media (prefers-reduced-motion: no-preference) { .pinbtn[aria-pressed="true"] svg { animation: wobble 0.35s ease-out; } }
+@keyframes wobble { 0% { transform: rotate(-12deg) scale(0.9); } 60% { transform: rotate(6deg) scale(1.08); } 100% { transform: none; } }
 
 @media (max-width: 900px) {
   .cols { grid-template-columns: minmax(0, 1fr); }
@@ -330,6 +348,9 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   var known = {};
   var state = { type: "all", budget: 3000, tier: "any", inStock: false, fin: false, q: "", sort: "new", rs: {}, cmp: [], votes: {}, newIds: {} };
   try { state.votes = JSON.parse(localStorage.getItem("rigdeals-votes") || "{}") || {}; } catch (e) { state.votes = {}; }
+  state.pins = {};
+  try { (JSON.parse(localStorage.getItem("heyyoupgrade-pins") || "[]") || []).forEach(function (id) { state.pins[id] = 1; }); } catch (e) {}
+  function savePins() { try { localStorage.setItem("heyyoupgrade-pins", JSON.stringify(Object.keys(state.pins))); } catch (e) {} }
   function saveVotes() { try { localStorage.setItem("rigdeals-votes", JSON.stringify(state.votes)); } catch (e) {} }
 
   var $ = function (id) { return document.getElementById(id); };
@@ -384,6 +405,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   }
   function byId(id) { return DEALS.filter(function (x) { return x.id === id; })[0]; }
 
+  var PIN = '<svg viewBox="0 0 32 32" aria-hidden="true"><path class="stem" d="M16 8 C16 5.5 17 4.5 19 4"/><path class="body" d="M16 8 C10 5.5 3.5 9 3.5 17 C3.5 24 9 28 16 28 C23 28 28.5 24 28.5 17 C28.5 9 22 5.5 16 8 Z"/><path class="face" d="M9 14 L13 14 L11 18 Z M19 14 L23 14 L21 18 Z M10 22 L12.5 21 L14.5 23 L17.5 23 L19.5 21 L22 22 C21 25 11 25 10 22 Z"/></svg>';
   var UP = '<svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg>';
   var DOWN = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 
@@ -416,7 +438,8 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
       }
       return 0;
     });
-    return out;
+    var top = out.filter(function (d) { return state.pins[d.id]; });
+    return top.concat(out.filter(function (d) { return !state.pins[d.id]; }));
   }
 
   function stockPill(s) {
@@ -441,8 +464,9 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var img = safeImg(d.img);
     var pic = img ? '<div class="pic"><img src="' + esc(img) + '" alt="" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest(\'.deal\').classList.add(\'noimg\');this.parentNode.remove()"></div>' : "";
     var thread = d.thread ? ' <a class="disc" href="' + esc(safeUrl(d.thread)) + '" target="_blank" rel="noopener noreferrer">Discussion</a>' : "";
-    return '<article class="deal' + (img ? "" : " noimg") + '" data-id="' + esc(d.id) + '">' + pic +
-      '<div class="main"><div class="meta">' + fresh + drop + '<span class="pill type">' + (d.t === "bundle" ? "Parts bundle" : "Pre-built") + '</span>' +
+    var pinned = !!state.pins[d.id];
+    return '<article class="deal' + (img ? "" : " noimg") + (pinned ? " pinned" : "") + '" data-id="' + esc(d.id) + '">' + pic +
+      '<div class="main"><button type="button" class="pinbtn" data-act="pin" aria-pressed="' + pinned + '" aria-label="' + (pinned ? "Unpin this deal" : "Pin this deal to the top") + '" title="' + (pinned ? "Unpin" : "Pin to top") + '">' + PIN + '</button><div class="meta">' + (pinned ? '<span class="pill pin">Pinned</span>' : "") + fresh + drop + '<span class="pill type">' + (d.t === "bundle" ? "Parts bundle" : "Pre-built") + '</span>' +
       '<strong>' + esc(d.retailer) + '</strong><span>' + agoMs(Date.now() - d.ts) + '</span>' + stockPill(d.stock) + (d.fin ? '<span class="pill">Finance</span>' : "") + '</div>' +
       '<h2>' + esc(d.title) + '</h2><dl class="specs">' + specs + '</dl>' + (d.note ? '<div class="note">' + esc(d.note) + '</div>' : "") + '</div>' +
       '<div class="buy"><div><div class="price">' + gbp(d.p) + '</div>' + was + '<div class="total">' + delv + '</div>' + score + '</div>' +
@@ -454,7 +478,8 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var list = filtered();
     var scored = list.filter(function (d) { return d.score != null; });
     var best = scored.length ? scored.reduce(function (a, b) { return b.score > a.score ? b : a; }).id : "";
-    $("count").textContent = list.length + " of " + DEALS.length + " deals";
+    var np = list.filter(function (d) { return state.pins[d.id]; }).length;
+    $("count").textContent = list.length + " of " + DEALS.length + " deals" + (np ? ", " + np + " pinned" : "");
     var emptyMsg = DEALS.length ?
       "No deals match these filters. Raise the budget or clear the graphics tier." :
       "No deals yet. The fetcher checks every 10 minutes, so new ones will appear here on their own.";
@@ -513,7 +538,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
       var cls = x.ok ? "good" : x.skipped ? "warn" : "bad";
       var label = x.ok ? "Working" : x.skipped ? "Not set up" : "Failing";
       return '<div class="step"><h3>' + esc(x.name) + ' <span class="pill ' + cls + '">' + label + '</span></h3><p>' +
-        (x.ok ? x.count + " matching deal" + (x.count === 1 ? "" : "s") + (x.seen != null ? " from " + x.seen + " posts read" : "") + " on the last check." + (x.count === 0 && x.examples && x.examples.length ? " Skipped, for example: " + x.examples.map(esc).join(" | ") : "") : esc(x.error || "No details.")) + "</p></div>";
+        (x.ok && x.note ? esc(x.note) : x.ok ? x.count + " matching deal" + (x.count === 1 ? "" : "s") + (x.seen != null ? " from " + x.seen + " posts read" : "") + " on the last check." + (x.count === 0 && x.examples && x.examples.length ? " Skipped, for example: " + x.examples.map(esc).join(" | ") : "") : esc(x.error || "No details.")) + "</p></div>";
     }).join("") : '<div class="step"><h3>No sources yet</h3><p>Add sources in sources.json. The fetcher writes its status here after each run.</p></div>';
   }
 
@@ -595,6 +620,11 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   $("feed").addEventListener("click", function (e) {
     var el = e.target.closest("[data-act]"); if (!el) return;
     var act = el.getAttribute("data-act");
+    if (act === "pin") {
+      var pid = el.closest(".deal").getAttribute("data-id");
+      if (state.pins[pid]) delete state.pins[pid]; else state.pins[pid] = 1;
+      savePins(); renderFeed(); return;
+    }
     if (act !== "up" && act !== "down") return;
     var id = el.closest(".deal").getAttribute("data-id"), want = act === "up" ? 1 : -1;
     state.votes[id] = state.votes[id] === want ? 0 : want; saveVotes(); renderFeed();
