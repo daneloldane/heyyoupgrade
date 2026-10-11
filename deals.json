@@ -1,12 +1,19 @@
 {
  "sample": false,
- "updated": "2026-10-11T15:40:48Z",
+ "updated": "2026-10-11T15:41:20Z",
  "sources": [
   {
    "name": "r/buildapcsalesuk",
    "ok": true,
    "count": 0,
-   "error": ""
+   "error": "",
+   "seen": 50,
+   "examples": [
+    "Checkout my listing on Swappa! Zebra Touch Computer",
+    "ASUS PRIME RX9070 XT OC - £659.99 on Amazon UK",
+    "Upgrade 5600x/3070 PC to 9800x3d/5070 costco prebuilt UK - input needed please",
+    "Asus Prime OC Radeon RX 9070 XT - £599.99 Amazon UK"
+   ]
   },
   {
    "name": "Awin feed 1",
