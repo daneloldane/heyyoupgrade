@@ -51,6 +51,7 @@ CPU_PERF = {
     "Ryzen 7 9800X3D": 162, "Ryzen 9 9900X": 140, "Ryzen 9 9950X3D": 175,
     "Core i5 12400F": 84, "Core i5 13400F": 92, "Core i5 14400F": 96,
     "Core i5 14600KF": 125, "Core i7 14700K": 150, "Core i7 14700KF": 150,
+    "Ryzen 5 5500": 75, "Ryzen 5 8400F": 98, "Ryzen 5 8500F": 100, "Core i7 14700": 150,
     "Core Ultra 5 245K": 118, "Core Ultra 5 250KF": 118,
     "Core Ultra 7 265K": 145, "Core Ultra 7 270K": 150,
 }
@@ -238,6 +239,21 @@ def classify(text):
     return None
 
 
+MOBO = re.compile(r"\b(mobo|motherboard|b650|b850|x870|x670|a620|b760|z790|z890|b550)\b", re.I)
+
+
+def infer_kind(title, specs):
+    """No keyword matched. A title naming a CPU and a graphics card is a whole system,
+    and a CPU with a motherboard is a bundle. Single parts stay excluded."""
+    if EXCLUDE.search(title):
+        return None
+    if specs.get("cpu") and specs.get("gpu"):
+        return "prebuilt"
+    if specs.get("cpu") and MOBO.search(title) and not specs.get("gpu"):
+        return "bundle"
+    return None
+
+
 def perf_and_tier(gpu, cpu):
     if not gpu or gpu not in GPU_PERF:
         return None, None
@@ -248,11 +264,12 @@ def perf_and_tier(gpu, cpu):
 
 
 def build_deal(source, key, title, body, url, thread, posted, retailer, extra=None):
-    text_all = "%s %s" % (title, body)
-    kind = classify(title) or classify(body[:300]) if body else classify(title)
+    kind = classify(title) or (classify(body[:300]) if body else None)
+    specs = extract_specs(title)
+    if not kind:
+        kind = infer_kind(title, specs)
     if not kind:
         return None
-    specs = extract_specs(title)
     fallback = extract_specs(body[:600]) if body else {}
     for k, v in fallback.items():
         if not specs.get(k):
@@ -298,9 +315,13 @@ def read_feed_entries(xml_bytes):
     for node in root.iter():
         if local(node.tag) not in ("entry", "item"):
             continue
-        row = {"title": "", "link": "", "body": "", "date": ""}
+        row = {"title": "", "link": "", "body": "", "date": "", "img": ""}
         for child in node:
             name = local(child.tag)
+            if name in ("thumbnail", "content", "enclosure") and child.attrib.get("url"):
+                if not row["img"] and re.match(r"https?://", child.attrib["url"]):
+                    row["img"] = child.attrib["url"]
+                continue
             if name == "title":
                 row["title"] = (child.text or "").strip()
             elif name == "link":
@@ -315,17 +336,26 @@ def read_feed_entries(xml_bytes):
     return entries
 
 
+INFO = {}
+
+
 def run_rss(src):
     deals = []
-    for e in read_feed_entries(fetch(src["url"])):
+    entries = read_feed_entries(fetch(src["url"]))
+    skipped = []
+    INFO[src["name"]] = {"seen": len(entries), "examples": skipped}
+    for e in entries:
         ext = first_external_link(e["body"])
         thread = e["link"]
         url = ext or thread
         retailer = retailer_from_url(ext) if ext else retailer_from_text(e["title"])
         posted = parse_date(e["date"]) or now()
-        deal = build_deal(src["name"], thread or e["title"], e["title"], strip_tags(e["body"]), url, thread, posted, retailer)
+        deal = build_deal(src["name"], thread or e["title"], e["title"], strip_tags(e["body"]), url, thread, posted, retailer,
+                          {"img": e.get("img") or None})
         if deal:
             deals.append(deal)
+        elif len(skipped) < 4:
+            skipped.append(re.sub(r"\s+", " ", e["title"]).strip()[:80])
     return deals
 
 
@@ -345,8 +375,13 @@ def run_awin_csv(src):
         link = row.get("aw_deep_link") or row.get("merchant_deep_link") or row.get("link") or ""
         pid = row.get("aw_product_id") or row.get("merchant_product_id") or link or title
         price_text = "£%s" % (row.get("search_price") or row.get("store_price") or row.get("price") or "").replace("£", "")
+        img = ""
+        for col in ("merchant_image_url", "aw_image_url", "large_image", "alternate_image", "image_url"):
+            if (row.get(col) or "").strip():
+                img = row[col].strip()
+                break
         deal = build_deal(src["name"], pid, "%s %s" % (title, price_text), "%s %s" % (cat, desc), link, None, stamp,
-                          src.get("retailer") or row.get("merchant_name") or "", None)
+                          src.get("retailer") or row.get("merchant_name") or "", {"img": img or None})
         if not deal:
             continue
         try:
@@ -408,6 +443,9 @@ def main():
                 raise SkipSource("unknown source type %r" % src.get("type"))
             deals = runner(src)
             entry.update(ok=True, count=len(deals))
+            if src["name"] in INFO:
+                entry["seen"] = INFO[src["name"]]["seen"]
+                entry["examples"] = INFO[src["name"]]["examples"]
             fetched.extend(deals)
         except SkipSource as exc:
             entry["error"] = "Skipped: %s" % exc
