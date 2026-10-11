@@ -1,12 +1,54 @@
 {
  "sample": false,
- "updated": "2026-10-11T17:29:19Z",
+ "updated": "2026-10-11T18:12:41Z",
  "sources": [
   {
-   "name": "Retailer pages, read 11 Oct 2026",
+   "name": "Tracked product pages",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: unknown source type 'product_pages'",
+   "skipped": true
+  },
+  {
+   "name": "r/buildapcsalesuk",
    "ok": true,
-   "count": 25,
-   "error": ""
+   "count": 0,
+   "error": "",
+   "seen": 50,
+   "examples": [
+    "Checkout my listing on Swappa! Zebra Touch Computer",
+    "ASUS PRIME RX9070 XT OC - £659.99 on Amazon UK",
+    "Upgrade 5600x/3070 PC to 9800x3d/5070 costco prebuilt UK - input needed please",
+    "Asus Prime OC Radeon RX 9070 XT - £599.99 Amazon UK"
+   ]
+  },
+  {
+   "name": "Awin feed 1",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: no feed URL set (secret AWIN_FEED_1 is empty)",
+   "skipped": true
+  },
+  {
+   "name": "Awin feed 2",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: no feed URL set (secret AWIN_FEED_2 is empty)",
+   "skipped": true
+  },
+  {
+   "name": "Scan DIY bundles",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: unknown source type 'jsonld'",
+   "skipped": true
+  },
+  {
+   "name": "Fierce PC bundles",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: unknown source type 'jsonld'",
+   "skipped": true
   }
  ],
  "deals": [
