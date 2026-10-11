@@ -1,0 +1,24 @@
+{
+  "sources": [
+    {
+      "name": "r/buildapcsalesuk",
+      "type": "rss",
+      "url": "https://www.reddit.com/r/buildapcsalesuk/new/.rss?limit=50",
+      "enabled": true
+    },
+    {
+      "name": "Awin feed 1",
+      "type": "awin_csv",
+      "url_env": "AWIN_FEED_1",
+      "retailer": "",
+      "enabled": true
+    },
+    {
+      "name": "Awin feed 2",
+      "type": "awin_csv",
+      "url_env": "AWIN_FEED_2",
+      "retailer": "",
+      "enabled": true
+    }
+  ]
+}
