@@ -1,7 +1,28 @@
 {
  "sample": true,
- "updated": "2026-10-11T14:38:37Z",
- "sources": [],
+ "updated": "2026-10-11T15:29:27Z",
+ "sources": [
+  {
+   "name": "r/buildapcsalesuk",
+   "ok": true,
+   "count": 0,
+   "error": ""
+  },
+  {
+   "name": "Awin feed 1",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: no feed URL set (secret AWIN_FEED_1 is empty)",
+   "skipped": true
+  },
+  {
+   "name": "Awin feed 2",
+   "ok": false,
+   "count": 0,
+   "error": "Skipped: no feed URL set (secret AWIN_FEED_2 is empty)",
+   "skipped": true
+  }
+ ],
  "deals": [
   {
    "id": "sample-1",
