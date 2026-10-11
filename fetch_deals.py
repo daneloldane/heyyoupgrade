@@ -555,7 +555,8 @@ def run_product_pages(src):
             continue
         title = item.get("title") or info["name"] or ""
         specs = extract_specs("%s %s" % (title, item.get("specs", "")))
-        kind = item.get("type") or classify(title) or infer_kind(title, specs) or "prebuilt"
+        cat = item.get("cat") or "deals"
+        kind = "part" if cat != "deals" else (item.get("type") or classify(title) or infer_kind(title, specs) or "prebuilt")
         perf, tier = perf_and_tier(specs["gpu"], specs["cpu"]) if kind == "prebuilt" else (None, None)
         prior = PREV.get(did, {})
         deals.append({
@@ -567,6 +568,7 @@ def run_product_pages(src):
             "fin": None, "posted": iso(now()), "perf": perf, "tier": tier,
             "img": info["image"] or item.get("img") or prior.get("img"),
             "note": item.get("note", ""), "snapshot": True,
+            "cat": cat, "rank": item.get("rank"), "rank_by": item.get("rank_by"),
         })
     if items and not refreshed:
         raise RuntimeError("could not read any tracked page: %s" % "; ".join(problems[:3]))
@@ -642,11 +644,99 @@ def run_jsonld(src):
     return deals
 
 
+def itemlist_products(node, out):
+    """Collects Product objects from schema.org ItemList / Product markup, in page order."""
+    if isinstance(node, list):
+        for x in node:
+            itemlist_products(x, out)
+    elif isinstance(node, dict):
+        types = node.get("@type")
+        types = types if isinstance(types, list) else [types]
+        if "Product" in types:
+            out.append(node)
+            return
+        if "ListItem" in types and isinstance(node.get("item"), dict):
+            itemlist_products(node["item"], out)
+            return
+        for v in node.values():
+            if isinstance(v, (list, dict)):
+                itemlist_products(v, out)
+
+
+def run_category_pages(src):
+    """Top N products from each retailer's component category page, in the shop's own
+    order (Recommended / Most Popular). A page that cannot be read keeps its previous
+    results, so a tab never goes empty because one shop had a bad minute."""
+    top = int(src.get("top", 10))
+    deals, problems, read = [], [], 0
+    pages = src.get("pages", [])
+    for n, pg in enumerate(pages):
+        url, cat = pg["url"], pg["cat"]
+        try:
+            if not robots_allows(url):
+                raise RuntimeError("robots.txt")
+            html = fetch(url).decode("utf-8", errors="replace")
+            found = []
+            for raw in re.findall(r'<script[^>]+application/ld\+json[^>]*>(.*?)</script>', html, flags=re.S | re.I):
+                try:
+                    itemlist_products(json.loads(raw.strip()), found)
+                except ValueError:
+                    continue
+            got = []
+            for prod in found:
+                offers = prod.get("offers") or {}
+                if isinstance(offers, list):
+                    offers = offers[0] if offers else {}
+                price = to_price(offers.get("price") or offers.get("lowPrice"))
+                link = prod.get("url") or offers.get("url")
+                name = prod.get("name") or ""
+                if not (price and link and name):
+                    continue
+                if (offers.get("priceCurrency") or "GBP").upper() != "GBP":
+                    continue
+                if re.search(r"OutOfStock|Discontinued", str(offers.get("availability") or "")):
+                    continue
+                if re.search(r"laptop|sodimm|notebook", name, re.I):
+                    continue
+                if link.startswith("/"):
+                    u = urlparse(url)
+                    link = "%s://%s%s" % (u.scheme, u.netloc, link)
+                img = prod.get("image")
+                img = img[0] if isinstance(img, list) and img else img
+                img = img.get("url") if isinstance(img, dict) else img
+                got.append((name, price, link, img))
+            if not got:
+                raise RuntimeError("no products readable (page may be built by JavaScript)")
+            read += 1
+            for rank, (name, price, link, img) in enumerate(got[:top], 1):
+                did = hashlib.sha1(link.encode()).hexdigest()[:12]
+                prior = PREV.get(did, {})
+                deals.append({
+                    "id": did, "source": src["name"], "retailer": pg.get("retailer") or retailer_from_url(link) or "Unknown retailer",
+                    "url": link, "thread": None, "t": "part", "cat": cat, "title": re.sub(r"\s+", " ", name).strip(),
+                    "cpu": None, "gpu": None, "ram": None, "sto": None, "p": round(price, 2), "was": prior.get("was"),
+                    "del": None, "stock": "in", "fin": None, "posted": iso(now()), "perf": None, "tier": None,
+                    "img": img or prior.get("img"), "note": "", "snapshot": True,
+                    "rank": rank, "rank_by": pg.get("rank_by") or "Recommended", "page": url,
+                })
+        except Exception as exc:
+            problems.append("%s %s (%s)" % (host_of(url), cat, str(exc)[:45]))
+            deals.extend(d for d in PREV.values() if d.get("source") == src["name"] and d.get("page") == url)
+        finally:
+            if n < len(pages) - 1:
+                time.sleep(1.5)
+    if pages and not read:
+        INFO[src["name"]] = {"note": "No page could be read yet. Showing the last saved lists. Problems: %s." % "; ".join(problems[:3])}
+    else:
+        INFO[src["name"]] = {"note": "Read %d of %d category pages.%s" % (read, len(pages), (" Could not read: %s." % "; ".join(problems[:4])) if problems else "")}
+    return deals
+
+
 class SkipSource(Exception):
     pass
 
 
-RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld}
+RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages}
 
 
 # ---------------------------------------------------------------- merge
