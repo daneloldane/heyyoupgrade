@@ -22,6 +22,7 @@ import re
 import sys
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 import urllib.robotparser
 import xml.etree.ElementTree as ET
@@ -800,11 +801,126 @@ def run_reddit_api(src):
     return deals
 
 
+def _first_list(node):
+    """The API's envelope is not documented, so find the first list of objects in the reply."""
+    if isinstance(node, list):
+        return node if node and isinstance(node[0], dict) else []
+    if isinstance(node, dict):
+        for key in ("data", "threads", "items", "results"):
+            if key in node:
+                got = _first_list(node[key])
+                if got:
+                    return got
+        for v in node.values():
+            got = _first_list(v)
+            if got:
+                return got
+    return []
+
+
+def _text(v):
+    if isinstance(v, dict):
+        return str(v.get("name") or v.get("title") or v.get("display") or "")
+    return str(v or "")
+
+
+def _image(v):
+    if isinstance(v, str):
+        return v
+    if isinstance(v, dict):
+        for k in ("uri", "url", "src", "path"):
+            if isinstance(v.get(k), str):
+                return v[k]
+        base = v.get("base_uri") or v.get("base") or ""
+        name = v.get("name") or v.get("file") or ""
+        return (base + name) if base and name else ""
+    return ""
+
+
+def run_pepper_api(src):
+    """Hottest deals from the documented Pepper Public API v2 (the platform behind HotUKDeals).
+    The docs do not say how access works, so the first run shows whether it is open.
+    One search per section, a couple of seconds apart, sorted by temperature."""
+    base = src.get("base", "https://www.hotukdeals.com/rest_api/v2").rstrip("/")
+    queries = src.get("queries", [])
+    top = int(src.get("top", 10))
+    deals, problems, read = [], [], 0
+    stamp = now()
+    for n, q in enumerate(queries):
+        cat = q["cat"]
+        url = "%s/thread/search?%s" % (base, urllib.parse.urlencode({"query": q["query"], "order_by": "hot", "limit": 30}))
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                rows = _first_list(json.loads(resp.read().decode("utf-8", errors="replace")))
+            if not rows:
+                raise RuntimeError("reply had no threads")
+            read += 1
+            rank = 0
+            for t in rows:
+                if t.get("is_expired") or t.get("expired"):
+                    continue
+                exp = t.get("expiry_date")
+                if isinstance(exp, (int, float)) and exp and exp < stamp.timestamp():
+                    continue
+                title = _text(t.get("title"))
+                try:
+                    price = float(t.get("price"))
+                except (TypeError, ValueError):
+                    continue
+                link = t.get("link_uri") or t.get("visit_uri") or t.get("deal_uri") or t.get("short_uri") or ""
+                thread = t.get("deal_uri") or t.get("short_uri") or link
+                if not (title and link.startswith("http")):
+                    continue
+                merchant = _text(t.get("merchant_name_display") or t.get("merchant")) or retailer_from_url(link) or "Unknown retailer"
+                sub = t.get("submitted")
+                posted = datetime.fromtimestamp(sub, timezone.utc) if isinstance(sub, (int, float)) and sub else stamp
+                extra = {"img": _image(t.get("image")) or None, "note": "HotUKDeals temperature %s" % t.get("temperature_rating") if t.get("temperature_rating") is not None else ""}
+                if cat == "deals":
+                    deal = build_deal(src["name"], thread, "%s \u00a3%s" % (title, price), "", link, thread, posted, merchant, extra)
+                    if not deal:
+                        continue
+                else:
+                    if price < 15 or price > 8000:
+                        continue
+                    rank += 1
+                    if rank > top:
+                        break
+                    deal = {"id": hashlib.sha1(("%s|%s" % (src["name"], thread)).encode()).hexdigest()[:12], "source": src["name"],
+                            "retailer": merchant, "url": link, "thread": thread, "t": "part", "cat": cat,
+                            "title": re.sub(r"\s+", " ", title).strip(), "cpu": None, "gpu": None, "ram": None, "sto": None,
+                            "p": round(price, 2), "was": None, "del": None, "stock": "unknown", "fin": None, "posted": iso(posted),
+                            "perf": None, "tier": None, "rank": rank, "rank_by": "Hottest on HotUKDeals"}
+                    deal.update(extra)
+                    try:
+                        nb = float(t.get("next_best_price"))
+                        if nb > price:
+                            deal["was"] = round(nb, 2)
+                    except (TypeError, ValueError):
+                        pass
+                deal["snapshot"] = True
+                deal["page"] = "pepper:" + cat
+                deals.append(deal)
+        except urllib.error.HTTPError as exc:
+            problems.append("%s (HTTP %s)" % (cat, exc.code))
+            deals.extend(d for d in PREV.values() if d.get("source") == src["name"] and d.get("page") == "pepper:" + cat)
+        except Exception as exc:
+            problems.append("%s (%s)" % (cat, str(exc)[:40]))
+            deals.extend(d for d in PREV.values() if d.get("source") == src["name"] and d.get("page") == "pepper:" + cat)
+        finally:
+            if n < len(queries) - 1:
+                time.sleep(2)
+    if queries and not read:
+        raise RuntimeError("API did not answer: %s. It may need credentials the docs do not describe." % "; ".join(problems[:3]))
+    INFO[src["name"]] = {"note": "Read %d of %d searches.%s" % (read, len(queries), (" Problems: %s." % "; ".join(problems[:4])) if problems else "")}
+    return deals
+
+
 class SkipSource(Exception):
     pass
 
 
-RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages, "reddit_api": run_reddit_api}
+RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages, "reddit_api": run_reddit_api, "pepper_api": run_pepper_api}
 
 
 # ---------------------------------------------------------------- merge
