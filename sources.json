@@ -320,10 +320,16 @@
    ]
   },
   {
+   "name": "r/buildapcsalesuk (official API)",
+   "type": "reddit_api",
+   "subreddit": "buildapcsalesuk",
+   "enabled": true
+  },
+  {
    "name": "r/buildapcsalesuk",
    "type": "rss",
    "url": "https://www.reddit.com/r/buildapcsalesuk/new/.rss?limit=50",
-   "enabled": true
+   "enabled": false
   },
   {
    "name": "Awin feed 1",

@@ -575,10 +575,11 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var thread = d.thread ? ' <a class="disc" href="' + esc(safeUrl(d.thread)) + '" target="_blank" rel="noopener noreferrer">Discussion</a>' : "";
     var pinned = !!state.pins[d.id];
     var rankPill = part && d.rank ? '<span class="pill rank">#' + d.rank + (d.rank_by ? " " + esc(d.rank_by) : "") + "</span>" : "";
+    var commPill = part && !d.rank ? '<span class="pill">Community deal</span>' : "";
     var secPill = state.tab === "basket" ? '<span class="pill type">' + esc(tabOf(catOf(d)).t) + "</span>" : "";
     return '<article class="deal' + (part ? " part" : "") + (img ? "" : " noimg") + (pinned ? " pinned" : "") + '" data-id="' + esc(d.id) + '">' + pic +
       '<div class="main"><button type="button" class="pinbtn" data-act="pin" aria-pressed="' + pinned + '" aria-label="' + (pinned ? "Remove from Bundle Basket" : "Pin to top and add to Bundle Basket") + '" title="' + (pinned ? "Unpin" : "Pin and add to Bundle Basket") + '">' + PIN + '</button><div class="meta">' + (pinned ? '<span class="pill pin">Pinned</span>' : "") + fresh + drop + '<span class="pill type">' + (d.t === "bundle" ? "Parts bundle" : part ? "Component" : "Pre-built") + '</span>' +
-      '<strong>' + esc(d.retailer) + '</strong>' + rankPill + secPill + (part ? "" : '<span>' + agoMs(Date.now() - d.ts) + '</span>') + stockPill(d.stock) + (d.fin ? '<span class="pill">Finance</span>' : "") + '</div>' +
+      '<strong>' + esc(d.retailer) + '</strong>' + rankPill + commPill + secPill + (part ? "" : '<span>' + agoMs(Date.now() - d.ts) + '</span>') + stockPill(d.stock) + (d.fin ? '<span class="pill">Finance</span>' : "") + '</div>' +
       '<h2>' + esc(d.title) + '</h2>' + (part ? "" : '<dl class="specs">' + specs + '</dl>') + (d.note ? '<div class="note">' + esc(d.note) + '</div>' : "") + '</div>' +
       '<div class="buy"><div><div class="price">' + gbp(d.p) + '</div>' + was + '<div class="total">' + delv + '</div>' + score + '</div>' +
       '<div class="actions"><a class="cta" href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">View at ' + esc(d.retailer) + '</a>' +
