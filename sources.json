@@ -326,6 +326,51 @@
    "enabled": true
   },
   {
+   "name": "HotUKDeals hottest",
+   "type": "pepper_api",
+   "base": "https://www.hotukdeals.com/rest_api/v2",
+   "top": 10,
+   "enabled": true,
+   "queries": [
+    {
+     "cat": "deals",
+     "query": "gaming pc"
+    },
+    {
+     "cat": "deals",
+     "query": "pc bundle cpu motherboard ram"
+    },
+    {
+     "cat": "gpu",
+     "query": "graphics card"
+    },
+    {
+     "cat": "cpu",
+     "query": "processor"
+    },
+    {
+     "cat": "memory",
+     "query": "ddr5 ram"
+    },
+    {
+     "cat": "motherboard",
+     "query": "motherboard"
+    },
+    {
+     "cat": "psu",
+     "query": "power supply"
+    },
+    {
+     "cat": "case",
+     "query": "pc case"
+    },
+    {
+     "cat": "cooling",
+     "query": "cpu cooler"
+    }
+   ]
+  },
+  {
    "name": "r/buildapcsalesuk",
    "type": "rss",
    "url": "https://www.reddit.com/r/buildapcsalesuk/new/.rss?limit=50",
