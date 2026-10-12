@@ -33,6 +33,8 @@ jobs:
         env:
           AWIN_FEED_1: ${{ secrets.AWIN_FEED_1 }}
           AWIN_FEED_2: ${{ secrets.AWIN_FEED_2 }}
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
         run: python scripts/fetch_deals.py
 
       - name: Save changes
