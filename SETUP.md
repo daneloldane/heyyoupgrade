@@ -69,6 +69,18 @@ Open the site and scroll to **Where prices come from**. Each source shows
 the top means real deals are loaded. A yellow "Example listings" bar means no real
 deals have been found yet.
 
+## Sections and Bundle Basket
+
+The purple bar has a section for each part type, plus the Bundle Basket on the right.
+Part lists come from the **Top 10 by category** source in `sources.json`. Each entry in its
+`pages` list is a retailer category page. The fetcher reads the first 10 products in the
+shop's own order and refreshes them every 10 minutes. If a page cannot be read, its last
+saved list stays on screen, and **Where prices come from** says which page failed.
+To add a page, copy one entry and change `url`, `cat` (gpu, cpu, memory, motherboard,
+psu, case or cooling), `retailer` and `rank_by`.
+
+The basket stores your pins in your own browser. It is not shared between devices.
+
 ## Adding more sources
 
 **Any RSS or Atom feed.** Open `sources.json` on GitHub, click the pencil icon and add:
@@ -96,11 +108,16 @@ price in pounds.
   5 to 30 minutes late. Deals appear within minutes of a post, not within seconds.
 - **Pausing.** GitHub switches off scheduled runs in a repository with no activity for
   60 days. If that happens, open the **Actions** tab and click **Enable workflow**.
-- **Reddit.** Reddit sometimes refuses requests from GitHub's servers. If r/buildapcsalesuk
-  shows **Failing** with HTTP 403 or 429, tell me and I will switch it to Reddit's
-  official free API. Also note that Reddit's terms limit commercial use of its data.
-  If the site will earn money from affiliate links, check those terms or rely on
-  Awin feeds and retailer feeds instead.
+- **Reddit.** Reddit blocks the plain feed from GitHub's servers, so the site uses Reddit's
+  official API instead. It is free but needs a one-off setup:
+  1. Log in to Reddit, open https://www.reddit.com/prefs/apps and click **create another app**.
+  2. Name it `heyyoupgrade`, choose **script**, set the redirect URI to `http://localhost`, and create it.
+  3. Copy the short code under the app name (the client id) and the **secret**.
+  4. In GitHub go to **Settings, Secrets and variables, Actions, New repository secret**.
+     Add `REDDIT_CLIENT_ID` and `REDDIT_CLIENT_SECRET`.
+  5. Run the workflow from the **Actions** tab.
+  Reddit's terms limit commercial use of its data. If the site will earn affiliate money,
+  check them first. Posts about single parts appear in the matching section as "Community deal".
 - **Accuracy.** Specs are read from post titles by pattern matching, so a few will be
   wrong or blank. The page always links to the original post or retailer page so
   people can check before they buy.
