@@ -933,6 +933,34 @@ def load_json(path, default):
         return default
 
 
+def write_feed(deals, path):
+    """feed.xml: new deals and fresh price drops, for any RSS reader."""
+    from xml.sax.saxutils import escape
+    repo = os.environ.get("GITHUB_REPOSITORY", "daneloldane/heyyoupgrade")
+    owner, name = repo.split("/", 1)
+    site = "https://%s.github.io/%s/" % (owner.lower(), name)
+    cutoff = now() - timedelta(hours=48)
+    picks = []
+    for d in deals:
+        dropped = parse_date(d.get("dropped_at"))
+        fresh = parse_date(d.get("first_seen"))
+        save = round((1 - d["p"] / d["was"]) * 100) if d.get("was") and d["was"] > d["p"] else 0
+        if (dropped and dropped > cutoff) or (d.get("t") != "part" and fresh and fresh > cutoff) or save >= 20:
+            picks.append((dropped or fresh or now(), save, d))
+    picks.sort(key=lambda x: x[0], reverse=True)
+    items = []
+    for when, save, d in picks[:40]:
+        label = "Price drop" if d.get("dropped_at") and (parse_date(d["dropped_at"]) or now()) > cutoff else ("%d%% off" % save if save >= 20 else "New")
+        title = "%s: %s \u00a3%.2f at %s" % (label, d["title"][:110], d["p"], d["retailer"])
+        items.append("<item><title>%s</title><link>%s</link><guid isPermaLink=\"false\">%s-%s</guid><pubDate>%s</pubDate><description>%s</description></item>" % (
+            escape(title), escape(d["url"]), d["id"], d["p"], when.strftime("%a, %d %b %Y %H:%M:%S +0000"),
+            escape("%s at %s for \u00a3%.2f. Check the shop page before you buy." % (d["title"], d["retailer"], d["p"]))))
+    xml = ('<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>HeyYoUpgrade deals</title><link>%s</link>'
+           '<description>New UK gaming PC and PC part deals and price drops.</description>%s</channel></rss>\n') % (site, "".join(items))
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(xml)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--sources", default=os.path.join(ROOT, "sources.json"))
@@ -1012,6 +1040,17 @@ def main():
             d["first_seen"] = iso(stamp)
         merged[d["id"]] = d
 
+    today = stamp.strftime("%Y-%m-%d")
+    keep_from = (stamp - timedelta(days=30)).strftime("%Y-%m-%d")
+    for d in merged.values():
+        hist = [list(x) for x in (old.get(d["id"], {}).get("ph") or d.get("ph") or []) if x[0] >= keep_from]
+        if d["id"] in {f["id"] for f in fetched} or not hist:
+            if hist and hist[-1][0] == today:
+                hist[-1][1] = min(hist[-1][1], d["p"])
+            else:
+                hist.append([today, d["p"]])
+        d["ph"] = hist
+
     deals = sorted(merged.values(), key=lambda d: d["posted"], reverse=True)[:MAX_DEALS]
 
     if was_sample and not deals:
@@ -1026,6 +1065,10 @@ def main():
         print("No changes.")
         return 0
     out["updated"] = iso(stamp)
+    try:
+        write_feed(out["deals"], os.path.join(os.path.dirname(os.path.abspath(args.out)), "feed.xml"))
+    except Exception as exc:
+        print("feed.xml not written: %s" % exc)
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=1, ensure_ascii=False)
         fh.write("\n")
