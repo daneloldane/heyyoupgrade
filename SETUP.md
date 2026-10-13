@@ -81,6 +81,29 @@ psu, case or cooling), `retailer` and `rank_by`.
 
 The basket stores your pins in your own browser. It is not shared between devices.
 
+## If updates fall behind
+
+GitHub runs free scheduled jobs when it has spare capacity, so "every 10 minutes" can
+become every few hours. The page says so when the last check is over 2 hours old.
+To force a steady 10 minutes, use a free outside timer to start the workflow:
+
+1. On GitHub open **Settings, Developer settings, Personal access tokens, Fine-grained tokens**.
+   Create one for the `heyyoupgrade` repository only, with **Actions: Read and write**.
+2. Sign up free at https://cron-job.org and create a job that runs every 10 minutes.
+3. URL: `https://api.github.com/repos/YOUR-USERNAME/heyyoupgrade/actions/workflows/update.yml/dispatches`
+   Method: POST. Body: `{"ref":"main"}`
+   Headers: `Authorization: Bearer YOUR_TOKEN`, `Accept: application/vnd.github+json`.
+4. Keep the token private. Anyone with it can start your workflow.
+
+## Alerts and price history
+
+- **RSS feed.** The site publishes `feed.xml` with new deals, big discounts and fresh price
+  drops. Add `https://YOUR-USERNAME.github.io/heyyoupgrade/feed.xml` to any RSS reader.
+- **Browser notifications.** The "Notify me of new drops" button at the bottom of the page
+  asks your browser for permission. These only arrive while the page is open in a tab.
+- **Price history.** The fetcher saves one price per day for each deal. After about three
+  days, deals can show "30-day low" or "% under 30-day avg". It builds up over time.
+
 ## Adding more sources
 
 **Any RSS or Atom feed.** Open `sources.json` on GitHub, click the pencil icon and add:
@@ -118,6 +141,11 @@ price in pounds.
   5. Run the workflow from the **Actions** tab.
   Reddit's terms limit commercial use of its data. If the site will earn affiliate money,
   check them first. Posts about single parts appear in the matching section as "Community deal".
+- **HotUKDeals.** The site uses the documented Pepper Public API (the platform behind HotUKDeals)
+  to pull the hottest deals for each section. Its docs do not say how access, rate limits or
+  commercial use work, so check **Where prices come from** after the first run. If it shows
+  "Failing" with HTTP 401 or 403, the API needs credentials, and you would need to ask Pepper
+  for access. Read their terms before you earn money from the site.
 - **Accuracy.** Specs are read from post titles by pattern matching, so a few will be
   wrong or blank. The page always links to the original post or retailer page so
   people can check before they buy.
