@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-13T19:23:08Z",
+ "updated": "2026-10-13T19:36:15Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-13T19:21:26Z",
+   "checked": "2026-10-13T19:34:34Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-13T19:22:49Z",
+   "checked": "2026-10-13T19:35:56Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,7 +56,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-13T19:23:08Z",
+   "checked": "2026-10-13T19:36:15Z",
    "seen": 0,
    "examples": []
   }
@@ -89,7 +89,13 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-13T16:08:01Z"
+   "first_seen": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     66.49
+    ]
+   ]
   },
   {
    "id": "c5b9c8b46861",
@@ -118,7 +124,13 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-13T18:33:28Z"
+   "first_seen": "2026-10-13T18:33:28Z",
+   "ph": [
+    [
+     "2026-10-13",
+     290.38
+    ]
+   ]
   },
   {
    "id": "ae702fe1d53b",
@@ -149,7 +161,13 @@
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-12T15:40:10Z",
    "prev_p": 30.17,
-   "dropped_at": "2026-10-13T18:20:19Z"
+   "dropped_at": "2026-10-13T18:20:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     30.16
+    ]
+   ]
   },
   {
    "id": "709fb4adf1c4",
@@ -178,7 +196,13 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-13T01:30:07Z"
+   "first_seen": "2026-10-13T01:30:07Z",
+   "ph": [
+    [
+     "2026-10-13",
+     174.99
+    ]
+   ]
   },
   {
    "id": "4dacac0c3db6",
@@ -209,7 +233,13 @@
    "page": "https://box.co.uk/processors",
    "first_seen": "2026-10-12T15:40:10Z",
    "prev_p": 203.99,
-   "dropped_at": "2026-10-13T16:08:01Z"
+   "dropped_at": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     186.95
+    ]
+   ]
   },
   {
    "id": "85da6560f2e8",
@@ -238,7 +268,13 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     213.2
+    ]
+   ]
   },
   {
    "id": "698906396377",
@@ -267,7 +303,13 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-13T01:30:07Z"
+   "first_seen": "2026-10-13T01:30:07Z",
+   "ph": [
+    [
+     "2026-10-13",
+     126.03
+    ]
+   ]
   },
   {
    "id": "9794cb6334b5",
@@ -296,7 +338,13 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     229.71
+    ]
+   ]
   },
   {
    "id": "ddd1b5a7e685",
@@ -327,7 +375,13 @@
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-11T18:32:37Z",
    "prev_p": 199.99,
-   "dropped_at": "2026-10-13T16:08:01Z"
+   "dropped_at": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     199.95
+    ]
+   ]
   },
   {
    "id": "8feaf6821fcd",
@@ -356,7 +410,13 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-13T16:08:01Z"
+   "first_seen": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     89.99
+    ]
+   ]
   },
   {
    "id": "4e109eba9927",
@@ -385,7 +445,13 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-13T16:08:01Z"
+   "first_seen": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     193.73
+    ]
+   ]
   },
   {
    "id": "fe11ca7d7b79",
@@ -414,7 +480,13 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-13T16:08:01Z"
+   "first_seen": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     324.99
+    ]
+   ]
   },
   {
    "id": "d10b58d2c30a",
@@ -443,7 +515,13 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-13T16:08:01Z"
+   "first_seen": "2026-10-13T16:08:01Z",
+   "ph": [
+    [
+     "2026-10-13",
+     869.99
+    ]
+   ]
   },
   {
    "id": "d29312151a4b",
@@ -472,7 +550,13 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     660.99
+    ]
+   ]
   },
   {
    "id": "8d8e0c282075",
@@ -501,7 +585,13 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     149.98
+    ]
+   ]
   },
   {
    "id": "e869ad715bb3",
@@ -532,7 +622,13 @@
    "page": "https://box.co.uk/memory",
    "first_seen": "2026-10-12T15:40:10Z",
    "prev_p": 899.99,
-   "dropped_at": "2026-10-12T19:20:45Z"
+   "dropped_at": "2026-10-12T19:20:45Z",
+   "ph": [
+    [
+     "2026-10-13",
+     799.99
+    ]
+   ]
   },
   {
    "id": "c93fc776babc",
@@ -560,7 +656,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     839.99
+    ]
+   ]
   },
   {
    "id": "c15163a8c69c",
@@ -588,7 +690,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1239.99
+    ]
+   ]
   },
   {
    "id": "09437745db32",
@@ -617,7 +725,13 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1799.99
+    ]
+   ]
   },
   {
    "id": "e8859c5df04b",
@@ -646,7 +760,13 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1709.99
+    ]
+   ]
   },
   {
    "id": "eadf1e2849d0",
@@ -675,7 +795,13 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1614.99
+    ]
+   ]
   },
   {
    "id": "5bede5c77794",
@@ -704,7 +830,13 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1129.99
+    ]
+   ]
   },
   {
    "id": "fba762f39951",
@@ -733,7 +865,13 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1229.99
+    ]
+   ]
   },
   {
    "id": "b53d45d70c80",
@@ -762,7 +900,13 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     307.99
+    ]
+   ]
   },
   {
    "id": "c5719c77ebf3",
@@ -793,7 +937,13 @@
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-11T18:32:37Z",
    "prev_p": 39.63,
-   "dropped_at": "2026-10-12T15:40:10Z"
+   "dropped_at": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     39.23
+    ]
+   ]
   },
   {
    "id": "c6e97e8d2d81",
@@ -822,7 +972,13 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     298.43
+    ]
+   ]
   },
   {
    "id": "8918340a1367",
@@ -851,7 +1007,13 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     599.99
+    ]
+   ]
   },
   {
    "id": "bf781356d699",
@@ -880,7 +1042,13 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     84.99
+    ]
+   ]
   },
   {
    "id": "cbccc67cf03f",
@@ -909,7 +1077,13 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     54.39
+    ]
+   ]
   },
   {
    "id": "5067a67bd222",
@@ -938,7 +1112,13 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1129.99
+    ]
+   ]
   },
   {
    "id": "76e17112d96e",
@@ -967,7 +1147,13 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     619.99
+    ]
+   ]
   },
   {
    "id": "7321a41681d6",
@@ -996,7 +1182,13 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     146.62
+    ]
+   ]
   },
   {
    "id": "24a77e910296",
@@ -1025,7 +1217,13 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     74.49
+    ]
+   ]
   },
   {
    "id": "b725e4cbe4b2",
@@ -1054,7 +1252,13 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     24.65
+    ]
+   ]
   },
   {
    "id": "47160509bdc5",
@@ -1083,7 +1287,13 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     89.99
+    ]
+   ]
   },
   {
    "id": "801fdd712280",
@@ -1112,7 +1322,13 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     137.99
+    ]
+   ]
   },
   {
    "id": "d95f8ec1e11a",
@@ -1141,7 +1357,13 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     253.95
+    ]
+   ]
   },
   {
    "id": "4aab50e3b4c7",
@@ -1170,7 +1392,13 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     159.99
+    ]
+   ]
   },
   {
    "id": "79a5cdb8f5fb",
@@ -1199,7 +1427,13 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     212.99
+    ]
+   ]
   },
   {
    "id": "edeb2d1609f1",
@@ -1228,7 +1462,13 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     162.99
+    ]
+   ]
   },
   {
    "id": "1981949aa60c",
@@ -1257,7 +1497,13 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     194.95
+    ]
+   ]
   },
   {
    "id": "5879d0f5fec2",
@@ -1286,7 +1532,13 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     362.99
+    ]
+   ]
   },
   {
    "id": "1d23f9c163fa",
@@ -1314,7 +1566,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1269.0
+    ]
+   ]
   },
   {
    "id": "e442a7d837e9",
@@ -1342,7 +1600,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-12T15:40:10Z"
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     449.0
+    ]
+   ]
   },
   {
    "id": "a88e38733481",
@@ -1371,7 +1635,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     324.99
+    ]
+   ]
   },
   {
    "id": "8beae0c6faa7",
@@ -1400,7 +1670,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     271.99
+    ]
+   ]
   },
   {
    "id": "283a689bc7fb",
@@ -1429,7 +1705,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     219.99
+    ]
+   ]
   },
   {
    "id": "d00d0780d2bd",
@@ -1458,7 +1740,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     89.99
+    ]
+   ]
   },
   {
    "id": "d2fc3ae93679",
@@ -1487,7 +1775,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     357.99
+    ]
+   ]
   },
   {
    "id": "5425a1b66e66",
@@ -1516,7 +1810,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     121.99
+    ]
+   ]
   },
   {
    "id": "2eb3f286f94f",
@@ -1545,7 +1845,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     78.99
+    ]
+   ]
   },
   {
    "id": "2473d9d278bb",
@@ -1574,7 +1880,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     138.99
+    ]
+   ]
   },
   {
    "id": "521129b45954",
@@ -1603,7 +1915,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     184.99
+    ]
+   ]
   },
   {
    "id": "73bd4b7bb42f",
@@ -1632,7 +1950,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cpu-processors/"
+   "page": "https://www.cclonline.com/pc-components/cpu-processors/",
+   "ph": [
+    [
+     "2026-10-13",
+     399.99
+    ]
+   ]
   },
   {
    "id": "863f8cdaadca",
@@ -1661,7 +1985,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     1179.99
+    ]
+   ]
   },
   {
    "id": "e2b5bfc5d2ad",
@@ -1690,7 +2020,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     202.99
+    ]
+   ]
   },
   {
    "id": "b20c2a481b48",
@@ -1719,7 +2055,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     713.99
+    ]
+   ]
   },
   {
    "id": "fe957fd49a5b",
@@ -1748,7 +2090,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     546.99
+    ]
+   ]
   },
   {
    "id": "34a01fd04af8",
@@ -1777,7 +2125,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     114.99
+    ]
+   ]
   },
   {
    "id": "49d7a1b179c3",
@@ -1806,7 +2160,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     113.99
+    ]
+   ]
   },
   {
    "id": "6e694248c4f9",
@@ -1835,7 +2195,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     569.99
+    ]
+   ]
   },
   {
    "id": "8bbf519668e4",
@@ -1864,7 +2230,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     197.99
+    ]
+   ]
   },
   {
    "id": "93b383dfcf6f",
@@ -1893,7 +2265,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     454.99
+    ]
+   ]
   },
   {
    "id": "e192c29af2d1",
@@ -1922,7 +2300,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/"
+   "page": "https://www.cclonline.com/pc-components/memory/desktop-memory/",
+   "ph": [
+    [
+     "2026-10-13",
+     249.99
+    ]
+   ]
   },
   {
    "id": "2604aa708be5",
@@ -1951,7 +2335,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     58.99
+    ]
+   ]
   },
   {
    "id": "6f3174d41349",
@@ -1980,7 +2370,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     34.99
+    ]
+   ]
   },
   {
    "id": "12ed910b6d20",
@@ -2009,7 +2405,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     79.99
+    ]
+   ]
   },
   {
    "id": "13d42cebd047",
@@ -2038,7 +2440,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     28.99
+    ]
+   ]
   },
   {
    "id": "dc6b93fd8fb3",
@@ -2067,7 +2475,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     135.99
+    ]
+   ]
   },
   {
    "id": "08d116e931f7",
@@ -2096,7 +2510,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     26.99
+    ]
+   ]
   },
   {
    "id": "6f3588979b05",
@@ -2125,7 +2545,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     26.99
+    ]
+   ]
   },
   {
    "id": "907e3c8e0e88",
@@ -2154,7 +2580,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     53.99
+    ]
+   ]
   },
   {
    "id": "9daf48d8e0bb",
@@ -2183,7 +2615,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     76.99
+    ]
+   ]
   },
   {
    "id": "c8f22bcb3ef6",
@@ -2212,7 +2650,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/cases/"
+   "page": "https://www.cclonline.com/pc-components/cases/",
+   "ph": [
+    [
+     "2026-10-13",
+     43.99
+    ]
+   ]
   },
   {
    "id": "b864ea6fc913",
@@ -2241,7 +2685,13 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     799.99
+    ]
+   ]
   },
   {
    "id": "835e6ff4576e",
@@ -2270,7 +2720,13 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     359.99
+    ]
+   ]
   },
   {
    "id": "662d383a74e2",
@@ -2299,7 +2755,13 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1319.99
+    ]
+   ]
   },
   {
    "id": "a4632c127c55",
@@ -2328,7 +2790,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     129.99
+    ]
+   ]
   },
   {
    "id": "4e9bb6eed820",
@@ -2357,7 +2825,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     188.99
+    ]
+   ]
   },
   {
    "id": "3664ee984e4b",
@@ -2386,7 +2860,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     170.99
+    ]
+   ]
   },
   {
    "id": "f36faac48ce4",
@@ -2415,7 +2895,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     109.99
+    ]
+   ]
   },
   {
    "id": "291fbe9939bf",
@@ -2444,7 +2930,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     75.99
+    ]
+   ]
   },
   {
    "id": "9ab06d67b905",
@@ -2473,7 +2965,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     53.99
+    ]
+   ]
   },
   {
    "id": "7a2a4743b5e9",
@@ -2502,7 +3000,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     47.99
+    ]
+   ]
   },
   {
    "id": "b12526652fe3",
@@ -2531,7 +3035,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     96.99
+    ]
+   ]
   },
   {
    "id": "9a32f5b8d95a",
@@ -2560,7 +3070,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     40.99
+    ]
+   ]
   },
   {
    "id": "d454b5b72a7e",
@@ -2589,7 +3105,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/"
+   "page": "https://www.cclonline.com/pc-components/fans-cooling/cpu-coolers/",
+   "ph": [
+    [
+     "2026-10-13",
+     55.99
+    ]
+   ]
   },
   {
    "id": "25afa1ffd200",
@@ -2618,7 +3140,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     537.99
+    ]
+   ]
   },
   {
    "id": "f25b88b362d2",
@@ -2647,7 +3175,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     1119.99
+    ]
+   ]
   },
   {
    "id": "e3a54cff0bc0",
@@ -2676,7 +3210,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     1738.99
+    ]
+   ]
   },
   {
    "id": "19e1e07c9a22",
@@ -2705,7 +3245,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     535.99
+    ]
+   ]
   },
   {
    "id": "2476484a183d",
@@ -2734,7 +3280,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     609.99
+    ]
+   ]
   },
   {
    "id": "830fcc9ded65",
@@ -2763,7 +3315,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     759.99
+    ]
+   ]
   },
   {
    "id": "93c9d13b6de9",
@@ -2792,7 +3350,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     1549.99
+    ]
+   ]
   },
   {
    "id": "f55ed7d7c2ff",
@@ -2821,7 +3385,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     757.99
+    ]
+   ]
   },
   {
    "id": "8de8f0ec34f8",
@@ -2850,7 +3420,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     1399.99
+    ]
+   ]
   },
   {
    "id": "6a1f2ad97950",
@@ -2879,7 +3455,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/graphics-cards/"
+   "page": "https://www.cclonline.com/pc-components/graphics-cards/",
+   "ph": [
+    [
+     "2026-10-13",
+     789.99
+    ]
+   ]
   },
   {
    "id": "6449157ac346",
@@ -2908,7 +3490,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     159.99
+    ]
+   ]
   },
   {
    "id": "ee58d384ae73",
@@ -2937,7 +3525,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     45.99
+    ]
+   ]
   },
   {
    "id": "64d89aeaff77",
@@ -2966,7 +3560,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     136.99
+    ]
+   ]
   },
   {
    "id": "0e0f345438f4",
@@ -2995,7 +3595,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     136.99
+    ]
+   ]
   },
   {
    "id": "9b5c91e64a92",
@@ -3024,7 +3630,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     87.99
+    ]
+   ]
   },
   {
    "id": "856e68d4f0e0",
@@ -3053,7 +3665,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     134.99
+    ]
+   ]
   },
   {
    "id": "75efaed7dacf",
@@ -3082,7 +3700,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     137.99
+    ]
+   ]
   },
   {
    "id": "7b439379c476",
@@ -3111,7 +3735,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     108.99
+    ]
+   ]
   },
   {
    "id": "a1f18e65c489",
@@ -3140,7 +3770,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/motherboards/"
+   "page": "https://www.cclonline.com/pc-components/motherboards/",
+   "ph": [
+    [
+     "2026-10-13",
+     77.99
+    ]
+   ]
   },
   {
    "id": "2aa7844aa975",
@@ -3169,7 +3805,13 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     624.99
+    ]
+   ]
   },
   {
    "id": "fa1f71510f10",
@@ -3198,7 +3840,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     64.99
+    ]
+   ]
   },
   {
    "id": "df7300529c9e",
@@ -3227,7 +3875,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     109.99
+    ]
+   ]
   },
   {
    "id": "b7475be985e6",
@@ -3256,7 +3910,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     43.99
+    ]
+   ]
   },
   {
    "id": "a4c0884b521b",
@@ -3285,7 +3945,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     94.99
+    ]
+   ]
   },
   {
    "id": "1237d9528147",
@@ -3314,7 +3980,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     70.99
+    ]
+   ]
   },
   {
    "id": "7c11ff5bbb6e",
@@ -3343,7 +4015,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     227.99
+    ]
+   ]
   },
   {
    "id": "e871557faf28",
@@ -3372,7 +4050,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     59.99
+    ]
+   ]
   },
   {
    "id": "a86267b4fecd",
@@ -3401,7 +4085,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     218.99
+    ]
+   ]
   },
   {
    "id": "d3a9661c0ded",
@@ -3430,7 +4120,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     37.99
+    ]
+   ]
   },
   {
    "id": "a38877244661",
@@ -3459,7 +4155,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Recommended",
-   "page": "https://www.cclonline.com/pc-components/power-supplies/"
+   "page": "https://www.cclonline.com/pc-components/power-supplies/",
+   "ph": [
+    [
+     "2026-10-13",
+     73.99
+    ]
+   ]
   },
   {
    "id": "e1b547b6ef3a",
@@ -3488,7 +4190,13 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     138.98
+    ]
+   ]
   },
   {
    "id": "a53a3f2fe5fb",
@@ -3517,7 +4225,13 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     127.99
+    ]
+   ]
   },
   {
    "id": "50c9b7d6980a",
@@ -3546,7 +4260,13 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     237.99
+    ]
+   ]
   },
   {
    "id": "47ff1762a7d2",
@@ -3575,7 +4295,13 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     71.99
+    ]
+   ]
   },
   {
    "id": "e896455cbc91",
@@ -3604,7 +4330,13 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     310.99
+    ]
+   ]
   },
   {
    "id": "be5d754c7d20",
@@ -3633,7 +4365,13 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z"
+   "first_seen": "2026-10-11T18:32:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     68.99
+    ]
+   ]
   },
   {
    "id": "9d6a9b701a3d",
@@ -3662,7 +4400,13 @@
    "snapshot": true,
    "rank": 1,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     449.99
+    ]
+   ]
   },
   {
    "id": "34c198e65a7e",
@@ -3691,7 +4435,13 @@
    "snapshot": true,
    "rank": 2,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     659.99
+    ]
+   ]
   },
   {
    "id": "b67faa087aff",
@@ -3720,7 +4470,13 @@
    "snapshot": true,
    "rank": 3,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     579.99
+    ]
+   ]
   },
   {
    "id": "ec08b0bb4476",
@@ -3749,7 +4505,13 @@
    "snapshot": true,
    "rank": 4,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     239.99
+    ]
+   ]
   },
   {
    "id": "a68943891e8f",
@@ -3778,7 +4540,13 @@
    "snapshot": true,
    "rank": 5,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     99.99
+    ]
+   ]
   },
   {
    "id": "d4b3889ff540",
@@ -3807,7 +4575,13 @@
    "snapshot": true,
    "rank": 6,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     349.99
+    ]
+   ]
   },
   {
    "id": "09047b1d1279",
@@ -3836,7 +4610,13 @@
    "snapshot": true,
    "rank": 7,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     479.99
+    ]
+   ]
   },
   {
    "id": "6a22de170ef7",
@@ -3865,7 +4645,13 @@
    "snapshot": true,
    "rank": 8,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     499.99
+    ]
+   ]
   },
   {
    "id": "0b17e3750bcd",
@@ -3894,7 +4680,13 @@
    "snapshot": true,
    "rank": 9,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     1099.99
+    ]
+   ]
   },
   {
    "id": "5388be6a4078",
@@ -3923,7 +4715,13 @@
    "snapshot": true,
    "rank": 10,
    "rank_by": "Most Popular",
-   "page": "https://www.ebuyer.com/computing/components/graphics-cards"
+   "page": "https://www.ebuyer.com/computing/components/graphics-cards",
+   "ph": [
+    [
+     "2026-10-13",
+     699.99
+    ]
+   ]
   },
   {
    "id": "d4e4c132afbb",
@@ -3947,7 +4745,13 @@
    "perf": 122.5,
    "tier": "entry",
    "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/HZN-GAM-CORE-A2-ND_01%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026."
+   "note": "Price seen on the retailer's page on 11 Oct 2026.",
+   "ph": [
+    [
+     "2026-10-13",
+     1049.99
+    ]
+   ]
   },
   {
    "id": "30323c623d8c",
@@ -3971,7 +4775,13 @@
    "perf": 212.2,
    "tier": "high",
    "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/M105_HZN-GAM-CORE-204-ND_1%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026."
+   "note": "Price seen on the retailer's page on 11 Oct 2026.",
+   "ph": [
+    [
+     "2026-10-13",
+     1899.99
+    ]
+   ]
   },
   {
    "id": "3c580aa2089e",
@@ -3995,7 +4805,13 @@
    "perf": 226.6,
    "tier": "high",
    "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/new_vantage_cutout.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. The page shows both Notify Me and Add to Basket, so check stock."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. The page shows both Notify Me and Add to Basket, so check stock.",
+   "ph": [
+    [
+     "2026-10-13",
+     2699.99
+    ]
+   ]
   },
   {
    "id": "c23b56969c8a",
@@ -4019,7 +4835,13 @@
    "perf": 175.4,
    "tier": "mid",
    "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/HZN-GAM-CORE-203-ND_1%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026."
+   "note": "Price seen on the retailer's page on 11 Oct 2026.",
+   "ph": [
+    [
+     "2026-10-13",
+     1579.99
+    ]
+   ]
   },
   {
    "id": "1b6703a59618",
@@ -4043,7 +4865,13 @@
    "perf": 148.5,
    "tier": "mid",
    "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/HZN-GAM-CORE-A2-ND_01%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026."
+   "note": "Price seen on the retailer's page on 11 Oct 2026.",
+   "ph": [
+    [
+     "2026-10-13",
+     1099.99
+    ]
+   ]
   },
   {
    "id": "325832fcc623",
@@ -4067,7 +4895,13 @@
    "perf": 77.5,
    "tier": "entry",
    "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images//AMZ_GAM_CORE_A22_01.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. Page shows Save £190."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. Page shows Save £190.",
+   "ph": [
+    [
+     "2026-10-13",
+     849.99
+    ]
+   ]
   },
   {
    "id": "a5986806b630",
@@ -4091,7 +4925,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.scan.co.uk/images/products/3841903-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     739.99
+    ]
+   ]
   },
   {
    "id": "3342f1e1805a",
@@ -4115,7 +4955,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.scan.co.uk/images/products/3745373-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     316.99
+    ]
+   ]
   },
   {
    "id": "228e9807e4ae",
@@ -4139,7 +4985,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.scan.co.uk/images/products/3803071-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     359.99
+    ]
+   ]
   },
   {
    "id": "8ecf95544f8c",
@@ -4163,7 +5015,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.scan.co.uk/images/products/3690178-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     414.98
+    ]
+   ]
   },
   {
    "id": "f2187d683696",
@@ -4187,7 +5045,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.scan.co.uk/images/products/3839613-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU, motherboard and 32GB DDR5. Pre-order, no stock date yet."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU, motherboard and 32GB DDR5. Pre-order, no stock date yet.",
+   "ph": [
+    [
+     "2026-10-13",
+     999.98
+    ]
+   ]
   },
   {
    "id": "7a0c0d48579b",
@@ -4211,7 +5075,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.fiercepc.co.uk/media/catalog/product/cache/ac01c91bc3b665fbc513fe611a712c83/a/m/am4-bib-001_1_1.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     135.9
+    ]
+   ]
   },
   {
    "id": "dcfdbcfbfecf",
@@ -4235,7 +5105,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.fiercepc.co.uk/media/catalog/product/cache/ac01c91bc3b665fbc513fe611a712c83/m/o/mobo_bundle_7500f_b840m_d2h_1.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     239.9
+    ]
+   ]
   },
   {
    "id": "e56809ff11eb",
@@ -4259,7 +5135,13 @@
    "perf": null,
    "tier": null,
    "img": "https://www.fiercepc.co.uk/media/catalog/product/cache/ac01c91bc3b665fbc513fe611a712c83/m/o/mobo_bundle_7800x3d_b650_eagle_ax_1.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only."
+   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
+   "ph": [
+    [
+     "2026-10-13",
+     479.9
+    ]
+   ]
   },
   {
    "id": "47704dde8c0c",
@@ -4287,7 +5169,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1849.99
+    ]
+   ]
   },
   {
    "id": "d879df8a5397",
@@ -4315,7 +5203,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     949.99
+    ]
+   ]
   },
   {
    "id": "9bf4a0d5ed38",
@@ -4343,7 +5237,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     739.99
+    ]
+   ]
   },
   {
    "id": "549fb1f6375e",
@@ -4371,7 +5271,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1599.99
+    ]
+   ]
   },
   {
    "id": "dc0a14b8b75e",
@@ -4399,7 +5305,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     859.99
+    ]
+   ]
   },
   {
    "id": "78ba74bae024",
@@ -4427,7 +5339,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1799.99
+    ]
+   ]
   },
   {
    "id": "9ccf89d999df",
@@ -4455,7 +5373,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1349.99
+    ]
+   ]
   },
   {
    "id": "ac2c0de5263b",
@@ -4483,7 +5407,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     2199.0
+    ]
+   ]
   },
   {
    "id": "d9761f3aa296",
@@ -4511,7 +5441,13 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z"
+   "first_seen": "2026-10-11T17:29:19Z",
+   "ph": [
+    [
+     "2026-10-13",
+     995.0
+    ]
+   ]
   }
  ]
 }
