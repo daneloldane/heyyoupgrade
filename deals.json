@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T19:53:11Z",
+ "updated": "2026-10-14T20:03:22Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T19:51:29Z",
+   "checked": "2026-10-14T20:01:43Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T19:52:52Z",
+   "checked": "2026-10-14T20:03:04Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,7 +56,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T19:53:11Z",
+   "checked": "2026-10-14T20:03:22Z",
    "seen": 0,
    "examples": []
   }
