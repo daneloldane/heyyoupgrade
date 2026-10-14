@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T06:03:22Z",
+ "updated": "2026-10-14T06:13:08Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T06:01:43Z",
+   "checked": "2026-10-14T06:11:27Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T06:03:04Z",
+   "checked": "2026-10-14T06:12:49Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,53 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T06:03:22Z",
+   "checked": "2026-10-14T06:13:08Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "ae702fe1d53b",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/aura-gc4-argb-gamdias-aura-gc4-argb-pc-case",
+   "thread": null,
+   "t": "part",
+   "cat": "case",
+   "title": "Gamdias AURA GC4 ARGB Tempered Glass Mid Tower Gaming PC Case - Black",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 30.1,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T06:13:08Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/e/0/e086f19bcf5c280490f99fdcccb148c4.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 1,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/computer-cases",
+   "first_seen": "2026-10-12T15:40:10Z",
+   "prev_p": 30.11,
+   "dropped_at": "2026-10-14T06:13:08Z",
+   "ph": [
+    [
+     "2026-10-13",
+     30.14
+    ],
+    [
+     "2026-10-14",
+     30.1
+    ]
+   ]
+  },
   {
    "id": "178eeac76801",
    "source": "Top 10 by category",
@@ -75,12 +116,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 81.49,
+   "p": 77.41,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-14T05:23:10Z",
+   "posted": "2026-10-14T06:13:08Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/a/6/a6c9059c9103f8098b7a6273ec6cc035.jpg?height=350",
@@ -90,10 +131,51 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-14T00:13:25Z",
+   "prev_p": 81.49,
+   "dropped_at": "2026-10-14T06:13:08Z",
    "ph": [
     [
      "2026-10-14",
      77.41
+    ]
+   ]
+  },
+  {
+   "id": "c6e97e8d2d81",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/cmk32gx4m2e3200c16-corsair-vengeance-32gb-ddr4-3200",
+   "thread": null,
+   "t": "part",
+   "cat": "memory",
+   "title": "Corsair Vengeance LPX CMK32GX4M2E3200C16 32GB (2 x 16GB) 3200 MHz DDR4 Desktop RAM",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 298.61,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T06:13:08Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/e/7/e73bba936e25ab0284b5f2b6a6712b9f.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 1,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/memory",
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     298.43
+    ],
+    [
+     "2026-10-14",
+     298.43
     ]
    ]
   },
@@ -110,12 +192,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 66.49,
+   "p": 63.16,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-14T05:23:10Z",
+   "posted": "2026-10-14T06:13:08Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/0/e/0e3cb30a746178bfe452b9307913884e.jpg?height=350",
@@ -125,6 +207,8 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
    "first_seen": "2026-10-13T16:08:01Z",
+   "prev_p": 66.49,
+   "dropped_at": "2026-10-14T06:13:08Z",
    "ph": [
     [
      "2026-10-13",
@@ -133,47 +217,6 @@
     [
      "2026-10-14",
      63.16
-    ]
-   ]
-  },
-  {
-   "id": "ae702fe1d53b",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/aura-gc4-argb-gamdias-aura-gc4-argb-pc-case",
-   "thread": null,
-   "t": "part",
-   "cat": "case",
-   "title": "Gamdias AURA GC4 ARGB Tempered Glass Mid Tower Gaming PC Case - Black",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 30.11,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T04:13:22Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/e/0/e086f19bcf5c280490f99fdcccb148c4.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 1,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "prev_p": 30.12,
-   "dropped_at": "2026-10-14T04:13:22Z",
-   "ph": [
-    [
-     "2026-10-13",
-     30.14
-    ],
-    [
-     "2026-10-14",
-     30.11
     ]
    ]
   },
@@ -1147,45 +1190,6 @@
     [
      "2026-10-14",
      39.23
-    ]
-   ]
-  },
-  {
-   "id": "c6e97e8d2d81",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/cmk32gx4m2e3200c16-corsair-vengeance-32gb-ddr4-3200",
-   "thread": null,
-   "t": "part",
-   "cat": "memory",
-   "title": "Corsair Vengeance LPX CMK32GX4M2E3200C16 32GB (2 x 16GB) 3200 MHz DDR4 Desktop RAM",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 298.43,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:38:44Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/e/7/e73bba936e25ab0284b5f2b6a6712b9f.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 1,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "ph": [
-    [
-     "2026-10-13",
-     298.43
-    ],
-    [
-     "2026-10-14",
-     298.43
     ]
    ]
   },
