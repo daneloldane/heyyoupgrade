@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T08:53:08Z",
+ "updated": "2026-10-14T09:03:37Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T08:51:27Z",
+   "checked": "2026-10-14T09:01:55Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T08:52:49Z",
+   "checked": "2026-10-14T09:03:18Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,47 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T08:53:08Z",
+   "checked": "2026-10-14T09:03:37Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "c968570ec640",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/a620ai-wifi-asrock-mini-itx-socket-am5-motherboard",
+   "thread": null,
+   "t": "part",
+   "cat": "motherboard",
+   "title": "Asrock A620AI WIFI AMD A620A DDR5 Mini-ITX Socket AM5 Motherboard",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 124.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T09:02:16Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/5/5/55f5dce39be6a1c5a057631701b68a0b.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/motherboards",
+   "first_seen": "2026-10-14T09:03:37Z",
+   "ph": [
+    [
+     "2026-10-14",
+     124.99
+    ]
+   ]
+  },
   {
    "id": "178eeac76801",
    "source": "Top 10 by category",
@@ -351,7 +386,7 @@
    "img": "https://media.box.co.uk/product/e/7/e7c24e50e3f69e9d63dccac108968c17.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-14T00:13:25Z",
@@ -386,7 +421,7 @@
    "img": "https://media.box.co.uk/product/d/c/dc82d690352c56b01c93322c8b316ca6.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-13T18:33:28Z",
@@ -663,7 +698,7 @@
    "img": "https://media.box.co.uk/product/3/b/3ba5899f7ba8f8e8591f204b09b8d6c7.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-13T16:08:01Z",
@@ -4852,45 +4887,6 @@
    ]
   },
   {
-   "id": "e896455cbc91",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/x870e-taichi-lite-asrock-amd-x870e-e-atx-motherboard",
-   "thread": null,
-   "t": "part",
-   "cat": "motherboard",
-   "title": "Asrock X870E TAICHI LITE DDR5 E-ATX Socket AM5 Motherboard",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 310.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-11T18:32:37Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/3/8/38c446d25b343554a38c4c270813c131.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 6,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-11T18:32:37Z",
-   "ph": [
-    [
-     "2026-10-13",
-     310.99
-    ],
-    [
-     "2026-10-14",
-     310.99
-    ]
-   ]
-  },
-  {
    "id": "be5d754c7d20",
    "source": "Top 10 by category",
    "retailer": "Box",
@@ -4914,7 +4910,7 @@
    "img": "https://media.box.co.uk/product/b/e/be5cbd59bc3d42f6588d5ca31e9af494.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-11T18:32:37Z",
