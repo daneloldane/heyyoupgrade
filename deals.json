@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T00:33:16Z",
+ "updated": "2026-10-14T00:43:06Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T00:31:35Z",
+   "checked": "2026-10-14T00:41:26Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T00:32:57Z",
+   "checked": "2026-10-14T00:42:48Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,47 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T00:33:16Z",
+   "checked": "2026-10-14T00:43:06Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "92333dff7885",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/f5-6000j3040f16gx2-tz5rk-g-skill-trident-z5-desktop-ram",
+   "thread": null,
+   "t": "part",
+   "cat": "memory",
+   "title": "G.Skill Trident Z5 RGB F5-6000J3040F16GX2-TZ5RK 32GB (2 x 16GB) 6000 MHz DDR5 Desktop RAM",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 579.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T00:41:42Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/7/d/7d3859c0a3518d1ab6acf4bfe5e700c3.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/memory",
+   "first_seen": "2026-10-14T00:43:06Z",
+   "ph": [
+    [
+     "2026-10-14",
+     579.99
+    ]
+   ]
+  },
   {
    "id": "ae702fe1d53b",
    "source": "Top 10 by category",
@@ -749,7 +784,7 @@
    "img": "https://media.box.co.uk/product/b/b/bb3dba6aee1f29667b1d4b7cdf49f5cd.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
    "first_seen": "2026-10-12T15:40:10Z",
@@ -1235,45 +1270,6 @@
    ]
   },
   {
-   "id": "cbccc67cf03f",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/ted48g3200c22bk-team-group-8gb-ddr4-desktop-ram",
-   "thread": null,
-   "t": "part",
-   "cat": "memory",
-   "title": "Team Group Elite 8GB (1x8GB) 3200MHz DDR4 Desktop RAM",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 54.39,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:38:44Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/1/0/10367a7741afd8c96b97c149beaa5230.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 7,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "ph": [
-    [
-     "2026-10-13",
-     54.39
-    ],
-    [
-     "2026-10-14",
-     54.39
-    ]
-   ]
-  },
-  {
    "id": "5067a67bd222",
    "source": "Top 10 by category",
    "retailer": "Box",
@@ -1297,7 +1293,7 @@
    "img": "https://media.box.co.uk/product/f/f/ff819e52b6d9d7317ec6cf48b78de6da.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
    "first_seen": "2026-10-12T15:40:10Z",
@@ -1336,7 +1332,7 @@
    "img": "https://media.box.co.uk/product/c/0/c0ce7c079c4dba1ab41137ade8147c55.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
    "first_seen": "2026-10-12T15:40:10Z",
