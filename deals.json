@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T18:03:28Z",
+ "updated": "2026-10-14T18:13:12Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T18:01:46Z",
+   "checked": "2026-10-14T18:11:30Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T18:03:09Z",
+   "checked": "2026-10-14T18:12:52Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,53 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T18:03:28Z",
+   "checked": "2026-10-14T18:13:12Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "ae702fe1d53b",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/aura-gc4-argb-gamdias-aura-gc4-argb-pc-case",
+   "thread": null,
+   "t": "part",
+   "cat": "case",
+   "title": "Gamdias AURA GC4 ARGB Tempered Glass Mid Tower Gaming PC Case - Black",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 30.04,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T18:13:12Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/e/0/e086f19bcf5c280490f99fdcccb148c4.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 1,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/computer-cases",
+   "first_seen": "2026-10-12T15:40:10Z",
+   "prev_p": 30.05,
+   "dropped_at": "2026-10-14T18:13:12Z",
+   "ph": [
+    [
+     "2026-10-13",
+     30.14
+    ],
+    [
+     "2026-10-14",
+     30.04
+    ]
+   ]
+  },
   {
    "id": "4c6cce77ea98",
    "source": "Top 10 by category",
@@ -94,47 +135,6 @@
     [
      "2026-10-14",
      212.3
-    ]
-   ]
-  },
-  {
-   "id": "ae702fe1d53b",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/aura-gc4-argb-gamdias-aura-gc4-argb-pc-case",
-   "thread": null,
-   "t": "part",
-   "cat": "case",
-   "title": "Gamdias AURA GC4 ARGB Tempered Glass Mid Tower Gaming PC Case - Black",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 30.05,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T16:19:03Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/e/0/e086f19bcf5c280490f99fdcccb148c4.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 1,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "prev_p": 30.06,
-   "dropped_at": "2026-10-14T16:19:03Z",
-   "ph": [
-    [
-     "2026-10-13",
-     30.14
-    ],
-    [
-     "2026-10-14",
-     30.05
     ]
    ]
   },
