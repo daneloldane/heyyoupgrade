@@ -1,21 +1,21 @@
 {
  "sample": false,
- "updated": "2026-10-14T16:19:03Z",
+ "updated": "2026-10-14T16:31:47Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T16:17:20Z",
-   "note": "Refreshed 6 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
+   "checked": "2026-10-14T16:30:07Z",
+   "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
    "name": "Top 10 by category",
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T16:18:43Z",
+   "checked": "2026-10-14T16:31:29Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -53,9 +53,12 @@
   },
   {
    "name": "Fierce PC bundles",
-   "ok": false,
+   "ok": true,
    "count": 0,
-   "error": "HTTP 403"
+   "error": "",
+   "checked": "2026-10-14T16:31:47Z",
+   "seen": 0,
+   "examples": []
   }
  ],
  "deals": [
