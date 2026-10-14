@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T14:03:34Z",
+ "updated": "2026-10-14T14:13:25Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T14:01:51Z",
+   "checked": "2026-10-14T14:11:40Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T14:03:14Z",
+   "checked": "2026-10-14T14:13:04Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,131 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T14:03:34Z",
+   "checked": "2026-10-14T14:13:25Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "ae702fe1d53b",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/aura-gc4-argb-gamdias-aura-gc4-argb-pc-case",
+   "thread": null,
+   "t": "part",
+   "cat": "case",
+   "title": "Gamdias AURA GC4 ARGB Tempered Glass Mid Tower Gaming PC Case - Black",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 30.06,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T14:13:25Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/e/0/e086f19bcf5c280490f99fdcccb148c4.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 1,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/computer-cases",
+   "first_seen": "2026-10-12T15:40:10Z",
+   "prev_p": 30.07,
+   "dropped_at": "2026-10-14T14:13:25Z",
+   "ph": [
+    [
+     "2026-10-13",
+     30.14
+    ],
+    [
+     "2026-10-14",
+     30.06
+    ]
+   ]
+  },
+  {
+   "id": "178eeac76801",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/ph-xt523p1-dbk01-phanteks-xt-pro-ultra-atx-tempered",
+   "thread": null,
+   "t": "part",
+   "cat": "case",
+   "title": "Phanteks XT Pro Ultra Tempered Glass Mid-Tower ATX Gaming PC Case - Black",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 77.41,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T14:13:25Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/a/6/a6c9059c9103f8098b7a6273ec6cc035.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 8,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/computer-cases",
+   "first_seen": "2026-10-14T00:13:25Z",
+   "prev_p": 81.49,
+   "dropped_at": "2026-10-14T14:13:25Z",
+   "ph": [
+    [
+     "2026-10-14",
+     77.41
+    ]
+   ]
+  },
+  {
+   "id": "1af1a6b3e9ea",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/ted48g3200c2201-team-group-8gb-ddr4-desktop-ram",
+   "thread": null,
+   "t": "part",
+   "cat": "memory",
+   "title": "Team Group Elite 8GB (1x8GB) 3200MHz DDR4 Desktop Memory RAM",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 63.16,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T14:13:25Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/0/e/0e3cb30a746178bfe452b9307913884e.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 4,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/memory",
+   "first_seen": "2026-10-13T16:08:01Z",
+   "prev_p": 66.49,
+   "dropped_at": "2026-10-14T14:13:25Z",
+   "ph": [
+    [
+     "2026-10-13",
+     63.16
+    ],
+    [
+     "2026-10-14",
+     63.16
+    ]
+   ]
+  },
   {
    "id": "835e6ff4576e",
    "source": "Top 10 by category",
@@ -297,121 +416,6 @@
     [
      "2026-10-14",
      117.99
-    ]
-   ]
-  },
-  {
-   "id": "178eeac76801",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/ph-xt523p1-dbk01-phanteks-xt-pro-ultra-atx-tempered",
-   "thread": null,
-   "t": "part",
-   "cat": "case",
-   "title": "Phanteks XT Pro Ultra Tempered Glass Mid-Tower ATX Gaming PC Case - Black",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 81.49,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T12:42:59Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/a/6/a6c9059c9103f8098b7a6273ec6cc035.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 8,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-14T00:13:25Z",
-   "ph": [
-    [
-     "2026-10-14",
-     77.41
-    ]
-   ]
-  },
-  {
-   "id": "1af1a6b3e9ea",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/ted48g3200c2201-team-group-8gb-ddr4-desktop-ram",
-   "thread": null,
-   "t": "part",
-   "cat": "memory",
-   "title": "Team Group Elite 8GB (1x8GB) 3200MHz DDR4 Desktop Memory RAM",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 66.49,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T12:42:59Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/0/e/0e3cb30a746178bfe452b9307913884e.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 4,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-13T16:08:01Z",
-   "ph": [
-    [
-     "2026-10-13",
-     63.16
-    ],
-    [
-     "2026-10-14",
-     63.16
-    ]
-   ]
-  },
-  {
-   "id": "ae702fe1d53b",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/aura-gc4-argb-gamdias-aura-gc4-argb-pc-case",
-   "thread": null,
-   "t": "part",
-   "cat": "case",
-   "title": "Gamdias AURA GC4 ARGB Tempered Glass Mid Tower Gaming PC Case - Black",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 30.07,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T12:13:15Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/e/0/e086f19bcf5c280490f99fdcccb148c4.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 1,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "prev_p": 30.08,
-   "dropped_at": "2026-10-14T12:13:15Z",
-   "ph": [
-    [
-     "2026-10-13",
-     30.14
-    ],
-    [
-     "2026-10-14",
-     30.07
     ]
    ]
   },
