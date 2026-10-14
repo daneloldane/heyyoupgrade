@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-14T10:19:45Z",
+ "updated": "2026-10-14T10:23:37Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-14T10:11:36Z",
+   "checked": "2026-10-14T10:21:56Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-14T10:19:26Z",
+   "checked": "2026-10-14T10:23:17Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,52 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-14T10:19:45Z",
+   "checked": "2026-10-14T10:23:37Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "9ccf89d999df",
+   "source": "Tracked product pages",
+   "retailer": "Box.co.uk",
+   "url": "https://box.co.uk/dge4uek007-acer-predator-po3-665-intel-core-i5-14400f",
+   "thread": null,
+   "t": "prebuilt",
+   "title": "Acer Predator PO3-665 Intel Core i5-14400F 16GB RAM 512GB SSD RTX 5070 Windows 11 Home Gaming Desktop PC",
+   "cpu": "Core i5 14400F",
+   "gpu": "RTX 5070",
+   "ram": "16GB",
+   "sto": "512GB SSD",
+   "p": 1695.0,
+   "was": null,
+   "del": 0,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-14T10:23:37Z",
+   "perf": 174.8,
+   "tier": "mid",
+   "img": "https://media.box.co.uk/product/1/4/1448b4ea71b1f324a606fa0b68e08b7e.jpg",
+   "note": "",
+   "snapshot": true,
+   "cat": "deals",
+   "rank": null,
+   "rank_by": null,
+   "first_seen": "2026-10-11T17:29:19Z",
+   "prev_p": 2299.99,
+   "dropped_at": "2026-10-14T10:23:37Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1349.99
+    ],
+    [
+     "2026-10-14",
+     1349.99
+    ]
+   ]
+  },
   {
    "id": "ae702fe1d53b",
    "source": "Top 10 by category",
@@ -213,44 +253,6 @@
     [
      "2026-10-14",
      124.99
-    ]
-   ]
-  },
-  {
-   "id": "9ccf89d999df",
-   "source": "Tracked product pages",
-   "retailer": "Box.co.uk",
-   "url": "https://box.co.uk/dge4uek007-acer-predator-po3-665-intel-core-i5-14400f",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Acer Predator PO3-665 Intel Core i5-14400F 16GB RAM 512GB SSD RTX 5070 Windows 11 Home Gaming Desktop PC",
-   "cpu": "Core i5 14400F",
-   "gpu": "RTX 5070",
-   "ram": "16GB",
-   "sto": "512GB SSD",
-   "p": 2299.99,
-   "was": null,
-   "del": 0,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T06:24:48Z",
-   "perf": 174.8,
-   "tier": "mid",
-   "img": "https://media.box.co.uk/product/1/4/1448b4ea71b1f324a606fa0b68e08b7e.jpg",
-   "note": "",
-   "snapshot": true,
-   "cat": "deals",
-   "rank": null,
-   "rank_by": null,
-   "first_seen": "2026-10-11T17:29:19Z",
-   "ph": [
-    [
-     "2026-10-13",
-     1349.99
-    ],
-    [
-     "2026-10-14",
-     1349.99
     ]
    ]
   },
