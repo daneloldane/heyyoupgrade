@@ -1,6 +1,6 @@
 {
  "sample": false,
- "updated": "2026-10-15T00:43:04Z",
+ "updated": "2026-10-15T00:51:32Z",
  "sources": [
   {
    "name": "Tracked product pages",
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-15T00:42:46Z",
+   "checked": "2026-10-15T00:51:14Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
