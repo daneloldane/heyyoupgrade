@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-15T17:13:20Z",
+ "updated": "2026-10-15T17:23:14Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-15T17:11:37Z",
+   "checked": "2026-10-15T17:21:33Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-15T17:13:00Z",
+   "checked": "2026-10-15T17:22:55Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,54 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-15T17:13:20Z",
+   "checked": "2026-10-15T17:23:14Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "e442a7d837e9",
+   "source": "Tracked product pages",
+   "retailer": "Inside-Tech",
+   "url": "https://inside-tech.co.uk/components/upgrade-bundles/pc-upgrade-bundle-i5-12400f-16gb-ram/",
+   "thread": null,
+   "t": "bundle",
+   "title": "PC Upgrade Bundle: Core i5 12400F, Asus Prime H610M-A, 16GB DDR4",
+   "cpu": "Core i5 12400F",
+   "gpu": null,
+   "ram": "16GB DDR4",
+   "sto": null,
+   "p": 469.0,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-15T17:23:14Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://inside-tech.co.uk/wp-content/uploads/2025/05/i5-Upgrade-Bundle-new-1200x1200.jpg",
+   "note": "CPU, motherboard, 16GB DDR4 and stock cooler.",
+   "snapshot": true,
+   "cat": "deals",
+   "rank": null,
+   "rank_by": null,
+   "first_seen": "2026-10-12T15:40:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     449.0
+    ],
+    [
+     "2026-10-14",
+     449.0
+    ],
+    [
+     "2026-10-15",
+     449.0
+    ]
+   ]
+  },
   {
    "id": "d10b58d2c30a",
    "source": "Top 10 by category",
@@ -2058,48 +2100,6 @@
     [
      "2026-10-15",
      1269.0
-    ]
-   ]
-  },
-  {
-   "id": "e442a7d837e9",
-   "source": "Tracked product pages",
-   "retailer": "Inside-Tech",
-   "url": "https://inside-tech.co.uk/components/upgrade-bundles/pc-upgrade-bundle-i5-12400f-16gb-ram/",
-   "thread": null,
-   "t": "bundle",
-   "title": "PC Upgrade Bundle: Core i5 12400F, Asus Prime H610M-A, 16GB DDR4",
-   "cpu": "Core i5 12400F",
-   "gpu": null,
-   "ram": "16GB DDR4",
-   "sto": null,
-   "p": 449.0,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:38:19Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://inside-tech.co.uk/wp-content/uploads/2025/05/i5-Upgrade-Bundle-new-1200x1200.jpg",
-   "note": "CPU, motherboard, 16GB DDR4 and stock cooler.",
-   "snapshot": true,
-   "cat": "deals",
-   "rank": null,
-   "rank_by": null,
-   "first_seen": "2026-10-12T15:40:10Z",
-   "ph": [
-    [
-     "2026-10-13",
-     449.0
-    ],
-    [
-     "2026-10-14",
-     449.0
-    ],
-    [
-     "2026-10-15",
-     449.0
     ]
    ]
   },
