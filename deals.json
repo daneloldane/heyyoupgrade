@@ -1,6 +1,6 @@
 {
  "sample": false,
- "updated": "2026-10-15T15:03:53Z",
+ "updated": "2026-10-15T15:08:11Z",
  "sources": [
   {
    "name": "Tracked product pages",
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-15T15:03:33Z",
+   "checked": "2026-10-15T15:07:51Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -53,9 +53,12 @@
   },
   {
    "name": "Fierce PC bundles",
-   "ok": false,
+   "ok": true,
    "count": 0,
-   "error": "RemoteDisconnected: Remote end closed connection without response"
+   "error": "",
+   "checked": "2026-10-15T15:08:11Z",
+   "seen": 0,
+   "examples": []
   }
  ],
  "deals": [
@@ -72,12 +75,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 77.41,
+   "p": 81.49,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-15T14:13:15Z",
+   "posted": "2026-10-15T15:08:11Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/a/6/a6c9059c9103f8098b7a6273ec6cc035.jpg?height=350",
@@ -87,8 +90,6 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-14T00:13:25Z",
-   "prev_p": 81.49,
-   "dropped_at": "2026-10-15T14:13:15Z",
    "ph": [
     [
      "2026-10-14",
