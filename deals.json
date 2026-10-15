@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-15T04:23:10Z",
+ "updated": "2026-10-15T04:33:26Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-15T04:21:30Z",
+   "checked": "2026-10-15T04:31:45Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-15T04:22:51Z",
+   "checked": "2026-10-15T04:33:07Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,47 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-15T04:23:10Z",
+   "checked": "2026-10-15T04:33:26Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "835e6ff4576e",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/asus-geforce-rtx3060-12gb-dual-rtx3060-o12g-v2",
+   "thread": null,
+   "t": "part",
+   "cat": "gpu",
+   "title": "ASUS GeForce RTX 3060 DUAL V2 12GB OC Graphics Card",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 354.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-15T04:31:51Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/1/9/19d8b93e972728c9b83042d6ee5b6f5e.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/graphic-cards",
+   "first_seen": "2026-10-15T04:33:26Z",
+   "ph": [
+    [
+     "2026-10-15",
+     354.99
+    ]
+   ]
+  },
   {
    "id": "178eeac76801",
    "source": "Top 10 by category",
@@ -398,7 +433,7 @@
    "img": "https://media.box.co.uk/product/5/4/54b81060ecb3e499ff765d31edeb8797.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-15T00:13:12Z",
@@ -478,7 +513,7 @@
    "img": "https://media.box.co.uk/product/b/3/b3a21b73654852d234ad82eec9b9bc6e.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 5,
+   "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-11T18:32:37Z",
@@ -1145,49 +1180,6 @@
    ]
   },
   {
-   "id": "d10b58d2c30a",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/prime-rx9070xt-o16g-asus-amd-radeon-rx-9070xt",
-   "thread": null,
-   "t": "part",
-   "cat": "gpu",
-   "title": "ASUS PRIME-RX9070XT-O16G OC 16GB Graphics Card",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 869.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-13T16:06:19Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/a/5/a526cedbbc0763b7ed06cfc66b1d5966.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 4,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-13T16:08:01Z",
-   "ph": [
-    [
-     "2026-10-13",
-     869.99
-    ],
-    [
-     "2026-10-14",
-     869.99
-    ],
-    [
-     "2026-10-15",
-     869.99
-    ]
-   ]
-  },
-  {
    "id": "8d8e0c282075",
    "source": "Top 10 by category",
    "retailer": "Box",
@@ -1426,7 +1418,7 @@
    "img": "https://media.box.co.uk/product/b/b/bb4c2c61bc66f2813ac0dd7904d02351.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 6,
+   "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-11T18:32:37Z",
@@ -1469,7 +1461,7 @@
    "img": "https://media.box.co.uk/product/8/4/84561b0fe7b6f3b1b788f521980b0a5f.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-11T18:32:37Z",
@@ -2030,7 +2022,7 @@
    "img": "https://media.box.co.uk/product/f/a/fa5a4cc35522b680d8e46bd613b0997a.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-12T15:40:10Z",
@@ -3490,7 +3482,7 @@
    "img": "https://media.box.co.uk/product/7/1/71c0c727e723a4d7cbb852fa94d56f42.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-11T18:32:37Z",
