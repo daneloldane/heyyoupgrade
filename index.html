@@ -299,6 +299,19 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   .deal { transition: border-color 0.15s; }
   .deal:hover { border-color: var(--accent); }
 }
+/* subtle filter rail */
+.rail { background: transparent; border: 0; border-right: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); padding: 2px 18px 2px 0; gap: 16px; font-size: 13px; max-height: calc(100vh - 150px); top: 130px; }
+.rail h3 { display: flex; justify-content: space-between; align-items: baseline; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; margin: 0 0 4px; opacity: .85; }
+.rail h3 b { text-transform: none; letter-spacing: 0; font-weight: 600; color: var(--ink); }
+.rail .check { font-size: 13px; }
+.rail select, .rail input[type="range"] { width: 100%; font-size: 13px; accent-color: var(--accent); }
+.rail select { padding: 6px 8px; background: transparent; border: 1px solid color-mix(in srgb, var(--ink) 22%, transparent); border-radius: 4px; }
+.rail .seg { background: transparent; border-color: color-mix(in srgb, var(--ink) 22%, transparent); }
+.rail .seg button { background: transparent; padding: 6px 2px; font-size: 12px; }
+.hintline { color: var(--muted); font-size: 11.5px; line-height: 1.35; }
+.pill.stale { border-style: dashed; color: var(--warn); border-color: var(--warn); background: transparent; }
+@media (max-width: 900px) { .rail { border-right: 0; padding: 12px; border: 1px solid var(--line); background: var(--surface); top: auto; max-height: none; } }
+
 </style>
 </head>
 <body>
@@ -324,10 +337,52 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   <div class="newbar" id="newbar" hidden></div>
 
   <div class="stats" id="stats"></div>
-  <div class="chips" id="chips"></div>
   <div class="tabhead" id="tabhead"></div>
 
-  <div id="view"></div>
+  <button class="filters-toggle" id="ftoggle" type="button" aria-expanded="false">Filters</button>
+  <div class="cols" id="cols">
+    <aside class="rail" id="rail" aria-label="Filters">
+      <div class="field" id="typeField">
+        <h3>Type</h3>
+        <div class="seg" id="typeSeg">
+          <button type="button" data-v="all" aria-pressed="true">All</button>
+          <button type="button" data-v="prebuilt" aria-pressed="false">Pre-built</button>
+          <button type="button" data-v="bundle" aria-pressed="false">Bundles</button>
+        </div>
+      </div>
+      <div class="field">
+        <h3>Max price <b id="priceV">Any</b></h3>
+        <input id="price" type="range" min="0" max="3000" step="50" value="3000">
+      </div>
+      <div class="field">
+        <h3>Value score <b id="scoreV">Any</b></h3>
+        <input id="minScore" type="range" min="0" max="100" step="5" value="0">
+        <small class="hintline">Score out of 100 for performance per pound within this section. Higher is better value.</small>
+      </div>
+      <div class="field" id="tierField">
+        <h3>Graphics tier</h3>
+        <select id="tier">
+          <option value="any">Any</option>
+          <option value="entry">Entry (1080p, RTX 5060 class)</option>
+          <option value="mid">Mid (1440p, 5060 Ti to 5070)</option>
+          <option value="high">High (4K, 9070 XT and above)</option>
+        </select>
+      </div>
+      <div class="field">
+        <h3>Availability</h3>
+        <div class="checks">
+          <label class="check"><input type="checkbox" id="inStock"> In stock only</label>
+          <label class="check" id="finField"><input type="checkbox" id="finOnly"> Finance offered</label>
+        </div>
+      </div>
+      <div class="field">
+        <h3>Retailers</h3>
+        <div class="checks retailers-list" id="rlist"></div>
+        <button type="button" class="mini-link" id="rall">Select all / none</button>
+      </div>
+    </aside>
+    <section aria-label="Deals"><div id="view"></div></section>
+  </div>
 
   <div class="alerts" id="alerts">
     <b>Get alerts</b>
@@ -383,7 +438,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   var META = { deals: [], sources: [], sample: false, updated: null };
   var DEALS = [];
   var known = {};
-  var state = { tab: "deals", type: "all", budget: 3000, tier: "any", inStock: false, fin: false, q: "", sort: "new", rs: {}, cmp: [], votes: {}, newIds: {} };
+  var state = { tab: "deals", type: "all", budget: 3000, maxP: null, minScore: 0, tier: "any", inStock: false, fin: false, q: "", sort: "new", rs: {}, cmp: [], votes: {}, newIds: {} };
   try { state.votes = JSON.parse(localStorage.getItem("rigdeals-votes") || "{}") || {}; } catch (e) { state.votes = {}; }
   state.pins = {};
   try { (JSON.parse(localStorage.getItem("heyyoupgrade-pins") || "[]") || []).forEach(function (id) { state.pins[id] = 1; }); } catch (e) {}
@@ -447,7 +502,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   var DOWN = '<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>';
 
   var TABS = [
-    { k: "deals", n: "Deal Finder", s: "Desktops & Bundles", t: "Deal Finder", note: "The best of every section on one page." },
+    { k: "deals", n: "Deal Finder", s: "Desktops & Bundles", t: "Deal Finder", note: "Pre-built gaming PCs and cheap build bundles." },
     { k: "gpu", n: "Graphics Cards", t: "Graphics Cards" },
     { k: "cpu", n: "CPUs", t: "CPUs" },
     { k: "memory", n: "Memory", t: "Memory" },
@@ -455,11 +510,8 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     { k: "psu", n: "Power Supplies", t: "Power Supplies" },
     { k: "case", n: "Cases", t: "Cases" },
     { k: "cooling", n: "Cooling", t: "Cooling" },
-    { k: "basket", n: "Bundle Basket", t: "Bundle Basket", note: "Everything you have pinned, from every section, in one place. Your picks are saved in this browser only." },
-    { k: "prebuilt", n: "Pre-built PCs", t: "Pre-built gaming PCs", hide: true, note: "Complete gaming PCs from UK shops, best value per pound first." },
-    { k: "bundle", n: "Bundles", t: "Cheap build bundles", hide: true, note: "CPU, motherboard and RAM bundles for a cheap build." }
+    { k: "basket", n: "Bundle Basket", t: "Bundle Basket", note: "Everything you have pinned, from every section, in one place. Your picks are saved in this browser only." }
   ];
-  var HOME = ["prebuilt", "bundle", "gpu", "cpu", "memory", "motherboard", "psu", "case", "cooling"];
   function tabOf(k) { for (var i = 0; i < TABS.length; i++) if (TABS[i].k === k) return TABS[i]; return TABS[0]; }
   function catOf(d) { return d.cat || "deals"; }
   function isPart(d) { return catOf(d) !== "deals"; }
@@ -467,7 +519,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   function inTab(d, tab) {
     tab = tab || state.tab;
     if (tab === "basket") return !!state.pins[d.id];
-    if (tab === "deals") return true;
+    if (tab === "deals") return !isPart(d);
     return secOf(d) === tab;
   }
   function basketCount() { return DEALS.filter(function (d) { return state.pins[d.id]; }).length; }
@@ -500,11 +552,12 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     $("tabhead").innerHTML = title ? "<h1>" + esc(title) + "</h1><p>" + esc(note) + "</p>" : "";
   }
   function sortOptions(tab) {
-    if (tab === "basket") return [["group", "By section"], ["low", "Lowest price"]];
-    if (tab === "prebuilt" || tab === "bundle") return [["value", "Best value per £"], ["new", "Newest"], ["low", "Lowest price"], ["save", "Biggest saving"]];
-    if (searching()) return [["save", "Biggest saving"], ["low", "Lowest price"], ["new", "Newest"]];
-    return [["rank", "Shop ranking"], ["low", "Lowest price"], ["save", "Biggest saving"]];
+    if (tab === "basket") return [["group", "By section"], ["value", "Best value score"], ["low", "Lowest price"]];
+    if (tab === "deals") return [["value", "Best value score"], ["new", "Newest"], ["low", "Lowest price"], ["save", "Biggest saving"]];
+    if (searching()) return [["save", "Biggest saving"], ["value", "Best value score"], ["low", "Lowest price"], ["new", "Newest"]];
+    return [["rank", "Shop ranking"], ["value", "Best value score"], ["low", "Lowest price"], ["save", "Biggest saving"]];
   }
+
   function ensureSort() {
     var opts = sortOptions(state.tab);
     if (!opts.some(function (o) { return o[0] === state.sort; })) state.sort = opts[0][0];
@@ -513,6 +566,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var k = (location.hash || "").replace("#", "");
     state.tab = tabOf(k).k === k ? k : "deals";
     state.sort = "";
+    state.maxP = null; state.minScore = 0; state.rs = {}; state.type = "all"; state.tier = "any"; state.inStock = false; state.fin = false;
     ensureSort();
     renderAll2();
     window.scrollTo(0, 0);
@@ -521,7 +575,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var home = state.tab === "deals" && !searching();
     $("srcSec").hidden = !home;
     $("extra").hidden = !home;
-    renderNav(); renderTabHead(); renderStats(); renderRetailers(); renderFeed();
+    renderNav(); renderTabHead(); renderStats(); renderRetailers(); renderRail(); renderFeed();
   }
 
   /* price history: needs a few saved days before labels appear */
@@ -547,9 +601,9 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
       if (s === "low") return a.total - b.total;
       if (s === "save") return b.save - a.save || a.total - b.total;
       if (s === "value") {
-        if (a.score != null && b.score != null) return b.score - a.score;
-        if (a.score != null) return -1;
-        if (b.score != null) return 1;
+        if (a.vs != null && b.vs != null) return b.vs - a.vs || b.save - a.save;
+        if (a.vs != null) return -1;
+        if (b.vs != null) return 1;
         return b.save - a.save;
       }
       return 0;
@@ -564,12 +618,27 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     });
   }
   function filtered() {
-    var list = searching() ? searchHits() : DEALS.filter(function (d) { return inTab(d); });
+    var deals = state.tab === "deals", basket = state.tab === "basket";
+    var list;
+    if (searching()) list = searchHits();
+    else list = DEALS.filter(function (d) {
+      if (!inTab(d)) return false;
+      if (basket) return true;
+      if (state.rs[d.retailer] === false) return false;
+      if (deals && state.type !== "all" && d.t !== state.type) return false;
+      if (deals && state.tier !== "any" && d.tier !== state.tier) return false;
+      if (state.maxP != null && d.total > state.maxP) return false;
+      if (state.minScore > 0 && (d.vs == null || d.vs < state.minScore)) return false;
+      if (state.inStock && d.stock !== "in") return false;
+      if (deals && state.fin && !d.fin) return false;
+      return true;
+    });
     list = sortList(list, state.sort);
-    if (state.tab === "basket" && !searching()) return list;
+    if ((basket || searching())) return list;
     var top = list.filter(function (d) { return state.pins[d.id]; });
     return top.concat(list.filter(function (d) { return !state.pins[d.id]; }));
   }
+
   function tabIdx(k) { for (var i = 0; i < TABS.length; i++) if (TABS[i].k === k) return i; return 0; }
 
   function stockPill(s) {
@@ -586,8 +655,10 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var was = d.was ? '<div class="was"><s>' + gbp(d.was) + '</s><span class="save">-' + d.save + '%</span></div>' : '<div class="was">No reference price</div>';
     var delv = d.del === null ? (isPart(d) ? "Delivery shown at checkout" : "Delivery not stated") : d.del ? "+ " + gbp(d.del) + " delivery = " + gbp(d.total) : "Free delivery";
     var part = isPart(d);
-    var score = part ? "" : d.score != null ? '<div class="score">Value <b>' + d.score.toFixed(1) + '</b> pts per £100' + (d.id === bestId ? " (best here)" : "") + '</div>' :
-      '<div class="score">' + (d.t === "bundle" ? "Parts bundle, no value score" : "No value score (GPU not recognised)") + '</div>';
+    var score = d.vs != null ? '<div class="score">Value score <b>' + d.vs + '</b>/100' + (d.id === bestId ? " (best here)" : "") + '</div>' :
+      '<div class="score">No value score (part not recognised)</div>';
+    var vt = Date.parse(d.verified || d.first_seen || d.posted) || Date.now();
+    var stale = Date.now() - vt > 12 * 36e5 ? '<span class="pill stale" title="The shop blocked the last automatic check, so this price may be out of date">Price checked ' + agoMs(Date.now() - vt) + "</span>" : "";
     var on = state.cmp.indexOf(d.id) >= 0;
     var fresh = state.newIds[d.id] ? '<span class="pill hot">New</span>' : "";
     var hl = histLabel(d), hotPill = isHot(d) ? '<span class="pill hot">Hot</span>' : "", histPill = hl ? '<span class="pill good">' + esc(hl) + "</span>" : "";
@@ -599,10 +670,10 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var pinned = !!state.pins[d.id];
     var rankPill = part && d.rank ? '<span class="pill rank">#' + d.rank + (d.rank_by ? " " + esc(d.rank_by) : "") + "</span>" : "";
     var commPill = part && !d.rank ? '<span class="pill">Community deal</span>' : "";
-    var secPill = state.tab === "basket" ? '<span class="pill type">' + esc(tabOf(catOf(d)).t) + "</span>" : "";
+    var secPill = state.tab === "basket" || searching() ? '<span class="pill type">' + esc(tabOf(secOf(d)).t) + "</span>" : "";
     return '<article class="deal' + (part ? " part" : "") + (img ? "" : " noimg") + (pinned ? " pinned" : "") + '" data-id="' + esc(d.id) + '">' + pic +
       '<div class="main"><button type="button" class="pinbtn" data-act="pin" aria-pressed="' + pinned + '" aria-label="' + (pinned ? "Remove from Bundle Basket" : "Pin to top and add to Bundle Basket") + '" title="' + (pinned ? "Unpin" : "Pin and add to Bundle Basket") + '">' + PIN + '</button><div class="meta">' + (pinned ? '<span class="pill pin">Pinned</span>' : "") + fresh + drop + '<span class="pill type">' + (d.t === "bundle" ? "Parts bundle" : part ? "Component" : "Pre-built") + '</span>' +
-      '<strong>' + esc(d.retailer) + '</strong>' + hotPill + histPill + rankPill + commPill + secPill + (part ? "" : '<span>' + agoMs(Date.now() - d.ts) + '</span>') + stockPill(d.stock) + (d.fin ? '<span class="pill">Finance</span>' : "") + '</div>' +
+      '<strong>' + esc(d.retailer) + '</strong>' + stale + hotPill + histPill + rankPill + commPill + secPill + (part ? "" : '<span>' + agoMs(Date.now() - d.ts) + '</span>') + stockPill(d.stock) + (d.fin ? '<span class="pill">Finance</span>' : "") + '</div>' +
       '<h2>' + esc(d.title) + '</h2>' + (part ? "" : '<dl class="specs">' + specs + '</dl>') + (d.note ? '<div class="note">' + esc(d.note) + '</div>' : "") + '</div>' +
       '<div class="buy"><div><div class="price">' + gbp(d.p) + '</div>' + was + '<div class="total">' + delv + '</div>' + score + '</div>' +
       '<div class="actions"><a class="cta" href="' + esc(link) + '" target="_blank" rel="noopener noreferrer">View at ' + esc(d.retailer) + '</a>' +
@@ -624,41 +695,30 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     }).join("") + "</select></label>";
   }
   function renderFeed() {
-    var view = $("view"), basket = state.tab === "basket", chips = $("chips");
-    var home = state.tab === "deals" && !searching();
+    var view = $("view"), basket = state.tab === "basket" && !searching();
+    var deals = state.tab === "deals" && !searching();
     ensureSort();
     var html = "";
-    if (home) {
-      var best = DEALS.filter(function (d) { return d.save > 0 && safeImg(d.img); });
+    if (deals) {
+      var best = DEALS.filter(function (d) { return !isPart(d) && d.save > 0 && safeImg(d.img); });
       best.sort(function (a, b) { return b.save - a.save; });
-      if (best.length < 4) best = best.concat(sortList(DEALS.filter(function (d) { return best.indexOf(d) < 0 && safeImg(d.img); }), "new"));
-      best = best.slice(0, 8);
+      best = best.slice(0, 6);
       if (best.length) html += '<section class="vsec"><div class="sechead"><h2>Deals right now</h2></div><div class="grid">' + best.map(tileHTML).join("") + "</div></section>";
-      var chipHTML = "";
-      HOME.forEach(function (k) {
-        var items = DEALS.filter(function (d) { return secOf(d) === k; });
-        if (!items.length) return;
-        chipHTML += '<a href="#sec-' + k + '" data-jump="sec-' + k + '">' + esc(tabOf(k).t.replace("Pre-built gaming PCs", "Pre-built PCs").replace("Cheap build bundles", "Bundles")) + "<b>" + items.length + "</b></a>";
-        var shown = sortList(items, k === "prebuilt" ? "value" : k === "bundle" ? "new" : "rank").slice(0, 5);
-        html += '<section class="vsec" id="sec-' + k + '"><div class="sechead"><h2>' + esc(tabOf(k).t) + "<span>" + items.length + '</span></h2><a href="#' + k + '">See all</a></div><div class="feed">' + shown.map(function (d) { return dealHTML(d, ""); }).join("") + "</div></section>";
-      });
-      chips.innerHTML = chipHTML;
-      if (!DEALS.length) html = '<div class="empty">No deals yet. The fetcher checks every 10 minutes, so new ones will appear here on their own.</div>';
-    } else {
-      chips.innerHTML = "";
-      var list = filtered();
-      var scored = list.filter(function (d) { return d.score != null; });
-      var bestId = scored.length ? scored.reduce(function (a, b) { return b.score > a.score ? b : a; }).id : "";
-      var np = list.filter(function (d) { return state.pins[d.id]; }).length;
-      var count = basket ? list.length + " item" + (list.length === 1 ? "" : "s") + " in your basket" : list.length + (searching() ? " result" : state.tab === "prebuilt" || state.tab === "bundle" ? " deal" : " part") + (list.length === 1 ? "" : "s") + (np ? ", " + np + " pinned" : "");
-      var emptyMsg = searching() ? "Nothing matches that search." : basket ? "Your Bundle Basket is empty. Press the pumpkin on any deal or part to add it here." : "Nothing here yet. The fetcher fills each section on its next run.";
-      html += '<div class="bar"><div class="count">' + esc(count) + "</div>" + sortSelect(searching() ? "search" : state.tab) + "</div>";
-      if (basket && list.length) {
-        var tot = list.reduce(function (a, d) { return a + d.p; }, 0);
-        html += '<div class="basket-bar"><span>Total of everything here at listed prices: <b>' + gbp(tot) + '</b><br><small>Delivery not included. If you pinned the same part from two shops, only buy one.</small></span><button type="button" id="clearBasket">Clear basket</button></div>';
-      }
-      html += '<div class="feed">' + (list.length ? list.map(function (d) { return dealHTML(d, bestId); }).join("") : '<div class="empty">' + emptyMsg + "</div>") + "</div>";
     }
+    var list = filtered();
+    var bestId = "";
+    list.forEach(function (d) { if (d.vs === 100 && !bestId) bestId = d.id; });
+    var np = list.filter(function (d) { return state.pins[d.id]; }).length;
+    var unit = state.tab === "deals" ? "deal" : "part";
+    var count = basket ? list.length + " item" + (list.length === 1 ? "" : "s") + " in your basket" : list.length + (searching() ? " result" : " " + unit) + (list.length === 1 ? "" : "s") + (np ? ", " + np + " pinned" : "");
+    var emptyMsg = searching() ? "Nothing matches that search." : basket ? "Your Bundle Basket is empty. Press the pumpkin on any deal or part to add it here." :
+      DEALS.some(function (d) { return inTab(d); }) ? "Nothing matches these filters. Try raising the price or lowering the value score." : "Nothing here yet. The fetcher fills each section on its next run.";
+    html += '<div class="bar"><div class="count">' + esc(count) + "</div>" + sortSelect(searching() ? "search" : state.tab) + "</div>";
+    if (basket && list.length) {
+      var tot = list.reduce(function (a, d) { return a + d.p; }, 0);
+      html += '<div class="basket-bar"><span>Total of everything here at listed prices: <b>' + gbp(tot) + '</b><br><small>Delivery not included. If you pinned the same part from two shops, only buy one.</small></span><button type="button" id="clearBasket">Clear basket</button></div>';
+    }
+    html += '<div class="feed">' + (list.length ? list.map(function (d) { return dealHTML(d, bestId); }).join("") : '<div class="empty">' + emptyMsg + "</div>") + "</div>";
     view.innerHTML = html;
     renderTray();
     renderNav();
@@ -688,9 +748,9 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     var best = sc.length ? sc.reduce(function (a, b) { return b.score > a.score ? b : a; }) : null;
     var lc2 = lastCheckMs(), upd = lc2 ? agoMs(Date.now() - lc2) : "n/a";
     $("stats").innerHTML =
-      '<div class="stat"><span class="n">' + DEALS.length + '</span><span class="l">' + (META.sample ? "Example listings" : "Deals tracked") + '</span></div>' +
-      '<div class="stat"><span class="n">' + (function () { var r = {}; DEALS.forEach(function (d) { r[d.retailer] = 1; }); return Object.keys(r).length; })() + '</span><span class="l">UK shops</span></div>' +
-      '<div class="stat"><span class="n">' + DEALS.filter(isHot).length + '</span><span class="l">Hot right now</span></div>' +
+      '<div class="stat"><span class="n">' + DEALS.filter(function (d) { return !isPart(d); }).length + '</span><span class="l">' + (META.sample ? "Example listings" : "Deals tracked") + '</span></div>' +
+      '<div class="stat"><span class="n">' + (function () { var r = {}; DEALS.forEach(function (d) { if (!isPart(d)) r[d.retailer] = 1; }); return Object.keys(r).length; })() + '</span><span class="l">UK shops</span></div>' +
+      '<div class="stat"><span class="n">' + DEALS.filter(function (d) { return !isPart(d) && isHot(d); }).length + '</span><span class="l">Hot right now</span></div>' +
       '<div class="stat"><span class="n mono">' + (cheapest ? gbp(cheapest.total) : "n/a") + '</span><span class="l">Cheapest pre-built</span></div>' +
       '<div class="stat"><span class="n mono">' + upd + '</span><span class="l">Last check</span></div>';
   }
@@ -716,6 +776,34 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     }
   }
 
+  function niceMax(v) {
+    var step = v > 1500 ? 100 : v > 400 ? 50 : v > 100 ? 10 : 5;
+    return Math.max(step, Math.ceil(v / step) * step);
+  }
+  function renderRail() {
+    var deals = state.tab === "deals";
+    var pool = DEALS.filter(function (d) { return inTab(d); });
+    var tcounts = {};
+    pool.forEach(function (d) { tcounts[d.retailer] = (tcounts[d.retailer] || 0) + 1; });
+    var names = Object.keys(tcounts).sort(function (a, b) { return a.localeCompare(b); });
+    $("rlist").innerHTML = names.map(function (k) {
+      return '<label class="check"><input type="checkbox" data-r="' + esc(k) + '" ' + (state.rs[k] !== false ? "checked" : "") + '> ' + esc(k) + '<span class="c">' + tcounts[k] + "</span></label>";
+    }).join("") || '<span class="hintline">No retailers yet.</span>';
+    $("typeField").hidden = !deals;
+    $("tierField").hidden = !deals;
+    $("finField").hidden = !deals;
+    var mx = niceMax(pool.reduce(function (a, d) { return Math.max(a, d.total); }, 0));
+    var pr = $("price");
+    pr.max = mx; pr.step = mx > 1500 ? 50 : mx > 400 ? 10 : 5;
+    pr.value = state.maxP == null ? mx : Math.min(state.maxP, mx);
+    $("priceV").textContent = state.maxP == null ? "Any" : "Up to " + gbp(state.maxP);
+    $("minScore").value = state.minScore;
+    $("scoreV").textContent = state.minScore ? state.minScore + "+" : "Any";
+    Array.prototype.forEach.call($("typeSeg").children, function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-v") === state.type); });
+    $("tier").value = state.tier; $("inStock").checked = state.inStock; $("finOnly").checked = state.fin;
+    $("cols").classList.toggle("single", state.tab === "basket" || searching());
+    $("ftoggle").hidden = state.tab === "basket" || searching();
+  }
   function renderRetailers() {
     var counts = {};
     DEALS.forEach(function (d) { counts[d.retailer] = (counts[d.retailer] || 0) + 1; });
@@ -783,6 +871,7 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     renderTabHead();
     renderStats();
     renderRetailers();
+    renderRail();
     renderSources();
     renderFeed();
   }
@@ -796,6 +885,9 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
   function apply(data, first) {
     META = data || META;
     var list = (META.deals || []).map(prep);
+    var gmax = {};
+    list.forEach(function (d) { d.raw = d.perf ? d.perf / (d.total / 100) : null; if (d.raw != null) { var g = secOf(d); gmax[g] = Math.max(gmax[g] || 0, d.raw); } });
+    list.forEach(function (d) { d.vs = d.raw != null ? Math.round(100 * d.raw / gmax[secOf(d)]) : null; });
     var fresh = [];
     var drops = [];
     list.forEach(function (d) {
@@ -875,6 +967,35 @@ tr.head td { font-family: var(--font-display); font-stretch: 100%; font-weight: 
     if (e.target.id === "clearBasket" && confirm("Remove everything from your Bundle Basket?")) { state.pins = {}; savePins(); renderStats(); renderFeed(); }
   });
   window.addEventListener("hashchange", applyTab);
+  $("typeSeg").addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    state.type = b.getAttribute("data-v");
+    Array.prototype.forEach.call($("typeSeg").children, function (x) { x.setAttribute("aria-pressed", x === b); });
+    renderFeed();
+  });
+  $("price").addEventListener("input", function (e) {
+    var v = +e.target.value;
+    state.maxP = v >= +e.target.max ? null : v;
+    $("priceV").textContent = state.maxP == null ? "Any" : "Up to " + gbp(state.maxP);
+    renderFeed();
+  });
+  $("minScore").addEventListener("input", function (e) {
+    state.minScore = +e.target.value; $("scoreV").textContent = state.minScore ? state.minScore + "+" : "Any"; renderFeed();
+  });
+  $("tier").addEventListener("change", function (e) { state.tier = e.target.value; renderFeed(); });
+  $("inStock").addEventListener("change", function (e) { state.inStock = e.target.checked; renderFeed(); });
+  $("finOnly").addEventListener("change", function (e) { state.fin = e.target.checked; renderFeed(); });
+  $("rlist").addEventListener("change", function (e) { var k = e.target.getAttribute("data-r"); if (k) { state.rs[k] = e.target.checked; renderFeed(); } });
+  $("rall").addEventListener("click", function () {
+    var names = Array.prototype.map.call($("rlist").querySelectorAll("[data-r]"), function (x) { return x.getAttribute("data-r"); });
+    var any = names.some(function (k) { return state.rs[k] !== false; });
+    names.forEach(function (k) { state.rs[k] = !any; });
+    renderRail(); renderFeed();
+  });
+  $("ftoggle").addEventListener("click", function () {
+    var open = $("rail").classList.toggle("open"); $("ftoggle").setAttribute("aria-expanded", open);
+    $("ftoggle").textContent = open ? "Hide filters" : "Filters";
+  });
   $("q").addEventListener("input", function (e) { state.q = e.target.value; ensureSort(); if (searching()) state.sort = "save"; renderAll2(); });
   document.addEventListener("click", function (e) {
     var j = e.target.closest("[data-jump]");

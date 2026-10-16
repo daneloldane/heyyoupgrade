@@ -104,6 +104,48 @@ To force a steady 10 minutes, use a free outside timer to start the workflow:
 - **Price history.** The fetcher saves one price per day for each deal. After about three
   days, deals can show "30-day low" or "% under 30-day avg". It builds up over time.
 
+## Getting more retailers (Currys, Overclockers and small UK shops)
+
+**Why some tabs are thin.** The site can only read what a shop lets automated visitors read.
+GitHub's servers are refused by some shops (CCL answers HTTP 403 to them), and the lists for
+those shops are then the last copy that was saved. The page marks them "Price checked 5d ago".
+Pretending to be a normal browser to get past that is not something this site does.
+
+**Best route for big shops: affiliate product feeds.** Currys and Overclockers both run
+affiliate programmes (check Awin first, then Impact, CJ and Partnerize). A feed is the
+retailer's own catalogue file, so it is allowed, complete and has images. Apply, wait for
+approval, create a CSV feed, and put its URL in the `AWIN_FEED_1` secret. To let a feed fill
+the part tabs too, add `"parts": true` to that source in `sources.json`.
+
+**Best route for small shops: Shopify.** Many small UK PC shops run on Shopify, which publishes
+each collection as JSON at `https://SHOP/collections/NAME/products.json`. Test one by opening
+that address in your browser. If you see product data, add the shop to `sources.json`:
+
+```json
+{
+  "name": "Small shops",
+  "type": "shopify_json",
+  "enabled": true,
+  "top": 10,
+  "shops": [
+    {
+      "retailer": "Shop name",
+      "base": "https://www.example-shop.co.uk",
+      "collections": [
+        { "handle": "graphics-cards", "cat": "gpu", "rank_by": "Shop order" },
+        { "handle": "gaming-pcs", "cat": "deals" }
+      ]
+    }
+  ]
+}
+```
+
+`cat` is one of gpu, cpu, memory, motherboard, psu, case, cooling, or `deals` for complete PCs
+and bundles. After a run, **Where prices come from** shows whether each shop answered.
+
+**Other routes.** Email a shop and ask for a product feed or partner access. Many small
+shops say yes. Price comparison networks (Kelkoo, Idealo) also offer partner data.
+
 ## Adding more sources
 
 **Any RSS or Atom feed.** Open `sources.json` on GitHub, click the pencil icon and add:
