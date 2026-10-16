@@ -101,8 +101,13 @@ To force a steady 10 minutes, use a free outside timer to start the workflow:
   drops. Add `https://YOUR-USERNAME.github.io/heyyoupgrade/feed.xml` to any RSS reader.
 - **Browser notifications.** The "Notify me of new drops" button at the bottom of the page
   asks your browser for permission. These only arrive while the page is open in a tab.
-- **Price history.** The fetcher saves one price per day for each deal. After about three
-  days, deals can show "30-day low" or "% under 30-day avg". It builds up over time.
+- **Price history.** The fetcher saves a deal's price whenever it changes, and every few days if
+  it stays the same, for up to 90 days. Every card has a **Price history** drop-down with a
+  chart of the lowest and highest price seen. History only starts from when the site first saw
+  a deal, so the 3-month view fills in over time. After about three days, deals can also show
+  "30-day low" or "% under 30-day avg".
+- **Basket box.** The box on the right of every page lists what you have pinned, with a total.
+  On narrower screens it opens from the Basket button in the corner.
 
 ## Getting more retailers (Currys, Overclockers and small UK shops)
 
