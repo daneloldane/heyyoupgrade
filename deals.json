@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-16T07:13:03Z",
+ "updated": "2026-10-16T07:23:08Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-16T07:11:23Z",
+   "checked": "2026-10-16T07:21:26Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-16T07:12:45Z",
+   "checked": "2026-10-16T07:22:48Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,7 +56,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-16T07:13:03Z",
+   "checked": "2026-10-16T07:23:08Z",
    "seen": 0,
    "examples": []
   }
@@ -75,12 +75,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 77.41,
+   "p": 81.49,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-16T06:13:05Z",
+   "posted": "2026-10-16T07:23:08Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/a/6/a6c9059c9103f8098b7a6273ec6cc035.jpg?height=350",
@@ -90,8 +90,6 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-14T00:13:25Z",
-   "prev_p": 81.49,
-   "dropped_at": "2026-10-16T06:13:05Z",
    "ph": [
     [
      "2026-10-14",
@@ -120,12 +118,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 61.73,
+   "p": 64.99,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-16T06:13:05Z",
+   "posted": "2026-10-16T07:23:08Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/0/e/0e3cb30a746178bfe452b9307913884e.jpg?height=350",
@@ -135,8 +133,6 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
    "first_seen": "2026-10-13T16:08:01Z",
-   "prev_p": 64.99,
-   "dropped_at": "2026-10-16T06:13:05Z",
    "ph": [
     [
      "2026-10-13",
@@ -169,12 +165,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 212.3,
+   "p": 214.99,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-16T06:13:05Z",
+   "posted": "2026-10-16T07:23:08Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/1/3/13e781455be099ce49e7c35bb0428d94.jpg?height=350",
@@ -184,8 +180,6 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-15T13:13:15Z",
-   "prev_p": 214.99,
-   "dropped_at": "2026-10-16T06:13:05Z",
    "ph": [
     [
      "2026-10-15",
