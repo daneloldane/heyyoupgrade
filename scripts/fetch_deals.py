@@ -46,7 +46,8 @@ GPU_PERF = {
     "RX 9070 XT": 178, "RX 9070": 160, "RX 9060 XT": 118,
     "RX 7900 XTX": 190, "RX 7900 XT": 170, "RX 7800 XT": 135,
     "RX 7700 XT": 118, "RX 7600 XT": 90, "RX 7600": 85, "RX 6600": 70,
-    "Arc B580": 100, "Arc B570": 90,
+    "Arc B580": 100, "Arc B570": 90, "RX 9070 GRE": 150, "RTX 3080": 150, "RTX 3090": 170,
+    "RTX 3060 Ti 8GB": 88, "RTX 3050 6GB": 50, "GT 1030": 15, "RX 6700 XT": 105, "RX 6800": 125,
 }
 CPU_PERF = {
     "Ryzen 5 5600": 78, "Ryzen 5 5600X": 82, "Ryzen 7 5700X": 90, "Ryzen 7 5800X3D": 112,
@@ -58,6 +59,17 @@ CPU_PERF = {
     "Ryzen 5 5500": 75, "Ryzen 5 8400F": 98, "Ryzen 5 8500F": 100, "Core i7 14700": 150,
     "Core Ultra 5 245K": 118, "Core Ultra 5 250KF": 118,
     "Core Ultra 7 265K": 145, "Core Ultra 7 270K": 150,
+    "Core i3 12100F": 62, "Core i5 12600K": 100, "Core i5 13600K": 118, "Core i5 13600KF": 118,
+    "Core i7 13700K": 140, "Core i7 12700K": 120, "Core i9 14900K": 175, "Core i9 14900KF": 175,
+    "Ryzen 5 5600G": 72, "Ryzen 7 5700G": 85, "Ryzen 5 5600X3D": 100, "Ryzen 9 5900X": 120,
+    "Ryzen 7 5800X": 100, "Ryzen 9 7900X": 135, "Ryzen 9 7950X": 160, "Ryzen 9 7950X3D": 168,
+    "Ryzen 5 8600G": 98, "Ryzen 7 8700G": 110, "Ryzen 9 9950X": 165, "Ryzen 7 7700X": 116,
+    "Ryzen 9 7900": 130, "Ryzen 5 9600": 108, "Ryzen 9 5950X": 140, "Ryzen 5 4500": 65, "Ryzen 7 9850X3D": 170,
+}
+BOARD_TIER = {
+    "x870e": 130, "x870": 120, "b850": 105, "b650e": 100, "b650": 92, "a620": 70, "x670e": 125, "x670": 118,
+    "z890": 125, "b860": 100, "h810": 60, "z790": 112, "b760": 90, "h770": 85, "h610": 55,
+    "b840": 80, "b550": 75, "x570": 90, "a520": 55, "b450": 55, "z690": 100, "b660": 80, "h670": 80,
 }
 DEFAULT_CPU_PERF = 95
 
@@ -278,6 +290,80 @@ def part_cat(title):
         if rx.search(title):
             return cat
     return None
+
+
+def part_perf(cat, title):
+    """Rough performance points for a single part, so price-to-performance can be scored.
+    Only comparable between parts of the same type. None when the part is not recognised."""
+    t = re.sub("[\u2122\u00ae]", "", title or "")
+    low = t.lower()
+    if cat == "gpu":
+        g = norm_gpu(t)
+        if not g and re.search(r"\bgt\s*1030\b", low):
+            g = "GT 1030"
+        return GPU_PERF.get(g)
+    if cat == "cpu":
+        c = norm_cpu(t)
+        return CPU_PERF.get(c) if c else None
+    if cat == "memory":
+        m = re.search(r"(\d{1,3})\s?gb", t, re.I)
+        kit = re.search(r"(\d)\s?x\s?(\d{1,3})\s?gb", t, re.I)
+        gb = int(kit.group(1)) * int(kit.group(2)) if kit else int(m.group(1)) if m else None
+        gen = 5 if "ddr5" in low else 4 if "ddr4" in low else None
+        if not gb or not gen:
+            return None
+        sp = re.search(r"(\d{4,5})\s?(?:mt/s|mhz|mts)", t, re.I) or re.search(r"\b(?:ddr[45][- ]?)(\d{4,5})\b", t, re.I)
+        speed = int(sp.group(1)) if sp else (3200 if gen == 4 else 5600)
+        return round(gb * (speed / (6000.0 if gen == 5 else 3200.0)) * (1.0 if gen == 5 else 0.75), 1)
+    if cat == "motherboard":
+        for chip, pts in BOARD_TIER.items():
+            if re.search(r"\b%s" % chip, low):
+                return pts + (6 if "wifi" in low or "wi-fi" in low else 0) + (4 if "ddr5" in low else 0)
+        return None
+    if cat == "psu":
+        w = re.search(r"(\d{3,4})\s?w\b", t, re.I)
+        if not w:
+            return None
+        eff = 1.2 if "titanium" in low else 1.1 if "platinum" in low else 1.0 if "gold" in low else 0.9 if "silver" in low else 0.85 if "bronze" in low else 0.8
+        return round(int(w.group(1)) * eff * (1.05 if "modular" in low else 1.0) / 5.0, 1)
+    if cat == "case":
+        pts = 50 + (10 if "glass" in low else 0) + (10 if re.search(r"mesh|flow|airflow", low) else 0)
+        f = re.search(r"(\d)\s?(?:x\s?)?(?:fans?|f\b)", low)
+        pts += 5 * min(int(f.group(1)), 6) if f else 0
+        pts += 5 if re.search(r"mid[- ]?tower|full[- ]?tower", low) else 0
+        return pts
+    if cat == "cooling":
+        size = re.search(r"\b(120|140|240|280|360|420)\b", t)
+        aio = re.search(r"\baio\b|liquid|cryo|kraken|water", low)
+        if aio and size:
+            return {"120": 70, "140": 78, "240": 100, "280": 120, "360": 140, "420": 150}[size.group(1)]
+        if aio:
+            return 100
+        return 60 + (12 if re.search(r"dual|twin|dual-tower|dual tower", low) else 0) + (8 if re.search(r"tower|dark rock|assassin|peerless|phantom", low) else 0)
+    return None
+
+
+def bundle_perf(d):
+    cpu = norm_cpu("%s %s" % (d.get("cpu") or "", d.get("title") or ""))
+    if not cpu or cpu not in CPU_PERF:
+        return None
+    low = (d.get("title") or "").lower()
+    tier = 0
+    for chip, pts in BOARD_TIER.items():
+        if re.search(r"\b%s" % chip, low):
+            tier = pts
+            break
+    ram = re.search(r"(\d{1,3})\s?gb", "%s %s" % (d.get("ram") or "", d.get("title") or ""), re.I)
+    return round(CPU_PERF[cpu] + 0.3 * tier + (int(ram.group(1)) if ram else 0), 1)
+
+
+def ensure_perf(d):
+    if d.get("perf") is not None:
+        return
+    if d.get("t") == "part":
+        d["perf"] = part_perf(d.get("cat"), d.get("title"))
+    elif d.get("t") == "bundle":
+        d["perf"] = bundle_perf(d)
 
 
 def perf_and_tier(gpu, cpu):
@@ -597,7 +683,7 @@ def run_product_pages(src):
             "fin": None, "posted": iso(now()), "perf": perf, "tier": tier,
             "img": info["image"] or item.get("img") or prior.get("img"),
             "note": item.get("note", ""), "snapshot": True,
-            "cat": cat, "rank": item.get("rank"), "rank_by": item.get("rank_by"),
+            "cat": cat, "rank": item.get("rank"), "rank_by": item.get("rank_by"), "verified": iso(now()),
         })
     if items and not refreshed:
         raise RuntimeError("could not read any tracked page: %s" % "; ".join(problems[:3]))
@@ -746,7 +832,7 @@ def run_category_pages(src):
                     "cpu": None, "gpu": None, "ram": None, "sto": None, "p": round(price, 2), "was": prior.get("was"),
                     "del": None, "stock": "in", "fin": None, "posted": iso(now()), "perf": None, "tier": None,
                     "img": img or prior.get("img"), "note": "", "snapshot": True,
-                    "rank": rank, "rank_by": pg.get("rank_by") or "Recommended", "page": url,
+                    "rank": rank, "rank_by": pg.get("rank_by") or "Recommended", "page": url, "verified": iso(now()),
                 })
         except Exception as exc:
             problems.append("%s %s (%s)" % (host_of(url), cat, str(exc)[:45]))
@@ -890,7 +976,7 @@ def run_pepper_api(src):
                             "retailer": merchant, "url": link, "thread": thread, "t": "part", "cat": cat,
                             "title": re.sub(r"\s+", " ", title).strip(), "cpu": None, "gpu": None, "ram": None, "sto": None,
                             "p": round(price, 2), "was": None, "del": None, "stock": "unknown", "fin": None, "posted": iso(posted),
-                            "perf": None, "tier": None, "rank": rank, "rank_by": "Hottest on HotUKDeals"}
+                            "perf": None, "tier": None, "rank": rank, "rank_by": "Hottest on HotUKDeals", "verified": iso(now())}
                     deal.update(extra)
                     try:
                         nb = float(t.get("next_best_price"))
@@ -916,11 +1002,80 @@ def run_pepper_api(src):
     return deals
 
 
+def run_shopify(src):
+    """Small UK shops built on Shopify publish their catalogue as JSON at
+    /collections/<name>/products.json. No scraping of page layouts needed.
+    Each shop: {"retailer", "base", "collections": [{"handle", "cat", "rank_by"}]}"""
+    top = int(src.get("top", 10))
+    deals, problems, read = [], [], 0
+    jobs = [(shop, col) for shop in src.get("shops", []) for col in shop.get("collections", [])]
+    for n, (shop, col) in enumerate(jobs):
+        base = shop["base"].rstrip("/")
+        page = "%s/collections/%s" % (base, col["handle"])
+        try:
+            if not robots_allows(page + "/products.json"):
+                raise RuntimeError("robots.txt")
+            data = json.loads(fetch(page + "/products.json?limit=60").decode("utf-8", errors="replace"))
+            products = data.get("products") or []
+            if not products:
+                raise RuntimeError("no products in reply")
+            read += 1
+            rank = 0
+            for pr in products:
+                variants = [v for v in pr.get("variants", []) if v.get("available", True)]
+                if not variants:
+                    continue
+                v = variants[0]
+                try:
+                    price = float(v.get("price"))
+                except (TypeError, ValueError):
+                    continue
+                title = pr.get("title") or ""
+                if not title or price < 15 or re.search(r"laptop|sodimm|notebook", title, re.I):
+                    continue
+                link = "%s/products/%s" % (base, pr.get("handle"))
+                imgs = pr.get("images") or []
+                img = imgs[0].get("src") if imgs and isinstance(imgs[0], dict) else None
+                try:
+                    cmp_at = float(v.get("compare_at_price")) if v.get("compare_at_price") else None
+                except (TypeError, ValueError):
+                    cmp_at = None
+                cat = col["cat"]
+                if cat == "deals":
+                    deal = build_deal(src["name"], link, "%s \u00a3%s" % (title, price), strip_tags(pr.get("body_html", ""))[:400], link, None, now(),
+                                      shop["retailer"], {"img": img})
+                    if not deal:
+                        continue
+                    if cmp_at and cmp_at > price:
+                        deal["was"] = round(cmp_at, 2)
+                else:
+                    rank += 1
+                    if rank > top:
+                        break
+                    deal = {"id": hashlib.sha1(link.encode()).hexdigest()[:12], "source": src["name"], "retailer": shop["retailer"], "url": link,
+                            "thread": None, "t": "part", "cat": cat, "title": re.sub(r"\s+", " ", title).strip(), "cpu": None, "gpu": None,
+                            "ram": None, "sto": None, "p": round(price, 2), "was": round(cmp_at, 2) if cmp_at and cmp_at > price else None,
+                            "del": None, "stock": "in", "fin": None, "posted": iso(now()), "perf": None, "tier": None, "img": img, "note": "",
+                            "rank": rank, "rank_by": col.get("rank_by") or "Shop order"}
+                deal.update(snapshot=True, page=page, verified=iso(now()))
+                deals.append(deal)
+        except Exception as exc:
+            problems.append("%s %s (%s)" % (shop["retailer"], col["handle"], str(exc)[:40]))
+            deals.extend(d for d in PREV.values() if d.get("source") == src["name"] and d.get("page") == page)
+        finally:
+            if n < len(jobs) - 1:
+                time.sleep(1.5)
+    if jobs and not read:
+        raise RuntimeError("no shop answered: %s" % "; ".join(problems[:3]))
+    INFO[src["name"]] = {"note": "Read %d of %d collections.%s" % (read, len(jobs), (" Problems: %s." % "; ".join(problems[:4])) if problems else "")}
+    return deals
+
+
 class SkipSource(Exception):
     pass
 
 
-RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages, "reddit_api": run_reddit_api, "pepper_api": run_pepper_api}
+RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages, "reddit_api": run_reddit_api, "pepper_api": run_pepper_api, "shopify_json": run_shopify}
 
 
 # ---------------------------------------------------------------- merge
@@ -1043,6 +1198,7 @@ def main():
     today = stamp.strftime("%Y-%m-%d")
     keep_from = (stamp - timedelta(days=30)).strftime("%Y-%m-%d")
     for d in merged.values():
+        ensure_perf(d)
         hist = [list(x) for x in (old.get(d["id"], {}).get("ph") or d.get("ph") or []) if x[0] >= keep_from]
         if d["id"] in {f["id"] for f in fetched} or not hist:
             if hist and hist[-1][0] == today:
