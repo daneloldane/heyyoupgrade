@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-16T10:53:12Z",
+ "updated": "2026-10-16T11:03:25Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-16T10:51:30Z",
+   "checked": "2026-10-16T11:01:45Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-16T10:52:52Z",
+   "checked": "2026-10-16T11:03:06Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,82 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-16T10:53:12Z",
+   "checked": "2026-10-16T11:03:25Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "068b981bddcb",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/msi-intel-1700-motherboard-pro-b760-p-wifi-ddr4",
+   "thread": null,
+   "t": "part",
+   "cat": "motherboard",
+   "title": "MSI Intel B760 PRO B760-P WIFI DDR4 ATX LGA 1700 Motherboard",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 149.49,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:02:04Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/6/c/6c3a26d9b7bde3c3957adaecafa9abff.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/motherboards",
+   "first_seen": "2026-10-16T11:03:25Z",
+   "ph": [
+    [
+     "2026-10-16",
+     149.49
+    ]
+   ]
+  },
+  {
+   "id": "662d383a74e2",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/90ga6gzz00uanf-asrock-arc-pro-b70-creator-32gb-gpu",
+   "thread": null,
+   "t": "part",
+   "cat": "gpu",
+   "title": "Asrock Intel ARC Pro B70 Creator 32GB Graphics Card",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 1319.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:01:50Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/7/1/71c0c727e723a4d7cbb852fa94d56f42.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/graphic-cards",
+   "first_seen": "2026-10-16T11:03:25Z",
+   "ph": [
+    [
+     "2026-10-16",
+     1319.99
+    ]
+   ]
+  },
   {
    "id": "ddd1b5a7e685",
    "source": "Top 10 by category",
@@ -86,7 +156,7 @@
    "img": "https://media.box.co.uk/product/b/8/b8d9fd285aceee0b6addcf9a4bad77e1.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-16T10:23:06Z",
@@ -250,7 +320,7 @@
    "img": "https://media.box.co.uk/product/1/1/1143df7a9994891dd01d962e25f21746.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-16T01:13:15Z",
@@ -463,45 +533,6 @@
    ]
   },
   {
-   "id": "d10b58d2c30a",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/prime-rx9070xt-o16g-asus-amd-radeon-rx-9070xt",
-   "thread": null,
-   "t": "part",
-   "cat": "gpu",
-   "title": "ASUS PRIME-RX9070XT-O16G OC 16GB Graphics Card",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 869.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-15T17:01:55Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/a/5/a526cedbbc0763b7ed06cfc66b1d5966.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 9,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-15T17:03:36Z",
-   "ph": [
-    [
-     "2026-10-15",
-     869.99
-    ],
-    [
-     "2026-10-16",
-     869.99
-    ]
-   ]
-  },
-  {
    "id": "e896455cbc91",
    "source": "Top 10 by category",
    "retailer": "Box",
@@ -664,45 +695,6 @@
     [
      "2026-10-16",
      30.01
-    ]
-   ]
-  },
-  {
-   "id": "632b30b8d023",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/b760-gaming-plus-wifi-ddr4-msi-atx-intel-b760",
-   "thread": null,
-   "t": "part",
-   "cat": "motherboard",
-   "title": "MSI Intel B760 GAMING PLUS WIFI DDR4 ATX LGA 1700 Motherboard",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 139.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-15T00:11:51Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/7/f/7f6d2a3e6d1cc9fb8a12ee2335a0beb4.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 6,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/motherboards",
-   "first_seen": "2026-10-15T00:13:12Z",
-   "ph": [
-    [
-     "2026-10-15",
-     139.99
-    ],
-    [
-     "2026-10-16",
-     139.99
     ]
    ]
   },
@@ -2273,7 +2265,7 @@
    "img": "https://media.box.co.uk/product/f/a/fa5a4cc35522b680d8e46bd613b0997a.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
    "first_seen": "2026-10-12T15:40:10Z",
@@ -5751,7 +5743,7 @@
    "img": "https://media.box.co.uk/product/d/c/dc6021e18365789cf7581b7296bf1e56.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-11T18:32:37Z",
@@ -5798,7 +5790,7 @@
    "img": "https://media.box.co.uk/product/b/e/be5cbd59bc3d42f6588d5ca31e9af494.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-11T18:32:37Z",
