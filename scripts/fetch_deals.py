@@ -1196,14 +1196,16 @@ def main():
         merged[d["id"]] = d
 
     today = stamp.strftime("%Y-%m-%d")
-    keep_from = (stamp - timedelta(days=30)).strftime("%Y-%m-%d")
+    keep_from = (stamp - timedelta(days=90)).strftime("%Y-%m-%d")
+    fetched_ids = {f["id"] for f in fetched}
     for d in merged.values():
         ensure_perf(d)
         hist = [list(x) for x in (old.get(d["id"], {}).get("ph") or d.get("ph") or []) if x[0] >= keep_from]
-        if d["id"] in {f["id"] for f in fetched} or not hist:
-            if hist and hist[-1][0] == today:
-                hist[-1][1] = min(hist[-1][1], d["p"])
-            else:
+        if d["id"] in fetched_ids or not hist:
+            last = hist[-1] if hist else None
+            if last and last[0] == today:
+                last[1] = min(last[1], d["p"])
+            elif not last or abs(last[1] - d["p"]) > 0.004 or (stamp.date() - datetime.strptime(last[0], "%Y-%m-%d").date()).days >= 3:
                 hist.append([today, d["p"]])
         d["ph"] = hist
 
