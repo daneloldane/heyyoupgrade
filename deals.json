@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-16T11:13:12Z",
+ "updated": "2026-10-16T11:23:10Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-16T11:11:30Z",
+   "checked": "2026-10-16T11:21:29Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-16T11:12:53Z",
+   "checked": "2026-10-16T11:22:51Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,257 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-16T11:13:12Z",
+   "checked": "2026-10-16T11:23:10Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "09437745db32",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/90yv0lv0-m0na00-asus-rog-astral-rtx5080-o16g-gaming",
+   "thread": null,
+   "t": "part",
+   "cat": "gpu",
+   "title": "ASUS GeForce RTX 5080 ROG Astral 16GB OC Edition Graphics Card",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 1724.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:23:10Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/2/e/2e18a81cebc5d18b416c74c4be07f7d4.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 1,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/graphic-cards",
+   "first_seen": "2026-10-11T18:32:37Z",
+   "prev_p": 1744.99,
+   "dropped_at": "2026-10-16T11:23:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1799.99
+    ],
+    [
+     "2026-10-14",
+     1744.99
+    ],
+    [
+     "2026-10-15",
+     1744.99
+    ],
+    [
+     "2026-10-16",
+     1724.99
+    ]
+   ]
+  },
+  {
+   "id": "eadf1e2849d0",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/90yv0m30-m0na00-asus-tuf-rtx5080-o16g-gaming",
+   "thread": null,
+   "t": "part",
+   "cat": "gpu",
+   "title": "ASUS GeForce RTX 5080 TUF GAMING 16GB OC Graphics Card",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 1599.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:23:10Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/b/b/bb4c2c61bc66f2813ac0dd7904d02351.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 6,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/graphic-cards",
+   "first_seen": "2026-10-11T18:32:37Z",
+   "prev_p": 1614.99,
+   "dropped_at": "2026-10-16T11:23:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1614.99
+    ],
+    [
+     "2026-10-14",
+     1614.99
+    ],
+    [
+     "2026-10-15",
+     1614.99
+    ],
+    [
+     "2026-10-16",
+     1599.99
+    ]
+   ]
+  },
+  {
+   "id": "fba762f39951",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/asus-prime-rtx5070ti-o16g-gaming-90yv0mf0-m0na00",
+   "thread": null,
+   "t": "part",
+   "cat": "gpu",
+   "title": "ASUS GeForce RTX 5070Ti PRIME 16GB OC Graphics Card",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 1214.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:23:10Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/8/4/84561b0fe7b6f3b1b788f521980b0a5f.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 7,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/graphic-cards",
+   "first_seen": "2026-10-11T18:32:37Z",
+   "prev_p": 1229.99,
+   "dropped_at": "2026-10-16T11:23:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     1229.99
+    ],
+    [
+     "2026-10-14",
+     1229.99
+    ],
+    [
+     "2026-10-15",
+     1229.99
+    ],
+    [
+     "2026-10-16",
+     1214.99
+    ]
+   ]
+  },
+  {
+   "id": "79a5cdb8f5fb",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/bx80768250k-intel-core-ultra-5-250k-processor",
+   "thread": null,
+   "t": "part",
+   "cat": "cpu",
+   "title": "Intel Core Ultra 5 250K Plus Unlocked 18 Core Desktop CPU/Processor",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 206.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:23:10Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/8/2/8211396d0142028aa9694a96213fc8f3.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 7,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/processors",
+   "first_seen": "2026-10-12T15:40:10Z",
+   "prev_p": 212.99,
+   "dropped_at": "2026-10-16T11:23:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     212.99
+    ],
+    [
+     "2026-10-14",
+     212.99
+    ],
+    [
+     "2026-10-15",
+     212.99
+    ],
+    [
+     "2026-10-16",
+     206.99
+    ]
+   ]
+  },
+  {
+   "id": "e869ad715bb3",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/f5-8000j3848h16gx2-tr5ns-g-skill-trident-z5-desktop-ram",
+   "thread": null,
+   "t": "part",
+   "cat": "memory",
+   "title": "G.Skill Trident Z5 Royal Neo F5-8000J3848H16GX2-TR5NS 32GB (2 x 16GB) 8000 MHz DDR5 Desktop RAM",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 789.99,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T11:23:10Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/b/b/bb3dba6aee1f29667b1d4b7cdf49f5cd.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 7,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/memory",
+   "first_seen": "2026-10-12T15:40:10Z",
+   "prev_p": 799.99,
+   "dropped_at": "2026-10-16T11:23:10Z",
+   "ph": [
+    [
+     "2026-10-13",
+     799.99
+    ],
+    [
+     "2026-10-14",
+     799.99
+    ],
+    [
+     "2026-10-15",
+     799.99
+    ],
+    [
+     "2026-10-16",
+     789.99
+    ]
+   ]
+  },
   {
    "id": "068b981bddcb",
    "source": "Top 10 by category",
@@ -75,12 +320,12 @@
    "gpu": null,
    "ram": null,
    "sto": null,
-   "p": 149.49,
+   "p": 139.95,
    "was": null,
    "del": null,
    "stock": "in",
    "fin": null,
-   "posted": "2026-10-16T11:02:04Z",
+   "posted": "2026-10-16T11:23:10Z",
    "perf": null,
    "tier": null,
    "img": "https://media.box.co.uk/product/6/c/6c3a26d9b7bde3c3957adaecafa9abff.jpg?height=350",
@@ -90,10 +335,12 @@
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
    "first_seen": "2026-10-16T11:03:25Z",
+   "prev_p": 149.49,
+   "dropped_at": "2026-10-16T11:23:10Z",
    "ph": [
     [
      "2026-10-16",
-     149.49
+     139.95
     ]
    ]
   },
@@ -777,55 +1024,6 @@
    ]
   },
   {
-   "id": "09437745db32",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/90yv0lv0-m0na00-asus-rog-astral-rtx5080-o16g-gaming",
-   "thread": null,
-   "t": "part",
-   "cat": "gpu",
-   "title": "ASUS GeForce RTX 5080 ROG Astral 16GB OC Edition Graphics Card",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 1744.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-14T13:23:01Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/2/e/2e18a81cebc5d18b416c74c4be07f7d4.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 1,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z",
-   "prev_p": 1799.99,
-   "dropped_at": "2026-10-14T13:23:01Z",
-   "ph": [
-    [
-     "2026-10-13",
-     1799.99
-    ],
-    [
-     "2026-10-14",
-     1744.99
-    ],
-    [
-     "2026-10-15",
-     1744.99
-    ],
-    [
-     "2026-10-16",
-     1744.99
-    ]
-   ]
-  },
-  {
    "id": "5bede5c77794",
    "source": "Top 10 by category",
    "retailer": "Box",
@@ -1441,55 +1639,6 @@
    ]
   },
   {
-   "id": "e869ad715bb3",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/f5-8000j3848h16gx2-tr5ns-g-skill-trident-z5-desktop-ram",
-   "thread": null,
-   "t": "part",
-   "cat": "memory",
-   "title": "G.Skill Trident Z5 Royal Neo F5-8000J3848H16GX2-TR5NS 32GB (2 x 16GB) 8000 MHz DDR5 Desktop RAM",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 799.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T19:20:45Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/b/b/bb3dba6aee1f29667b1d4b7cdf49f5cd.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 7,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/memory",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "prev_p": 899.99,
-   "dropped_at": "2026-10-12T19:20:45Z",
-   "ph": [
-    [
-     "2026-10-13",
-     799.99
-    ],
-    [
-     "2026-10-14",
-     799.99
-    ],
-    [
-     "2026-10-15",
-     799.99
-    ],
-    [
-     "2026-10-16",
-     799.99
-    ]
-   ]
-  },
-  {
    "id": "c93fc776babc",
    "source": "Tracked product pages",
    "retailer": "AWD-IT",
@@ -1625,100 +1774,6 @@
     [
      "2026-10-16",
      1709.99
-    ]
-   ]
-  },
-  {
-   "id": "eadf1e2849d0",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/90yv0m30-m0na00-asus-tuf-rtx5080-o16g-gaming",
-   "thread": null,
-   "t": "part",
-   "cat": "gpu",
-   "title": "ASUS GeForce RTX 5080 TUF GAMING 16GB OC Graphics Card",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 1614.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:40:10Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/b/b/bb4c2c61bc66f2813ac0dd7904d02351.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 6,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z",
-   "ph": [
-    [
-     "2026-10-13",
-     1614.99
-    ],
-    [
-     "2026-10-14",
-     1614.99
-    ],
-    [
-     "2026-10-15",
-     1614.99
-    ],
-    [
-     "2026-10-16",
-     1614.99
-    ]
-   ]
-  },
-  {
-   "id": "fba762f39951",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/asus-prime-rtx5070ti-o16g-gaming-90yv0mf0-m0na00",
-   "thread": null,
-   "t": "part",
-   "cat": "gpu",
-   "title": "ASUS GeForce RTX 5070Ti PRIME 16GB OC Graphics Card",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 1229.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:40:10Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/8/4/84561b0fe7b6f3b1b788f521980b0a5f.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 7,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/graphic-cards",
-   "first_seen": "2026-10-11T18:32:37Z",
-   "ph": [
-    [
-     "2026-10-13",
-     1229.99
-    ],
-    [
-     "2026-10-14",
-     1229.99
-    ],
-    [
-     "2026-10-15",
-     1229.99
-    ],
-    [
-     "2026-10-16",
-     1229.99
     ]
    ]
   },
@@ -2144,53 +2199,6 @@
     [
      "2026-10-16",
      162.99
-    ]
-   ]
-  },
-  {
-   "id": "79a5cdb8f5fb",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/bx80768250k-intel-core-ultra-5-250k-processor",
-   "thread": null,
-   "t": "part",
-   "cat": "cpu",
-   "title": "Intel Core Ultra 5 250K Plus Unlocked 18 Core Desktop CPU/Processor",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 212.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:38:34Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/8/2/8211396d0142028aa9694a96213fc8f3.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 7,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/processors",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "ph": [
-    [
-     "2026-10-13",
-     212.99
-    ],
-    [
-     "2026-10-14",
-     212.99
-    ],
-    [
-     "2026-10-15",
-     212.99
-    ],
-    [
-     "2026-10-16",
-     212.99
     ]
    ]
   },
