@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-16T05:53:04Z",
+ "updated": "2026-10-16T06:03:31Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-16T05:51:24Z",
+   "checked": "2026-10-16T06:01:50Z",
    "note": "Refreshed 13 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-16T05:52:46Z",
+   "checked": "2026-10-16T06:03:12Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,47 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-16T05:53:04Z",
+   "checked": "2026-10-16T06:03:31Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "8e62b7b76096",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/0-761345-80108-9-antec-p20c-mid-tower-gaming-pc-case",
+   "thread": null,
+   "t": "part",
+   "cat": "case",
+   "title": "Antec P20C E-ATX Tempered Glass Mid Tower Gaming PC Case - White",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 39.15,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-10-16T06:02:00Z",
+   "perf": null,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/d/f/dfdd70406c3a21e762c0f582030417a0.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/computer-cases",
+   "first_seen": "2026-10-16T06:03:31Z",
+   "ph": [
+    [
+     "2026-10-16",
+     39.15
+    ]
+   ]
+  },
   {
    "id": "178eeac76801",
    "source": "Top 10 by category",
@@ -86,7 +121,7 @@
    "img": "https://media.box.co.uk/product/a/6/a6c9059c9103f8098b7a6273ec6cc035.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-14T00:13:25Z",
@@ -250,7 +285,7 @@
    "img": "https://media.box.co.uk/product/c/b/cbbe1ead66ca25886d4b9e34caaff38e.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 5,
+   "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-16T01:13:15Z",
@@ -320,7 +355,7 @@
    "img": "https://media.box.co.uk/product/9/a/9a7b8aa5ab954d9280b103975e5b6f38.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-15T23:43:14Z",
@@ -695,7 +730,7 @@
    "img": "https://media.box.co.uk/product/d/c/dc4e09fc54f59c04ab46bce5eb3a715b.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-15T00:13:12Z",
@@ -1249,7 +1284,7 @@
    "img": "https://media.box.co.uk/product/f/a/fa4f18e92836e442d94d898bd2cbc0ba.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-12T15:40:10Z",
@@ -1980,53 +2015,6 @@
    ]
   },
   {
-   "id": "7321a41681d6",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/asus-prime-ap304-argb-gaming-pc-case-90dc0110-b19000",
-   "thread": null,
-   "t": "part",
-   "cat": "case",
-   "title": "ASUS Prime AP304 ARGB Tempered Glass Mid-Tower Gaming PC Case - Black",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 146.62,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-12T15:38:37Z",
-   "perf": null,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/2/7/27d9f50c490e736da9691bf7caa617cf.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 4,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/computer-cases",
-   "first_seen": "2026-10-12T15:40:10Z",
-   "ph": [
-    [
-     "2026-10-13",
-     146.62
-    ],
-    [
-     "2026-10-14",
-     146.62
-    ],
-    [
-     "2026-10-15",
-     146.62
-    ],
-    [
-     "2026-10-16",
-     146.62
-    ]
-   ]
-  },
-  {
    "id": "24a77e910296",
    "source": "Top 10 by category",
    "retailer": "Box",
@@ -2050,7 +2038,7 @@
    "img": "https://media.box.co.uk/product/f/d/fd3e75c0cb0d5fb2ad57773de1bae912.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 6,
+   "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
    "first_seen": "2026-10-12T15:40:10Z",
