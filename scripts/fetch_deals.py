@@ -33,7 +33,7 @@ from urllib.parse import urlparse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 USER_AGENT = "HeyYoUpgradeBot/1.0 (UK gaming PC deal finder)"
 KEEP_DAYS = 14      # community posts older than this are dropped
-MAX_DEALS = 300
+MAX_DEALS = 600
 
 # Rough relative performance, RTX 5060 = 100. Indicative only, not benchmarks.
 GPU_PERF = {
@@ -1071,11 +1071,186 @@ def run_shopify(src):
     return deals
 
 
+FEED_CATS = {"gpu", "cpu", "memory", "motherboard", "psu", "case", "cooling", "prebuilt", "bundle"}
+FEED_CAP = 30  # per shop and category, so one shop cannot flood a section
+
+
+def same_site(feed_host, link_host):
+    """A shop's feed may only link to the shop's own website."""
+    def base(h):
+        parts = h.split(".")
+        return ".".join(parts[-3:] if len(parts) >= 3 and parts[-2] in ("co", "org", "ac", "gov") else parts[-2:])
+    return bool(feed_host) and base(feed_host) == base(link_host)
+
+
+def feed_rows(text, fmt):
+    text = text.lstrip("\ufeff")
+    if fmt == "json" or (fmt != "csv" and text.lstrip()[:1] in "[{"):
+        data = json.loads(text)
+        if isinstance(data, dict):
+            data = data.get("products") or data.get("items") or data.get("deals") or []
+        return [{str(k).strip().lower(): v for k, v in row.items()} for row in data if isinstance(row, dict)]
+    return [{(k or "").strip().lower(): v for k, v in row.items()} for row in csv.DictReader(io.StringIO(text))]
+
+
+def run_hyu_feed(src):
+    """The HeyYoUpgrade retailer feed: a CSV or JSON file a shop hosts itself.
+    Columns: title, url, price, category (+ optional was_price, image_url, stock,
+    delivery_cost, description, currency). See the 'For retailers' page."""
+    deals, problems, read = [], [], 0
+    shops = src.get("shops", [])
+    for n, shop in enumerate(shops):
+        url, retailer = shop["url"], shop["retailer"]
+        page = "feed:" + url
+        try:
+            if not url.startswith("https://"):
+                raise RuntimeError("feed address must start with https://")
+            raw = fetch(url)
+            if len(raw) > 6_000_000:
+                raise RuntimeError("file is over 6MB")
+            rows = feed_rows(raw.decode("utf-8", errors="replace"), shop.get("format"))
+            if not rows:
+                raise RuntimeError("no rows found")
+            read += 1
+            counts, feed_host = {}, host_of(url)
+            for row in rows:
+                cat = str(row.get("category") or "").strip().lower()
+                title = re.sub(r"\s+", " ", strip_tags(str(row.get("title") or ""))).strip()[:160]
+                link = str(row.get("url") or "").strip()
+                price = to_price(row.get("price"))
+                if cat not in FEED_CATS or not title or price is None or not link.startswith("https://"):
+                    continue
+                if not same_site(feed_host, host_of(link)) and host_of(link) not in shop.get("extra_domains", []):
+                    continue
+                cur = str(row.get("currency") or "GBP").strip().upper()
+                if cur != "GBP" or price < 5 or price > 20000:
+                    continue
+                if str(row.get("stock") or "in").strip().lower() in ("out", "0", "false", "no", "out of stock", "out_of_stock"):
+                    continue
+                counts[cat] = counts.get(cat, 0) + 1
+                if counts[cat] > FEED_CAP:
+                    continue
+                img = str(row.get("image_url") or row.get("image") or "").strip()
+                img = img if img.startswith("https://") else None
+                was = to_price(row.get("was_price"))
+                try:
+                    delivery = float(row.get("delivery_cost")) if str(row.get("delivery_cost") or "").strip() != "" else None
+                except ValueError:
+                    delivery = None
+                desc = strip_tags(str(row.get("description") or ""))[:300]
+                specs = extract_specs("%s %s" % (title, desc))
+                kind = "part" if cat not in ("prebuilt", "bundle") else cat
+                perf, tier = perf_and_tier(specs["gpu"], specs["cpu"]) if kind == "prebuilt" else (None, None)
+                deal = {"id": hashlib.sha1(link.encode()).hexdigest()[:12], "source": src["name"], "retailer": retailer, "url": link,
+                        "thread": None, "t": kind, "title": title, "cpu": specs["cpu"], "gpu": specs["gpu"], "ram": specs["ram"],
+                        "sto": specs["sto"], "p": round(price, 2), "was": round(was, 2) if was and was > price else None,
+                        "del": delivery, "stock": "in", "fin": None, "posted": iso(now()), "perf": perf, "tier": tier, "img": img,
+                        "note": "Listed by the shop through its own feed", "snapshot": True, "page": page, "verified": iso(now())}
+                if kind == "part":
+                    deal["cat"] = cat
+                    deal["rank"] = counts[cat]
+                    deal["rank_by"] = "Shop's own order"
+                deals.append(deal)
+        except Exception as exc:
+            problems.append("%s (%s)" % (retailer, str(exc)[:50]))
+            deals.extend(d for d in PREV.values() if d.get("source") == src["name"] and d.get("page") == page)
+        finally:
+            if n < len(shops) - 1:
+                time.sleep(1.5)
+    if shops and not read:
+        raise RuntimeError("no feed could be read: %s" % "; ".join(problems[:3]))
+    INFO[src["name"]] = {"note": "%d shop feed%s read.%s" % (read, "" if read == 1 else "s", (" Problems: %s." % "; ".join(problems[:4])) if problems else "")}
+    return deals
+
+
+def run_ebay(src):
+    """eBay UK listings through eBay's official Browse API (free developer account).
+    Brings in many small UK sellers and shows their postage cost.
+    Needs the EBAY_CLIENT_ID and EBAY_CLIENT_SECRET secrets."""
+    cid, secret = os.environ.get("EBAY_CLIENT_ID", "").strip(), os.environ.get("EBAY_CLIENT_SECRET", "").strip()
+    if not (cid and secret):
+        raise SkipSource("add the EBAY_CLIENT_ID and EBAY_CLIENT_SECRET secrets (see SETUP.md)")
+    auth = base64.b64encode(("%s:%s" % (cid, secret)).encode()).decode()
+    body = urllib.parse.urlencode({"grant_type": "client_credentials", "scope": "https://api.ebay.com/oauth/api_scope"}).encode()
+    req = urllib.request.Request("https://api.ebay.com/identity/v1/oauth2/token", data=body,
+                                 headers={"Authorization": "Basic " + auth, "Content-Type": "application/x-www-form-urlencoded", "User-Agent": USER_AGENT})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        token = json.loads(resp.read().decode()).get("access_token")
+    if not token:
+        raise RuntimeError("eBay gave no access token. Check the two secrets.")
+    min_fb = float(src.get("min_feedback", 98.0))
+    top = int(src.get("top", 10))
+    deals, problems, read = [], [], 0
+    queries = src.get("queries", [])
+    for n, q in enumerate(queries):
+        params = {"q": q["query"], "limit": 50, "sort": "price",
+                  "filter": "buyingOptions:{FIXED_PRICE},conditions:{NEW},itemLocationCountry:GB,deliveryCountry:GB,price:[%s..%s],priceCurrency:GBP" % (q.get("min", 20), q.get("max", 3000))}
+        if q.get("category_ids"):
+            params["category_ids"] = q["category_ids"]
+        try:
+            req = urllib.request.Request("https://api.ebay.com/buy/browse/v1/item_summary/search?" + urllib.parse.urlencode(params),
+                                         headers={"Authorization": "Bearer " + token, "X-EBAY-C-MARKETPLACE-ID": "EBAY_GB", "User-Agent": USER_AGENT})
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                items = json.loads(resp.read().decode()).get("itemSummaries") or []
+            read += 1
+            rank = 0
+            for it in items:
+                seller = it.get("seller") or {}
+                try:
+                    fb = float(seller.get("feedbackPercentage") or 0)
+                    price = float((it.get("price") or {}).get("value"))
+                except (TypeError, ValueError):
+                    continue
+                link, title = it.get("itemWebUrl") or "", re.sub(r"\s+", " ", it.get("title") or "").strip()
+                if fb < min_fb or not link.startswith("https://") or not title or price < 15:
+                    continue
+                if re.search(r"laptop|notebook|sodimm|spares|repair|faulty|job lot|read description", title, re.I):
+                    continue
+                ship = None
+                opts = it.get("shippingOptions") or []
+                if opts:
+                    try:
+                        ship = float((opts[0].get("shippingCost") or {}).get("value"))
+                    except (TypeError, ValueError):
+                        ship = None
+                img = (it.get("image") or {}).get("imageUrl")
+                label = "eBay: %s" % (seller.get("username") or "seller")
+                cat = q["cat"]
+                did = hashlib.sha1(link.encode()).hexdigest()[:12]
+                if cat == "deals":
+                    deal = build_deal(src["name"], link, "%s \u00a3%s" % (title, price), "", link, None, now(), label, {"img": img})
+                    if not deal:
+                        continue
+                else:
+                    rank += 1
+                    if rank > top:
+                        break
+                    deal = {"id": did, "source": src["name"], "retailer": label, "url": link, "thread": None, "t": "part", "cat": cat,
+                            "title": title[:160], "cpu": None, "gpu": None, "ram": None, "sto": None, "p": round(price, 2), "was": None,
+                            "del": None, "stock": "in", "fin": None, "posted": iso(now()), "perf": None, "tier": None, "img": img, "note": "",
+                            "rank": rank, "rank_by": "Lowest new price on eBay UK"}
+                deal.update({"del": ship}, snapshot=True, page="ebay:" + cat + ":" + q["query"], verified=iso(now()),
+                            note="Sold by %s on eBay UK (%.1f%% positive feedback)" % (seller.get("username") or "a seller", fb))
+                deals.append(deal)
+        except urllib.error.HTTPError as exc:
+            problems.append("%s (HTTP %s)" % (q["query"], exc.code))
+            deals.extend(d for d in PREV.values() if d.get("source") == src["name"] and d.get("page") == "ebay:" + q["cat"] + ":" + q["query"])
+        except Exception as exc:
+            problems.append("%s (%s)" % (q["query"], str(exc)[:40]))
+        finally:
+            if n < len(queries) - 1:
+                time.sleep(1.0)
+    if queries and not read:
+        raise RuntimeError("eBay did not answer: %s" % "; ".join(problems[:3]))
+    INFO[src["name"]] = {"note": "Read %d of %d eBay searches.%s" % (read, len(queries), (" Problems: %s." % "; ".join(problems[:3])) if problems else "")}
+    return deals
+
+
 class SkipSource(Exception):
     pass
 
 
-RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages, "reddit_api": run_reddit_api, "pepper_api": run_pepper_api, "shopify_json": run_shopify}
+RUNNERS = {"rss": run_rss, "awin_csv": run_awin_csv, "product_pages": run_product_pages, "jsonld": run_jsonld, "category_pages": run_category_pages, "reddit_api": run_reddit_api, "pepper_api": run_pepper_api, "shopify_json": run_shopify, "hyu_feed": run_hyu_feed, "ebay": run_ebay}
 
 
 # ---------------------------------------------------------------- merge
