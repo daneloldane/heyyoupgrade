@@ -1,0 +1,35 @@
+[
+  {
+    "title": "MSI GeForce RTX 5070 Ventus 12GB",
+    "url": "https://yourshop.co.uk/p/msi-5070",
+    "price": "519.99",
+    "was_price": "559.99",
+    "image_url": "https://yourshop.co.uk/i/5070.jpg",
+    "category": "gpu",
+    "stock": "in",
+    "delivery_cost": "0",
+    "description": ""
+  },
+  {
+    "title": "AMD Ryzen 5 7600 Processor",
+    "url": "https://yourshop.co.uk/p/r5-7600",
+    "price": "189.00",
+    "was_price": "199.00",
+    "image_url": "https://yourshop.co.uk/i/7600.jpg",
+    "category": "cpu",
+    "stock": "in",
+    "delivery_cost": "3.99",
+    "description": ""
+  },
+  {
+    "title": "Gaming PC Ryzen 5 7600 RTX 5060 16GB DDR5 1TB SSD",
+    "url": "https://yourshop.co.uk/p/pc1",
+    "price": "899.00",
+    "was_price": "999.00",
+    "image_url": "https://yourshop.co.uk/i/pc1.jpg",
+    "category": "prebuilt",
+    "stock": "in",
+    "delivery_cost": "0",
+    "description": "Ryzen 5 7600, RTX 5060, 16GB DDR5, 1TB NVMe"
+  }
+]

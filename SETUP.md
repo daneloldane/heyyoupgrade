@@ -198,3 +198,14 @@ price in pounds.
   people can check before they buy.
 - **Affiliate links.** In the UK you must make it clear when links earn you commission.
   Add a short line to the footer when you start using them.
+
+## Visitor counter and click counts (GoatCounter, free)
+1. Go to goatcounter.com, choose "Sign up", and pick a site code (for example `heyyoupgrade`). Your stats live at `heyyoupgrade.goatcounter.com`.
+2. In GoatCounter go to Settings, tick "Allow adding visitor counts on your website", and save.
+3. In `index.html` find `var GC_CODE = "";` and put your code between the quotes, then upload `index.html`.
+4. The footer then shows "N page views so far" and each "View at ..." click is counted per shop. The figure is cached for a few hours, so it is not a live "online now" number. Check GoatCounter's terms for your plan (the free plan may be for non-commercial use only).
+
+## Getting shops onto the site
+- The "For retailers" page explains the feed format. Shops open a public GitHub request with their feed address.
+- To add one: open `sources.json`, find "Retailer feeds", add `{"retailer": "Shop name", "url": "https://shop.co.uk/feed.csv"}` inside `shops`, and set `"enabled": true`. Only links on the shop's own website are accepted, and each shop is capped at 30 products per category.
+- eBay UK (optional, untested): create a free account at developer.ebay.com, copy the Client ID and Client Secret into repo secrets `EBAY_CLIENT_ID` and `EBAY_CLIENT_SECRET`, then set the "eBay UK" source to `"enabled": true`.
