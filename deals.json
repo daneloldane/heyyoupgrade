@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-10-21T22:23:12Z",
+ "updated": "2026-10-21T22:33:14Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 24,
    "error": "",
-   "checked": "2026-10-21T22:21:33Z",
+   "checked": "2026-10-21T22:31:37Z",
    "note": "Refreshed 9 of 28 tracked pages. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-21T22:22:53Z",
+   "checked": "2026-10-21T22:32:56Z",
    "note": "No page could be read yet. Showing the last saved lists. Problems: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,7 +56,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-21T22:23:12Z",
+   "checked": "2026-10-21T22:33:14Z",
    "seen": 0,
    "examples": []
   }
@@ -1217,7 +1217,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:20:46Z",
+   "verified": "2026-10-21T22:30:52Z",
    "first_seen": "2026-10-19T16:36:05Z",
    "ph": [
     [
@@ -1288,7 +1288,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:21:00Z",
+   "verified": "2026-10-21T22:31:05Z",
    "first_seen": "2026-10-19T14:43:16Z",
    "ph": [
     [
@@ -1538,7 +1538,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:20:51Z",
+   "verified": "2026-10-21T22:30:59Z",
    "first_seen": "2026-10-19T09:03:35Z",
    "ph": [
     [
@@ -1857,7 +1857,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:21:33Z",
+   "verified": "2026-10-21T22:31:37Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -1908,7 +1908,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:21:33Z",
+   "verified": "2026-10-21T22:31:37Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -2420,7 +2420,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:20:49Z",
+   "verified": "2026-10-21T22:30:55Z",
    "first_seen": "2026-10-11T17:29:19Z",
    "ph": [
     [
@@ -2471,7 +2471,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:21:06Z",
+   "verified": "2026-10-21T22:31:13Z",
    "first_seen": "2026-10-11T17:29:19Z",
    "ph": [
     [
@@ -7459,7 +7459,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:20:56Z",
+   "verified": "2026-10-21T22:31:03Z",
    "first_seen": "2026-10-11T17:29:19Z",
    "ph": [
     [
@@ -7510,7 +7510,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-10-21T22:21:04Z",
+   "verified": "2026-10-21T22:31:10Z",
    "first_seen": "2026-10-11T17:29:19Z",
    "ph": [
     [
