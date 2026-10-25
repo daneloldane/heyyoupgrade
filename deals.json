@@ -1,6 +1,6 @@
 {
  "sample": false,
- "updated": "2026-10-25T19:13:07Z",
+ "updated": "2026-10-25T19:20:13Z",
  "sources": [
   {
    "name": "Tracked product pages",
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-10-25T19:12:49Z",
+   "checked": "2026-10-25T19:19:54Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,7 +56,7 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-10-25T19:13:07Z",
+   "checked": "2026-10-25T19:20:13Z",
    "seen": 0,
    "examples": []
   }
@@ -89,7 +89,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-25T12:53:12Z",
    "ph": [
     [
@@ -125,7 +125,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-23T00:13:20Z",
    "ph": [
     [
@@ -169,7 +169,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-25T02:23:09Z",
    "ph": [
     [
@@ -205,7 +205,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-25T00:13:23Z",
    "ph": [
     [
@@ -241,7 +241,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-25T00:13:23Z",
    "ph": [
     [
@@ -277,7 +277,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-24T23:13:11Z",
    "ph": [
     [
@@ -313,7 +313,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-24T07:04:32Z",
    "ph": [
     [
@@ -349,7 +349,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-24T00:13:21Z",
    "ph": [
     [
@@ -385,7 +385,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-24T00:13:21Z",
    "ph": [
     [
@@ -421,7 +421,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-23T15:43:27Z",
    "ph": [
     [
@@ -457,7 +457,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-23T11:53:00Z",
    "ph": [
     [
@@ -493,7 +493,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-21T17:13:11Z",
    "ph": [
     [
@@ -537,7 +537,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-23T00:43:16Z",
    "ph": [
     [
@@ -573,7 +573,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-23T00:43:16Z",
    "ph": [
     [
@@ -609,7 +609,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-22T23:43:09Z",
    "ph": [
     [
@@ -649,7 +649,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-22T15:53:12Z",
    "ph": [
     [
@@ -689,7 +689,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-17T10:13:06Z",
    "ph": [
     [
@@ -741,7 +741,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-13T01:30:07Z",
    "prev_p": 124.98,
    "dropped_at": "2026-10-22T11:33:28Z",
@@ -807,7 +807,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-22T10:53:23Z",
    "ph": [
     [
@@ -847,7 +847,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-22T10:33:34Z",
    "ph": [
     [
@@ -887,7 +887,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "prev_p": 361.43,
    "dropped_at": "2026-10-22T08:23:11Z",
@@ -949,7 +949,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -1009,7 +1009,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-22T02:13:16Z",
    "ph": [
     [
@@ -1049,7 +1049,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-22T02:13:16Z",
    "ph": [
     [
@@ -1089,7 +1089,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-11T18:32:37Z",
    "ph": [
     [
@@ -1149,7 +1149,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-20T14:33:34Z",
    "ph": [
     [
@@ -1193,7 +1193,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-21T12:53:13Z",
    "ph": [
     [
@@ -1233,7 +1233,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-21T12:43:21Z",
    "ph": [
     [
@@ -1273,7 +1273,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-10-25T19:11:33Z",
+   "verified": "2026-10-25T19:18:35Z",
    "first_seen": "2026-10-21T00:13:10Z",
    "ph": [
     [
@@ -1313,7 +1313,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-11T18:32:37Z",
    "ph": [
     [
@@ -1373,7 +1373,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-19T01:13:17Z",
    "prev_p": 155.81,
    "dropped_at": "2026-10-20T15:13:22Z",
@@ -1419,7 +1419,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-16T01:13:15Z",
    "prev_p": 74.57,
    "dropped_at": "2026-10-20T14:43:18Z",
@@ -1530,7 +1530,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-20T11:13:19Z",
    "ph": [
     [
@@ -1574,7 +1574,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-16T13:13:17Z",
    "prev_p": 139.99,
    "dropped_at": "2026-10-20T09:23:50Z",
@@ -1624,7 +1624,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-17T01:13:15Z",
    "prev_p": 105.98,
    "dropped_at": "2026-10-20T09:23:50Z",
@@ -1674,7 +1674,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -1738,7 +1738,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-20T01:13:17Z",
    "ph": [
     [
@@ -1882,7 +1882,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "prev_p": 789.99,
    "dropped_at": "2026-10-19T12:23:17Z",
@@ -1987,7 +1987,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-16T13:13:17Z",
    "ph": [
     [
@@ -2035,7 +2035,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-16T06:03:31Z",
    "ph": [
     [
@@ -2083,7 +2083,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-15T23:43:14Z",
    "ph": [
     [
@@ -2253,7 +2253,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-10-25T19:11:37Z",
+   "verified": "2026-10-25T19:18:40Z",
    "first_seen": "2026-10-15T00:13:12Z",
    "ph": [
     [
@@ -2305,7 +2305,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -2365,7 +2365,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -2486,7 +2486,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-10-25T19:11:47Z",
+   "verified": "2026-10-25T19:18:52Z",
    "first_seen": "2026-10-13T16:08:01Z",
    "ph": [
     [
@@ -2664,7 +2664,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-11T18:32:37Z",
    "ph": [
     [
@@ -2724,7 +2724,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -2784,7 +2784,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -2844,7 +2844,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-10-25T19:11:35Z",
+   "verified": "2026-10-25T19:18:38Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -6385,7 +6385,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-10-25T19:11:43Z",
+   "verified": "2026-10-25T19:18:47Z",
    "first_seen": "2026-10-11T18:32:37Z",
    "ph": [
     [
@@ -7599,330 +7599,6 @@
    ]
   },
   {
-   "id": "d4e4c132afbb",
-   "source": "Retailer pages",
-   "retailer": "CCL Computers",
-   "url": "https://www.cclonline.com/amz-gam-core-a20-horizon-ryzen-5-rtx-5060-pre-built-gaming-pc-in-black/",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Horizon Ryzen 5 RTX 5060 Pre-built Gaming PC in Black",
-   "cpu": "Ryzen 5 5500",
-   "gpu": "RTX 5060",
-   "ram": "16GB DDR4",
-   "sto": "1TB SSD",
-   "p": 1049.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 122.5,
-   "tier": "entry",
-   "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/HZN-GAM-CORE-A2-ND_01%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026.",
-   "ph": [
-    [
-     "2026-10-13",
-     1049.99
-    ],
-    [
-     "2026-10-14",
-     1049.99
-    ],
-    [
-     "2026-10-15",
-     1049.99
-    ],
-    [
-     "2026-10-16",
-     1049.99
-    ],
-    [
-     "2026-10-19",
-     1049.99
-    ],
-    [
-     "2026-10-22",
-     1049.99
-    ],
-    [
-     "2026-10-25",
-     1049.99
-    ]
-   ]
-  },
-  {
-   "id": "30323c623d8c",
-   "source": "Retailer pages",
-   "retailer": "CCL Computers",
-   "url": "https://www.cclonline.com/hzn-gam-core-205-nd-horizon-ryzen-5-rx-9070-xt-pre-built-gaming-pc/",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Horizon Ryzen 5 RX 9070 XT Pre-Built Gaming PC",
-   "cpu": "Ryzen 5 9600X",
-   "gpu": "RX 9070 XT",
-   "ram": "32GB DDR5",
-   "sto": "1TB SSD",
-   "p": 1899.99,
-   "was": null,
-   "del": null,
-   "stock": "low",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 212.2,
-   "tier": "high",
-   "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/M105_HZN-GAM-CORE-204-ND_1%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026.",
-   "ph": [
-    [
-     "2026-10-13",
-     1899.99
-    ],
-    [
-     "2026-10-14",
-     1899.99
-    ],
-    [
-     "2026-10-15",
-     1899.99
-    ],
-    [
-     "2026-10-16",
-     1899.99
-    ],
-    [
-     "2026-10-19",
-     1899.99
-    ],
-    [
-     "2026-10-22",
-     1899.99
-    ],
-    [
-     "2026-10-25",
-     1899.99
-    ]
-   ]
-  },
-  {
-   "id": "3c580aa2089e",
-   "source": "Retailer pages",
-   "retailer": "CCL Computers",
-   "url": "https://www.cclonline.com/cbs-edge-y60-nd-chillblast-the-vantage-ryzen-7-9800x3d-rx-9070-xt-pre-built-gaming-pc-451988/",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Chillblast The Vantage Ryzen 7 9800X3D RX 9070 XT Pre-built Gaming PC",
-   "cpu": "Ryzen 7 9800X3D",
-   "gpu": "RX 9070 XT",
-   "ram": "32GB DDR5",
-   "sto": "2TB SSD",
-   "p": 2699.99,
-   "was": null,
-   "del": null,
-   "stock": "unknown",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 226.6,
-   "tier": "high",
-   "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/new_vantage_cutout.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. The page shows both Notify Me and Add to Basket, so check stock.",
-   "ph": [
-    [
-     "2026-10-13",
-     2699.99
-    ],
-    [
-     "2026-10-14",
-     2699.99
-    ],
-    [
-     "2026-10-15",
-     2699.99
-    ],
-    [
-     "2026-10-16",
-     2699.99
-    ],
-    [
-     "2026-10-19",
-     2699.99
-    ],
-    [
-     "2026-10-22",
-     2699.99
-    ],
-    [
-     "2026-10-25",
-     2699.99
-    ]
-   ]
-  },
-  {
-   "id": "c23b56969c8a",
-   "source": "Retailer pages",
-   "retailer": "CCL Computers",
-   "url": "https://www.cclonline.com/hzn-gam-core-203-nd-horizon-ryzen-5-rtx-5070-pre-built-gaming-pc/",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Horizon Ryzen 5 RTX 5070 Pre-built Gaming PC",
-   "cpu": "Ryzen 5 8400F",
-   "gpu": "RTX 5070",
-   "ram": "16GB DDR5",
-   "sto": "1TB SSD",
-   "p": 1579.99,
-   "was": null,
-   "del": null,
-   "stock": "low",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 175.4,
-   "tier": "mid",
-   "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/HZN-GAM-CORE-203-ND_1%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026.",
-   "ph": [
-    [
-     "2026-10-13",
-     1579.99
-    ],
-    [
-     "2026-10-14",
-     1579.99
-    ],
-    [
-     "2026-10-15",
-     1579.99
-    ],
-    [
-     "2026-10-16",
-     1579.99
-    ],
-    [
-     "2026-10-19",
-     1579.99
-    ],
-    [
-     "2026-10-22",
-     1579.99
-    ],
-    [
-     "2026-10-25",
-     1579.99
-    ]
-   ]
-  },
-  {
-   "id": "1b6703a59618",
-   "source": "Retailer pages",
-   "retailer": "CCL Computers",
-   "url": "https://www.cclonline.com/horizon-ryzen-5-rtx-5060-ti-gaming-pc-570086/",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Horizon Ryzen 5 RTX 5060 Ti Gaming PC",
-   "cpu": "Ryzen 5 5500",
-   "gpu": "RTX 5060 Ti",
-   "ram": "16GB DDR4",
-   "sto": "1TB SSD",
-   "p": 1099.99,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 148.5,
-   "tier": "mid",
-   "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images/shopblocks/HZN-GAM-CORE-A2-ND_01%20(Custom).png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026.",
-   "ph": [
-    [
-     "2026-10-13",
-     1099.99
-    ],
-    [
-     "2026-10-14",
-     1099.99
-    ],
-    [
-     "2026-10-15",
-     1099.99
-    ],
-    [
-     "2026-10-16",
-     1099.99
-    ],
-    [
-     "2026-10-19",
-     1099.99
-    ],
-    [
-     "2026-10-22",
-     1099.99
-    ],
-    [
-     "2026-10-25",
-     1099.99
-    ]
-   ]
-  },
-  {
-   "id": "325832fcc623",
-   "source": "Retailer pages",
-   "retailer": "CCL Computers",
-   "url": "https://www.cclonline.com/horizon-eclipse-ryzen-5-rtx-3050-gaming-pc-569441/",
-   "thread": null,
-   "t": "prebuilt",
-   "title": "Horizon Eclipse Ryzen 5 RTX 3050 Gaming PC",
-   "cpu": "Ryzen 5 5500",
-   "gpu": "RTX 3050",
-   "ram": "16GB DDR4",
-   "sto": "500GB SSD",
-   "p": 849.99,
-   "was": 1039.99,
-   "del": null,
-   "stock": "low",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 77.5,
-   "tier": "entry",
-   "img": "https://cdn.cclonline.com/cdn-cgi/image/width=300/images//AMZ_GAM_CORE_A22_01.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. Page shows Save £190.",
-   "ph": [
-    [
-     "2026-10-13",
-     849.99
-    ],
-    [
-     "2026-10-14",
-     849.99
-    ],
-    [
-     "2026-10-15",
-     849.99
-    ],
-    [
-     "2026-10-16",
-     849.99
-    ],
-    [
-     "2026-10-19",
-     849.99
-    ],
-    [
-     "2026-10-22",
-     849.99
-    ],
-    [
-     "2026-10-25",
-     849.99
-    ]
-   ]
-  },
-  {
    "id": "9bf4a0d5ed38",
    "source": "Tracked product pages",
    "retailer": "AWD-IT",
@@ -8037,276 +7713,6 @@
     [
      "2026-10-25",
      859.99
-    ]
-   ]
-  },
-  {
-   "id": "3342f1e1805a",
-   "source": "Retailer pages",
-   "retailer": "Scan (3XS)",
-   "url": "https://www.scan.co.uk/products/asus-prime-b840-plus-wifi-atx-motherboard-with-6-core-amd-ryzen-5-9600x-processor-bundle",
-   "thread": null,
-   "t": "bundle",
-   "title": "ASUS PRIME B840-PLUS WIFI + AMD Ryzen 5 9600X CPU/Motherboard Bundle",
-   "cpu": "Ryzen 5 9600X",
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 316.99,
-   "was": 401.99,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 138.0,
-   "tier": null,
-   "img": "https://www.scan.co.uk/images/products/3745373-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
-   "ph": [
-    [
-     "2026-10-13",
-     316.99
-    ],
-    [
-     "2026-10-14",
-     316.99
-    ],
-    [
-     "2026-10-15",
-     316.99
-    ],
-    [
-     "2026-10-16",
-     316.99
-    ],
-    [
-     "2026-10-19",
-     316.99
-    ],
-    [
-     "2026-10-22",
-     316.99
-    ],
-    [
-     "2026-10-25",
-     316.99
-    ]
-   ]
-  },
-  {
-   "id": "228e9807e4ae",
-   "source": "Retailer pages",
-   "retailer": "Scan (3XS)",
-   "url": "https://www.scan.co.uk/products/msi-b850-gaming-pro-wifi6e-atx-motherboard-with-amd-ryzen-5-9600x-6-core-am5-cpu-processor-bundle",
-   "thread": null,
-   "t": "bundle",
-   "title": "MSI B850 GAMING PRO WIFI6E ATX Motherboard with AMD Ryzen 5 9600X CPU Bundle",
-   "cpu": "Ryzen 5 9600X",
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 359.99,
-   "was": 395.98,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 145.5,
-   "tier": null,
-   "img": "https://www.scan.co.uk/images/products/3803071-a.jpg",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
-   "ph": [
-    [
-     "2026-10-13",
-     359.99
-    ],
-    [
-     "2026-10-14",
-     359.99
-    ],
-    [
-     "2026-10-15",
-     359.99
-    ],
-    [
-     "2026-10-16",
-     359.99
-    ],
-    [
-     "2026-10-19",
-     359.99
-    ],
-    [
-     "2026-10-22",
-     359.99
-    ],
-    [
-     "2026-10-25",
-     359.99
-    ]
-   ]
-  },
-  {
-   "id": "e56809ff11eb",
-   "source": "Retailer pages",
-   "retailer": "FiercePC",
-   "url": "https://www.fiercepc.co.uk/motherboard-bundle-am5-v2",
-   "thread": null,
-   "t": "bundle",
-   "title": "AMD Ryzen 7 7800X3D | B650 | Motherboard Bundle",
-   "cpu": "Ryzen 7 7800X3D",
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 479.9,
-   "was": null,
-   "del": null,
-   "stock": "unknown",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 167.6,
-   "tier": null,
-   "img": "https://www.fiercepc.co.uk/media/catalog/product/cache/ac01c91bc3b665fbc513fe611a712c83/m/o/mobo_bundle_7800x3d_b650_eagle_ax_1.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
-   "ph": [
-    [
-     "2026-10-13",
-     479.9
-    ],
-    [
-     "2026-10-14",
-     479.9
-    ],
-    [
-     "2026-10-15",
-     479.9
-    ],
-    [
-     "2026-10-16",
-     479.9
-    ],
-    [
-     "2026-10-19",
-     479.9
-    ],
-    [
-     "2026-10-22",
-     479.9
-    ],
-    [
-     "2026-10-25",
-     479.9
-    ]
-   ]
-  },
-  {
-   "id": "dcfdbcfbfecf",
-   "source": "Retailer pages",
-   "retailer": "FiercePC",
-   "url": "https://www.fiercepc.co.uk/motherboard-bundle-am5",
-   "thread": null,
-   "t": "bundle",
-   "title": "AMD Ryzen 5 7500F | B840M | Motherboard Bundle",
-   "cpu": "Ryzen 5 7500F",
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 239.9,
-   "was": null,
-   "del": null,
-   "stock": "unknown",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 124.0,
-   "tier": null,
-   "img": "https://www.fiercepc.co.uk/media/catalog/product/cache/ac01c91bc3b665fbc513fe611a712c83/m/o/mobo_bundle_7500f_b840m_d2h_1.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
-   "ph": [
-    [
-     "2026-10-13",
-     239.9
-    ],
-    [
-     "2026-10-14",
-     239.9
-    ],
-    [
-     "2026-10-15",
-     239.9
-    ],
-    [
-     "2026-10-16",
-     239.9
-    ],
-    [
-     "2026-10-19",
-     239.9
-    ],
-    [
-     "2026-10-22",
-     239.9
-    ],
-    [
-     "2026-10-25",
-     239.9
-    ]
-   ]
-  },
-  {
-   "id": "7a0c0d48579b",
-   "source": "Retailer pages",
-   "retailer": "FiercePC",
-   "url": "https://www.fiercepc.co.uk/motherboard-bundle-am4",
-   "thread": null,
-   "t": "bundle",
-   "title": "AMD Ryzen 5 5500 | A520M | Motherboard Bundle",
-   "cpu": "Ryzen 5 5500",
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 135.9,
-   "was": null,
-   "del": null,
-   "stock": "unknown",
-   "fin": null,
-   "posted": "2026-10-11T17:29:19Z",
-   "first_seen": "2026-10-11T17:29:19Z",
-   "perf": 91.5,
-   "tier": null,
-   "img": "https://www.fiercepc.co.uk/media/catalog/product/cache/ac01c91bc3b665fbc513fe611a712c83/a/m/am4-bib-001_1_1.png",
-   "note": "Price seen on the retailer's page on 11 Oct 2026. CPU and motherboard only.",
-   "ph": [
-    [
-     "2026-10-13",
-     135.9
-    ],
-    [
-     "2026-10-14",
-     135.9
-    ],
-    [
-     "2026-10-15",
-     135.9
-    ],
-    [
-     "2026-10-16",
-     135.9
-    ],
-    [
-     "2026-10-19",
-     135.9
-    ],
-    [
-     "2026-10-22",
-     135.9
-    ],
-    [
-     "2026-10-25",
-     135.9
     ]
    ]
   }
