@@ -1,13 +1,13 @@
 {
  "sample": false,
- "updated": "2026-11-24T00:33:31Z",
+ "updated": "2026-11-24T00:43:25Z",
  "sources": [
   {
    "name": "Tracked product pages",
    "ok": true,
    "count": 10,
    "error": "",
-   "checked": "2026-11-24T00:31:50Z",
+   "checked": "2026-11-24T00:41:42Z",
    "note": "Refreshed 13 of 28 tracked pages. 3 out of stock and hidden. Could not read: cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden); cclonline.com (HTTP Error 403: Forbidden)."
   },
   {
@@ -15,7 +15,7 @@
    "ok": true,
    "count": 129,
    "error": "",
-   "checked": "2026-11-24T00:33:12Z",
+   "checked": "2026-11-24T00:43:05Z",
    "note": "Read 5 of 13 category pages. Could not read: cclonline.com cpu (HTTP Error 403: Forbidden); cclonline.com memory (HTTP Error 403: Forbidden); cclonline.com case (HTTP Error 403: Forbidden); cclonline.com cooling (HTTP Error 403: Forbidden)."
   },
   {
@@ -56,12 +56,48 @@
    "ok": true,
    "count": 0,
    "error": "",
-   "checked": "2026-11-24T00:33:31Z",
+   "checked": "2026-11-24T00:43:25Z",
    "seen": 0,
    "examples": []
   }
  ],
  "deals": [
+  {
+   "id": "fe2f0c35d5f2",
+   "source": "Top 10 by category",
+   "retailer": "Box",
+   "url": "https://box.co.uk/90dc00f0-b39020-asus-rog-hyperion-gr701-tower-pc-case",
+   "thread": null,
+   "t": "part",
+   "cat": "case",
+   "title": "ASUS ROG Hyperion GR701 BTF Edition Tower Gaming PC Case - Black Transparent",
+   "cpu": null,
+   "gpu": null,
+   "ram": null,
+   "sto": null,
+   "p": 477.82,
+   "was": null,
+   "del": null,
+   "stock": "in",
+   "fin": null,
+   "posted": "2026-11-24T00:41:52Z",
+   "perf": 50,
+   "tier": null,
+   "img": "https://media.box.co.uk/product/c/5/c56b03880a7db6aa347ae939d51154be.jpg?height=350",
+   "note": "",
+   "snapshot": true,
+   "rank": 10,
+   "rank_by": "Most Popular",
+   "page": "https://box.co.uk/computer-cases",
+   "verified": "2026-11-24T00:41:52Z",
+   "first_seen": "2026-11-24T00:43:25Z",
+   "ph": [
+    [
+     "2026-11-24",
+     477.82
+    ]
+   ]
+  },
   {
    "id": "0f112744a2de",
    "source": "Top 10 by category",
@@ -89,7 +125,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-24T00:13:21Z",
    "ph": [
     [
@@ -125,7 +161,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-24T00:13:21Z",
    "ph": [
     [
@@ -161,7 +197,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-23T18:53:13Z",
    "ph": [
     [
@@ -194,10 +230,10 @@
    "img": "https://media.box.co.uk/product/1/1/1145705563c707331c5e1512e48e2116.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-23T18:43:20Z",
    "ph": [
     [
@@ -233,7 +269,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-23T18:43:20Z",
    "ph": [
     [
@@ -269,7 +305,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-23T18:13:18Z",
    "ph": [
     [
@@ -302,10 +338,10 @@
    "img": "https://media.box.co.uk/product/8/8/88ea787aeffc8d811d89c4d059987c9e.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 5,
+   "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-23T17:43:24Z",
    "ph": [
     [
@@ -338,10 +374,10 @@
    "img": "https://media.box.co.uk/product/b/8/b8c2bd02bd799eeb2aa566d94f3605fe.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-23T17:43:24Z",
    "ph": [
     [
@@ -374,10 +410,10 @@
    "img": "https://media.box.co.uk/product/7/4/744edce7c0246ce3b520f1824c0d18d4.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 10,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-23T17:43:24Z",
    "ph": [
     [
@@ -413,7 +449,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-23T17:13:59Z",
    "ph": [
     [
@@ -449,7 +485,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-15T00:43:16Z",
    "prev_p": 31.94,
    "dropped_at": "2026-11-23T14:13:34Z",
@@ -503,7 +539,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-08T00:43:58Z",
    "ph": [
     [
@@ -567,7 +603,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-15T00:43:16Z",
    "prev_p": 197.49,
    "dropped_at": "2026-11-23T13:33:34Z",
@@ -625,7 +661,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-20T08:33:36Z",
    "prev_p": 39.93,
    "dropped_at": "2026-11-23T13:23:19Z",
@@ -664,10 +700,10 @@
    "img": "https://media.box.co.uk/product/7/7/7797ae0a39bce7a45652d1a7a4295492.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-23T00:13:16Z",
    "ph": [
     [
@@ -707,7 +743,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-18T00:13:20Z",
    "prev_p": 283.99,
    "dropped_at": "2026-11-23T09:13:22Z",
@@ -756,7 +792,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:14Z",
+   "verified": "2026-11-24T00:41:05Z",
    "first_seen": "2026-11-23T09:13:22Z",
    "ph": [
     [
@@ -791,7 +827,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:25Z",
+   "verified": "2026-11-24T00:41:18Z",
    "first_seen": "2026-11-16T12:43:17Z",
    "ph": [
     [
@@ -851,7 +887,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-13T17:43:22Z",
    "ph": [
     [
@@ -907,7 +943,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-12T00:13:20Z",
    "ph": [
     [
@@ -958,7 +994,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:23Z",
+   "verified": "2026-11-24T00:41:15Z",
    "first_seen": "2026-10-26T09:34:17Z",
    "prev_p": 1999.99,
    "dropped_at": "2026-11-23T06:53:19Z",
@@ -1044,7 +1080,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-23T01:53:24Z",
    "ph": [
     [
@@ -1080,7 +1116,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-23T00:43:27Z",
    "ph": [
     [
@@ -1113,10 +1149,10 @@
    "img": "https://media.box.co.uk/product/f/a/fa5a4cc35522b680d8e46bd613b0997a.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-23T00:43:27Z",
    "ph": [
     [
@@ -1152,7 +1188,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-23T00:13:16Z",
    "ph": [
     [
@@ -1185,10 +1221,10 @@
    "img": "https://media.box.co.uk/product/2/5/255f2b988b04da6b123cdb2c65492fea.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-23T00:13:16Z",
    "ph": [
     [
@@ -1224,7 +1260,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-22T00:43:16Z",
    "ph": [
     [
@@ -1257,55 +1293,15 @@
    "img": "https://media.box.co.uk/product/4/7/47eb0160d1255944a540b5b45f57bee1.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 9,
+   "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-22T00:43:16Z",
    "ph": [
     [
      "2026-11-22",
      247.89
-    ]
-   ]
-  },
-  {
-   "id": "c5719c77ebf3",
-   "source": "Top 10 by category",
-   "retailer": "Box",
-   "url": "https://box.co.uk/0-761345-92048-3-antec-vsk-4000b-mid-tower-pc-case",
-   "thread": null,
-   "t": "part",
-   "cat": "case",
-   "title": "Antec VSK-4000B Mid Tower Computer Case with USB 3.0 - Black",
-   "cpu": null,
-   "gpu": null,
-   "ram": null,
-   "sto": null,
-   "p": 37.94,
-   "was": null,
-   "del": null,
-   "stock": "in",
-   "fin": null,
-   "posted": "2026-11-21T02:01:56Z",
-   "perf": 55,
-   "tier": null,
-   "img": "https://media.box.co.uk/product/0/5/05b8e89935a554f8a731e800533c4588.jpg?height=350",
-   "note": "",
-   "snapshot": true,
-   "rank": 9,
-   "rank_by": "Most Popular",
-   "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
-   "first_seen": "2026-11-21T02:03:27Z",
-   "ph": [
-    [
-     "2026-11-21",
-     37.94
-    ],
-    [
-     "2026-11-24",
-     37.94
     ]
    ]
   },
@@ -1333,10 +1329,10 @@
    "img": "https://media.box.co.uk/product/1/b/1ba2c3bc235545a47424494ddff8bf6b.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 7,
+   "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-21T00:43:15Z",
    "ph": [
     [
@@ -1375,7 +1371,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:27Z",
+   "verified": "2026-11-24T00:41:20Z",
    "first_seen": "2026-10-11T17:29:19Z",
    "prev_p": 2149.99,
    "dropped_at": "2026-11-20T18:33:27Z",
@@ -1481,7 +1477,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-10T00:05:42Z",
    "prev_p": 177.95,
    "dropped_at": "2026-11-20T17:14:17Z",
@@ -1539,7 +1535,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-19T17:03:43Z",
    "ph": [
     [
@@ -1583,7 +1579,7 @@
    "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-20T00:43:27Z",
    "ph": [
     [
@@ -1623,7 +1619,7 @@
    "rank": 10,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-20T00:13:33Z",
    "ph": [
     [
@@ -1660,10 +1656,10 @@
    "img": "https://media.box.co.uk/product/e/2/e26cc6d9b63068fc2ab5936159d3d8dd.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 4,
+   "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-19T18:13:22Z",
    "ph": [
     [
@@ -1700,10 +1696,10 @@
    "img": "https://media.box.co.uk/product/8/e/8e2278c4cd6957560a5f5aa087ca4559.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 5,
+   "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-17T00:43:16Z",
    "prev_p": 899.98,
    "dropped_at": "2026-11-19T17:33:30Z",
@@ -1749,7 +1745,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-10-11T18:32:37Z",
    "ph": [
     [
@@ -1850,10 +1846,10 @@
    "img": "https://media.box.co.uk/product/6/3/63d08f8de9eee307e78c86d4e951e6ee.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 8,
+   "rank": 9,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-19T00:40:52Z",
    "ph": [
     [
@@ -1893,7 +1889,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-18T18:13:23Z",
    "ph": [
     [
@@ -1937,7 +1933,7 @@
    "rank": 8,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-17T00:13:44Z",
    "prev_p": 296.83,
    "dropped_at": "2026-11-18T15:04:47Z",
@@ -1986,7 +1982,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:03Z",
+   "verified": "2026-11-24T00:40:53Z",
    "first_seen": "2026-11-18T11:03:40Z",
    "ph": [
     [
@@ -2027,10 +2023,10 @@
    "img": "https://media.box.co.uk/product/9/f/9fa622181bf3d66b285ff215d27258e2.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 6,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-18T00:43:27Z",
    "ph": [
     [
@@ -2071,10 +2067,10 @@
    "img": "https://media.box.co.uk/product/8/4/84561b0fe7b6f3b1b788f521980b0a5f.jpg?height=350",
    "note": "",
    "snapshot": true,
-   "rank": 6,
+   "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-18T00:43:27Z",
    "ph": [
     [
@@ -2118,7 +2114,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-17T15:13:22Z",
    "ph": [
     [
@@ -2162,7 +2158,7 @@
    "rank": 6,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-11T00:43:18Z",
    "ph": [
     [
@@ -2218,7 +2214,7 @@
    "rank": 4,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/motherboards",
-   "verified": "2026-11-24T00:32:10Z",
+   "verified": "2026-11-24T00:42:03Z",
    "first_seen": "2026-11-14T00:43:17Z",
    "ph": [
     [
@@ -2266,7 +2262,7 @@
    "rank": 5,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/processors",
-   "verified": "2026-11-24T00:31:57Z",
+   "verified": "2026-11-24T00:41:50Z",
    "first_seen": "2026-11-14T00:13:22Z",
    "ph": [
     [
@@ -2314,7 +2310,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-10-30T04:23:04Z",
    "prev_p": 399.99,
    "dropped_at": "2026-11-12T17:53:05Z",
@@ -2392,7 +2388,7 @@
    "rank": 1,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-09T14:13:16Z",
    "ph": [
     [
@@ -2448,7 +2444,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/graphic-cards",
-   "verified": "2026-11-24T00:31:55Z",
+   "verified": "2026-11-24T00:41:48Z",
    "first_seen": "2026-11-12T13:03:37Z",
    "ph": [
     [
@@ -2500,7 +2496,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-11-11T00:13:27Z",
    "ph": [
     [
@@ -2551,7 +2547,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:21Z",
+   "verified": "2026-11-24T00:41:13Z",
    "first_seen": "2026-10-29T14:23:10Z",
    "ph": [
     [
@@ -2631,7 +2627,7 @@
    "rank": 2,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-09T00:43:30Z",
    "ph": [
     [
@@ -2687,7 +2683,7 @@
    "rank": 3,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/computer-cases",
-   "verified": "2026-11-24T00:31:59Z",
+   "verified": "2026-11-24T00:41:52Z",
    "first_seen": "2026-11-05T00:43:18Z",
    "ph": [
     [
@@ -2746,7 +2742,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:19Z",
+   "verified": "2026-11-24T00:41:10Z",
    "first_seen": "2026-10-11T17:29:19Z",
    "ph": [
     [
@@ -2845,7 +2841,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:09Z",
+   "verified": "2026-11-24T00:40:59Z",
    "first_seen": "2026-10-19T09:03:35Z",
    "ph": [
     [
@@ -2929,7 +2925,7 @@
    "rank": 7,
    "rank_by": "Most Popular",
    "page": "https://box.co.uk/memory",
-   "verified": "2026-11-24T00:32:06Z",
+   "verified": "2026-11-24T00:41:59Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "prev_p": 789.99,
    "dropped_at": "2026-10-19T12:23:17Z",
@@ -3030,7 +3026,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:50Z",
+   "verified": "2026-11-24T00:41:42Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
@@ -3129,7 +3125,7 @@
    "cat": "deals",
    "rank": null,
    "rank_by": null,
-   "verified": "2026-11-24T00:31:49Z",
+   "verified": "2026-11-24T00:41:42Z",
    "first_seen": "2026-10-12T15:40:10Z",
    "ph": [
     [
